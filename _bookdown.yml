@@ -2,6 +2,5 @@ book_filename: "bookdown-test"
 chapter_name: "Chapter "
 repo: https://github.com/phgrosjean/bookdown-test
 output_dir: docs
-rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd", "99-References.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

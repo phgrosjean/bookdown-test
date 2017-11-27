@@ -13,7 +13,7 @@
   <meta property="og:title" content="A Test Bookdown Book" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://phgrosjean.sciviews.org/bookdown-test/" />
-  <meta property="og:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.pdf" />
+  <meta property="og:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
   <meta property="og:description" content="A sandbox for testing bookdown book." />
   <meta name="github-repo" content="phgrosjean/bookdown-test" />
 
@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="A Test Bookdown Book" />
   
   <meta name="twitter:description" content="A sandbox for testing bookdown book." />
-  <meta name="twitter:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.pdf" />
+  <meta name="twitter:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
 
 <meta name="author" content="Philippe Grosjean">
 
@@ -55,38 +55,41 @@
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -107,6 +110,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="diving-in.html"><a href="diving-in.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
+<li class="chapter" data-level="3" data-path="technical-details.html"><a href="technical-details.html"><i class="fa fa-check"></i><b>3</b> Technical Details</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -298,11 +303,36 @@ Figure 1.1: Here is a nice figure!
 </tr>
 </tbody>
 </table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-bookdown"><strong>???</strong></span>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2016</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+<p>In the <a href="https://github.com/rstudio/bookdown-demo">example minimum repo</a> there is an example of deployment using Travis-CI.</p>
+<p>If some computation is time consuming, we could consider to cache it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A verrry long computation!</span>
+<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>To number equations and allow to refer to them, use an <code>equation</code> environment and label them with the syntax <code>(\#eq:label)</code>:</p>
+<span class="math display" id="eq:binom">\[\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{1.1}
+\end{equation}\]</span>
+<p>… and here, I refer to eq. <a href="intro.html#eq:binom">(1.1)</a>. In the vase equations are not labelled, use the <code>equation*</code> environment instead.</p>
+<p>To makes parts in the book, use <code># (PART) Part I {-}</code> just before the first title of that part. Also, you can use <code># 5APPENDIX) Appendix {-}</code> just before appendices titles.</p>
+<p>Text reference is especially useful for long captions, or captions with special formattings.</p>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(cars)  <span class="co"># a scatterplot</span></code></pre></div>
+<div class="figure"><span id="fig:foo"></span>
+<img src="01-Introduction_files/figure-html/foo-1.png" alt="This is my caption with formatting…" width="672" />
+<p class="caption">
+Figure 1.2: This is my caption with <strong>formatting</strong>…
+</p>
+</div>
+<p><strong>TODO:</strong> browse the bookdown book from 2.4 Figures on….</p>
 
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
 <div id="ref-xie2015">
 <p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
 </div>
@@ -341,10 +371,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/phgrosjean/bookdown-test/edit/master/01-Introduction.Rmd",
+"text": "Edit"
 },
-"download": null,
+"download": ["bookdown-test.pdf", "bookdown-test.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -352,6 +382,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
