@@ -3,8 +3,9 @@ title: "A Test Bookdown Book"
 author: "Philippe Grosjean"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib]
+bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: phgrosjean/bookdown-test
@@ -16,3 +17,10 @@ cover-image: "images/front-cover.pdf"
 # Preface {-}
 
 This is the very first part of the book.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
