@@ -1,15 +1,16 @@
 --- 
-title: "A Minimal Bookdown Book"
-author: "Sean Kross"
-date: "2016-12-09"
+title: "A Test Bookdown Book"
+author: "Philippe Grosjean"
+date: "2017-11-27"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: seankross/bookdown-start
-url: 'http\://seankross.com/bookdown-start/'
-description: "Everything you need (and nothing more) to start a bookdown book."
+github-repo: phgrosjean/bookdown-test
+url: 'http\://phgrosjean.sciviews.org/bookdown-test/'
+description: "A sandbox for testing bookdown book."
+cover-image: "images/front-cover.pdf"
 ---
 
 # Preface {-}
