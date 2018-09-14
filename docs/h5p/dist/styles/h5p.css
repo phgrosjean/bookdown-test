@@ -188,6 +188,7 @@ div.h5p-fullscreen {
   border-bottom: 1px solid #EEE;
   clear: both;
   font-family: Sans-Serif;
+  display: none;
 }
 .h5p-fullscreen .h5p-actions, .h5p-semi-fullscreen .h5p-actions {
   display: none;
