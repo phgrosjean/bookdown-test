@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean"
-date: "2017-11-27"
+date: "2018-09-14"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

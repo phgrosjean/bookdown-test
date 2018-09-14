@@ -106,6 +106,18 @@ If some computation is time-consuming, we could consider to cache it:
 ```
 
 
+## Add H5P content
+
+H5P content can be displayed in iframes. Here isz an example of a multiple choice widget:
+
+<iframe src="h5p/multiple-choice.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+Here is a "drag words" widget:
+
+<iframe src="h5p/drag-words.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+Here is a "video" widget:
+
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
