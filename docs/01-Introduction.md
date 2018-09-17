@@ -118,6 +118,14 @@ Here is a "drag words" widget:
 
 Here is a "video" widget:
 
+## Add a Gist
+
+<script src="https://gist.github.com/GuyliannEngels/e349f835d11ec3f585bd27c0daa47012.js"></script>
+
+and for a R markdown document:
+
+<script src="https://gist.github.com/GuyliannEngels/dea087d0bd2321a2ae896211bdc6b4b8.js"></script>
+
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
