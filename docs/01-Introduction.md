@@ -133,6 +133,14 @@ and for a R markdown document:
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=yIVXjl4SwVo" frameborder="0" allowfullscreen></iframe>
 
+Another version.
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=yIVXjl4SwVo" target="_blank"><img src="http://img.youtube.com/vi/yIVXjl4SwVo/0.jpg" 
+alt="What is a virtual machine?" width="240" height="180" border="10" /></a>
+
+With markdown
+
+![](https://youtu.be/yIVXjl4SwVo)
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
