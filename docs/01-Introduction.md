@@ -127,5 +127,12 @@ and for a R markdown document:
 <script src="https://gist.github.com/GuyliannEngels/dea087d0bd2321a2ae896211bdc6b4b8.js"></script>
 
 
+## Embed a youtube video
+
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=yIVXjl4SwVo" frameborder="0" allowfullscreen></iframe>
+
+
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
