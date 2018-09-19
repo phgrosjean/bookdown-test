@@ -92,5 +92,54 @@ and for a R markdown document:
 
 <iframe width="770" height="433" src="http://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen></iframe>
 
+
+## Blocs spéciaux
+
+```{block, type='note'}
+Ceci est une **note**.
+```
+
+```{block, type='info'}
+Ceci est une **information**.
+```
+
+```{block, type='warning'}
+Ceci est un **avertissement**.
+```
+
+```{block, type='error'}
+Ceci est à utiliser en cas d'**erreur**.
+```
+
+```{block, type='win'}
+Ceci est relatif à **Windows**.
+```
+
+```{block, type='mac'}
+Ceci est relatif au **Mac**.
+```
+
+```{block, type='linux'}
+Ceci est relatif à **Linux**.
+```
+
+```{block, type='bdd'}
+Ceci est relatif au package `BioDataScience`.
+```
+
+```{block2, type='sv'}
+Ceci est une zone `block2` relative à `SciViews` ou `SciViews::R`:
+
+- item 1
+- item 2
+- item 3
+
+```
+
+```{block, type='svbox'}
+Ceci est une section relative à la **SciViews Box**...
+```
+
+
 **TODO:** browse the bookdown book from 2.4 Figures on....
 

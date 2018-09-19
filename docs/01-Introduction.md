@@ -131,5 +131,52 @@ and for a R markdown document:
 
 <iframe width="770" height="433" src="http://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen></iframe>
 
+
+## Blocs spéciaux
+
+<div class="note">
+<p>Ceci est une <strong>note</strong>.</p>
+</div>
+
+<div class="info">
+<p>Ceci est une <strong>information</strong>.</p>
+</div>
+
+<div class="warning">
+<p>Ceci est un <strong>avertissement</strong>.</p>
+</div>
+
+<div class="error">
+<p>Ceci est à utiliser en cas d'<strong>erreur</strong>.</p>
+</div>
+
+<div class="win">
+<p>Ceci est relatif à <strong>Windows</strong>.</p>
+</div>
+
+<div class="mac">
+<p>Ceci est relatif au <strong>Mac</strong>.</p>
+</div>
+
+<div class="linux">
+<p>Ceci est relatif à <strong>Linux</strong>.</p>
+</div>
+
+<div class="bdd">
+<p>Ceci est relatif au package <code>BioDataScience</code>.</p>
+</div>
+
+\BeginKnitrBlock{sv}<div class="sv">Ceci est une zone `block2` relative à `SciViews` ou `SciViews::R`:
+
+- item 1
+- item 2
+- item 3
+</div>\EndKnitrBlock{sv}
+
+<div class="svbox">
+<p>Ceci est une section relative à la <strong>SciViews Box</strong>...</p>
+</div>
+
+
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
