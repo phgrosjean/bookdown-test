@@ -108,9 +108,13 @@ If some computation is time-consuming, we could consider to cache it:
 
 ## Add H5P content
 
-H5P content can be displayed in iframes. Here isz an example of a multiple choice widget:
+H5P content can be displayed in iframes. Here is an example of a multiple choice widget:
 
 <iframe src="h5p/multiple-choice.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+... and the same one, directly from the h5p.org site:
+
+<iframe src="https://h5p.org/h5p/embed/307685" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a "drag words" widget:
 
@@ -180,3 +184,6 @@ and for a R markdown document:
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyMDMxNDg4ODUsODY2MTMzNTQyXX0=
+-->
