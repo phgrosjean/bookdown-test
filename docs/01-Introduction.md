@@ -2,7 +2,9 @@
 
 This is my first bookdown, ... and a sandbox to test its features. I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
-To convine someone to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.
+[SciViews](http://www.sciviews.org)
+
+~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
 *Now, let's look at spacial formattings provided by bookdown.*
 
@@ -189,7 +191,3 @@ and for a R markdown document:
 
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDMxNDg4ODUsODY2MTMzNTQyXX0=
--->
