@@ -122,6 +122,12 @@ Here is a "drag words" widget:
 
 Here is a "video" widget:
 
+
+## Add Moodle content
+
+<iframe src="https://moodle.umons.ac.be/mod/quiz/attempt.php?attempt=212622&cmid=116372" width="780" height="270" frameborder="0"></iframe>
+
+
 ## Add a Gist
 
 <script src="https://gist.github.com/GuyliannEngels/e349f835d11ec3f585bd27c0daa47012.js"></script>
