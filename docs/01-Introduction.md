@@ -1,12 +1,12 @@
 # Introduction {#intro}
 
-This is my first bookdown, ... and a sandbox to test its features. I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
+This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
 [SciViews](http://www.sciviews.org)
 
 ~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
-*Now, let's look at spacial formattings provided by bookdown.*
+*Now, let's look at special formattings provided by bookdown.*
 
 
 ## Book-wide references
@@ -108,24 +108,27 @@ If some computation is time-consuming, we could consider to cache it:
 ```
 
 
-## Add H5P content
+## Shiny app
+
+A shiny application directly inside the book using an iframe. This application demonstrates how an histogram changes when the number of classes is modified.
+
+<iframe src="https://phgrosjean.shinyapps.io/histogram/" width="780" height="450" frameborder="0"></iframe>
+
+
+## H5P content
 
 H5P content can be displayed in iframes. Here is an example of a multiple choice widget:
-
-<iframe src="h5p/multiple-choice.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-... and the same one, directly from the h5p.org site:
 
 <iframe src="https://h5p.org/h5p/embed/307685" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a "drag words" widget:
 
-<iframe src="h5p/drag-words.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe src="https://h5p.org/h5p/embed/308179" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a "video" widget:
 
 
-## Add Moodle content
+## Try to add Moodle content
 
 <iframe src="https://moodle.umons.ac.be/mod/quiz/attempt.php?attempt=212622&cmid=116372" width="780" height="270" frameborder="0"></iframe>
 
@@ -134,7 +137,7 @@ Here is a "video" widget:
 
 <script src="https://gist.github.com/GuyliannEngels/e349f835d11ec3f585bd27c0daa47012.js"></script>
 
-and for a R markdown document:
+and for an R markdown document:
 
 <script src="https://gist.github.com/GuyliannEngels/dea087d0bd2321a2ae896211bdc6b4b8.js"></script>
 
@@ -144,41 +147,41 @@ and for a R markdown document:
 <iframe width="770" height="433" src="http://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
-## Blocs spéciaux
+## Special blocks
 
 <div class="note">
-<p>Ceci est une <strong>note</strong>.</p>
+<p>This is a <strong>note</strong>.</p>
 </div>
 
 <div class="info">
-<p>Ceci est une <strong>information</strong>.</p>
+<p>This is an <strong>information</strong>.</p>
 </div>
 
 <div class="warning">
-<p>Ceci est un <strong>avertissement</strong>.</p>
+<p>This is a <strong>warning</strong>.</p>
 </div>
 
 <div class="error">
-<p>Ceci est à utiliser en cas d'<strong>erreur</strong>.</p>
+<p>This block can be used in case of <strong>error</strong>.</p>
 </div>
 
 <div class="win">
-<p>Ceci est relatif à <strong>Windows</strong>.</p>
+<p>This is related to <strong>Windows</strong>.</p>
 </div>
 
 <div class="mac">
-<p>Ceci est relatif au <strong>Mac</strong>.</p>
+<p>This is related to <strong>MacOS</strong>.</p>
 </div>
 
 <div class="linux">
-<p>Ceci est relatif à <strong>Linux</strong>.</p>
+<p>This is related to <strong>Linux</strong>.</p>
 </div>
 
 <div class="bdd">
-<p>Ceci est relatif au package <code>BioDataScience</code>.</p>
+<p>This is related to the <code>BioDataScience</code> package.</p>
 </div>
 
-\BeginKnitrBlock{sv}<div class="sv">Ceci est une zone `block2` relative à `SciViews` ou `SciViews::R`:
+\BeginKnitrBlock{sv}<div class="sv">This is a `block2` construct related to `SciViews` or `SciViews::R`:
 
 - item 1
 - item 2
@@ -186,7 +189,7 @@ and for a R markdown document:
 </div>\EndKnitrBlock{sv}
 
 <div class="svbox">
-<p>Ceci est une section relative à la <strong>SciViews Box</strong>...</p>
+<p>This is a section related to the <strong>SciViews Box</strong>...</p>
 </div>
 
 

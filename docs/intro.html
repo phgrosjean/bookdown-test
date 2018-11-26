@@ -25,7 +25,7 @@
 <meta name="author" content="Philippe Grosjean">
 
 
-<meta name="date" content="2018-11-15">
+<meta name="date" content="2018-11-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -115,11 +115,12 @@ code > span. { color: #1f1c1b; } /* Normal */
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#citations"><i class="fa fa-check"></i><b>1.2</b> Citations</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#cache-long-computations"><i class="fa fa-check"></i><b>1.3</b> Cache long computations</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#add-h5p-content"><i class="fa fa-check"></i><b>1.4</b> Add H5P content</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#add-moodle-content"><i class="fa fa-check"></i><b>1.5</b> Add Moodle content</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#add-a-gist"><i class="fa fa-check"></i><b>1.6</b> Add a Gist</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#embed-a-youtube-video"><i class="fa fa-check"></i><b>1.7</b> Embed a youtube video</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#blocs-speciaux"><i class="fa fa-check"></i><b>1.8</b> Blocs spéciaux</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#shiny-app"><i class="fa fa-check"></i><b>1.4</b> Shiny app</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#h5p-content"><i class="fa fa-check"></i><b>1.5</b> H5P content</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#try-to-add-moodle-content"><i class="fa fa-check"></i><b>1.6</b> Try to add Moodle content</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#add-a-gist"><i class="fa fa-check"></i><b>1.7</b> Add a Gist</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#embed-a-youtube-video"><i class="fa fa-check"></i><b>1.8</b> Embed a youtube video</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#special-blocks"><i class="fa fa-check"></i><b>1.9</b> Special blocks</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="diving-in.html"><a href="diving-in.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
 <li class="chapter" data-level="3" data-path="technical-details.html"><a href="technical-details.html"><i class="fa fa-check"></i><b>3</b> Technical Details</a></li>
@@ -146,10 +147,10 @@ code > span. { color: #1f1c1b; } /* Normal */
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This is my first bookdown, … and a sandbox to test its features. I started from <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">here</a>, then got some pieces from <a href="https://github.com/rstudio/bookdown-demo">here</a>, and finally skimmed the <a href="https://bookdown.org/yihui/bookdown/">bookdown book</a> and took some notes hereunder. I had also a look at this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog</a>.</p>
+<p>This is a bookdown chapter mostly for demonstration and testing … I started from <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">here</a>, then got some pieces from <a href="https://github.com/rstudio/bookdown-demo">here</a>, and finally skimmed the <a href="https://bookdown.org/yihui/bookdown/">bookdown book</a> and took some notes hereunder. I had also a look at this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog</a>.</p>
 <p><a href="http://www.sciviews.org">SciViews</a></p>
 <p><del>To convince <em>someone</em> to switch to Markdown, show him <a href="http://nerdplusart.com/markdown-is-the-future/">this</a>. A short discussion of html/active documents <em>versus</em> pdf/static printable pages should be nice here.</del></p>
-<p><em>Now, let’s look at spacial formattings provided by bookdown.</em></p>
+<p><em>Now, let’s look at special formattings provided by bookdown.</em></p>
 <div id="book-wide-references" class="section level2">
 <h2><span class="header-section-number">1.1</span> Book-wide references</h2>
 <p>With R Markdown, it is only possible to reference items inside the same document, and there is no numbered figures, tables or equations (at least if LaTeX code is not used, but then, you can olny generate a PDF). Bookdown fills the gap with new formatting instructions that work across all documents of the book. It also provides updated versions of R MArkdown output formats that support numbered figures, tables and equations, e.g., <code>html_document2</code> to replace <code>html_document</code>, for instance.</p>
@@ -353,81 +354,85 @@ Figure 1.1: Here is a nice figure!
 <span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
-<div id="add-h5p-content" class="section level2">
-<h2><span class="header-section-number">1.4</span> Add H5P content</h2>
-<p>H5P content can be displayed in iframes. Here is an example of a multiple choice widget:</p>
-<iframe src="h5p/multiple-choice.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen">
+<div id="shiny-app" class="section level2">
+<h2><span class="header-section-number">1.4</span> Shiny app</h2>
+<p>A shiny application directly inside the book using an iframe. This application demonstrates how an histogram changes when the number of classes is modified.</p>
+<iframe src="https://phgrosjean.shinyapps.io/histogram/" width="780" height="450" frameborder="0">
 </iframe>
-<p>… and the same one, directly from the h5p.org site:</p>
+</div>
+<div id="h5p-content" class="section level2">
+<h2><span class="header-section-number">1.5</span> H5P content</h2>
+<p>H5P content can be displayed in iframes. Here is an example of a multiple choice widget:</p>
 <iframe src="https://h5p.org/h5p/embed/307685" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen">
 </iframe>
 <script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>Here is a “drag words” widget:</p>
-<iframe src="h5p/drag-words.html" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen">
+<iframe src="https://h5p.org/h5p/embed/308179" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen">
 </iframe>
+<script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>Here is a “video” widget:</p>
 </div>
-<div id="add-moodle-content" class="section level2">
-<h2><span class="header-section-number">1.5</span> Add Moodle content</h2>
+<div id="try-to-add-moodle-content" class="section level2">
+<h2><span class="header-section-number">1.6</span> Try to add Moodle content</h2>
 <iframe src="https://moodle.umons.ac.be/mod/quiz/attempt.php?attempt=212622&amp;cmid=116372" width="780" height="270" frameborder="0">
 </iframe>
 </div>
 <div id="add-a-gist" class="section level2">
-<h2><span class="header-section-number">1.6</span> Add a Gist</h2>
+<h2><span class="header-section-number">1.7</span> Add a Gist</h2>
 <script src="https://gist.github.com/GuyliannEngels/e349f835d11ec3f585bd27c0daa47012.js"></script>
-<p>and for a R markdown document:</p>
+<p>and for an R markdown document:</p>
 <script src="https://gist.github.com/GuyliannEngels/dea087d0bd2321a2ae896211bdc6b4b8.js"></script>
 </div>
 <div id="embed-a-youtube-video" class="section level2">
-<h2><span class="header-section-number">1.7</span> Embed a youtube video</h2>
+<h2><span class="header-section-number">1.8</span> Embed a youtube video</h2>
 <iframe width="770" height="433" src="http://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen>
 </iframe>
 </div>
-<div id="blocs-speciaux" class="section level2">
-<h2><span class="header-section-number">1.8</span> Blocs spéciaux</h2>
+<div id="special-blocks" class="section level2">
+<h2><span class="header-section-number">1.9</span> Special blocks</h2>
 <div class="note">
 <p>
-Ceci est une <strong>note</strong>.
+This is a <strong>note</strong>.
 </p>
 </div>
 <div class="info">
 <p>
-Ceci est une <strong>information</strong>.
+This is an <strong>information</strong>.
 </p>
 </div>
 <div class="warning">
 <p>
-Ceci est un <strong>avertissement</strong>.
+This is a <strong>warning</strong>.
 </p>
 </div>
 <div class="error">
 <p>
-Ceci est à utiliser en cas d’<strong>erreur</strong>.
+This block can be used in case of <strong>error</strong>.
 </p>
 </div>
 <div class="win">
 <p>
-Ceci est relatif à <strong>Windows</strong>.
+This is related to <strong>Windows</strong>.
 </p>
 </div>
 <div class="mac">
 <p>
-Ceci est relatif au <strong>Mac</strong>.
+This is related to <strong>MacOS</strong>.
 </p>
 </div>
 <div class="linux">
 <p>
-Ceci est relatif à <strong>Linux</strong>.
+This is related to <strong>Linux</strong>.
 </p>
 </div>
 <div class="bdd">
 <p>
-Ceci est relatif au package <code>BioDataScience</code>.
+This is related to the <code>BioDataScience</code> package.
 </p>
 </div>
 
 <div class="sv">
-<p>Ceci est une zone <code>block2</code> relative à <code>SciViews</code> ou <code>SciViews::R</code>:</p>
+<p>This is a <code>block2</code> construct related to <code>SciViews</code> or <code>SciViews::R</code>:</p>
 <ul>
 <li>item 1</li>
 <li>item 2</li>
@@ -437,7 +442,7 @@ Ceci est relatif au package <code>BioDataScience</code>.
 
 <div class="svbox">
 <p>
-Ceci est une section relative à la <strong>SciViews Box</strong>…
+This is a section related to the <strong>SciViews Box</strong>…
 </p>
 </div>
 <p><strong>TODO:</strong> browse the bookdown book from 2.4 Figures on….</p>
