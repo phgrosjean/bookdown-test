@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Test Bookdown Book</title>
+  <meta name="description" content="A sandbox for testing bookdown book.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Test Bookdown Book" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://phgrosjean.sciviews.org/bookdown-test/" />
+  <meta property="og:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
+  <meta property="og:description" content="A sandbox for testing bookdown book." />
+  <meta name="github-repo" content="phgrosjean/bookdown-test" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Test Bookdown Book" />
+  
+  <meta name="twitter:description" content="A sandbox for testing bookdown book." />
+  <meta name="twitter:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
+
+<meta name="author" content="Philippe Grosjean">
+
+
+<meta name="date" content="2018-11-27">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="technical-details.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Test Bookdown Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#book-wide-references"><i class="fa fa-check"></i><b>1.1</b> Book-wide references</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#reference-to-chapter-and-titles"><i class="fa fa-check"></i><b>1.1.1</b> Reference to chapter and titles</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#numbered-figures-and-tables"><i class="fa fa-check"></i><b>1.1.2</b> Numbered figures and tables</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#numbered-equations"><i class="fa fa-check"></i><b>1.1.3</b> Numbered equations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#citations"><i class="fa fa-check"></i><b>1.2</b> Citations</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#cache-long-computations"><i class="fa fa-check"></i><b>1.3</b> Cache long computations</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#section"><i class="fa fa-check"></i><b>1.4</b> [1] 2</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#shiny-app"><i class="fa fa-check"></i><b>1.5</b> Shiny app</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#learnr-with-one-exercise-and-one-quizz"><i class="fa fa-check"></i><b>1.6</b> Learnr with one exercise and one quizz</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#h5p-content"><i class="fa fa-check"></i><b>1.7</b> H5P content</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#try-to-add-moodle-content"><i class="fa fa-check"></i><b>1.8</b> Try to add Moodle content</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#add-a-gist"><i class="fa fa-check"></i><b>1.9</b> Add a Gist</a></li>
+<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#embed-a-youtube-video"><i class="fa fa-check"></i><b>1.10</b> Embed a youtube video</a></li>
+<li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#special-blocks"><i class="fa fa-check"></i><b>1.11</b> Special blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="diving-in.html"><a href="diving-in.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
+<li class="chapter" data-level="3" data-path="technical-details.html"><a href="technical-details.html"><i class="fa fa-check"></i><b>3</b> Technical Details</a></li>
+<li class="chapter" data-level="4" data-path="visu1.html"><a href="visu1.html"><i class="fa fa-check"></i><b>4</b> Visualisation I</a><ul>
+<li class="chapter" data-level="4.1" data-path="visu1.html"><a href="visu1.html#nuage-de-points"><i class="fa fa-check"></i><b>4.1</b> Nuage de points</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="visu1.html"><a href="visu1.html#le-nuage-de-points-en-video"><i class="fa fa-check"></i><b>4.1.1</b> Le nuage de points en vidéo</a></li>
+<li class="chapter" data-level="4.1.2" data-path="visu1.html"><a href="visu1.html#echelles-dun-graphiques"><i class="fa fa-check"></i><b>4.1.2</b> Echelles d’un graphiques</a></li>
+<li class="chapter" data-level="4.1.3" data-path="visu1.html"><a href="visu1.html#transformation-des-donnees"><i class="fa fa-check"></i><b>4.1.3</b> Transformation des données</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="visu1.html"><a href="visu1.html#graphiques-dans-r-markdown"><i class="fa fa-check"></i><b>4.2</b> Graphiques dans R Markdown</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="visu1.html"><a href="visu1.html#r-markdown-en-video"><i class="fa fa-check"></i><b>4.2.1</b> R Markdown en vidéo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Test Bookdown Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visu1" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Visualisation I</h1>
+<div id="objectifs" class="section level5 unnumbered">
+<h5>Objectifs</h5>
+<ul>
+<li><p>Découvrir –et vous émerveiller de– ce que l’on peut faire avec le <a href="http://www.r-project.org">logiciel R</a> <span class="citation">(R Core Team <a href="#ref-R-base">2018</a>)</span></p></li>
+<li><p>Savoir réaliser différentes variantes d’un graphique en nuage de points dans R avec la fonction <code>chart()</code></p></li>
+<li><p>Découvrir le format R Markdown <span class="citation">(Allaire et al. <a href="#ref-R-rmarkdown">2018</a>)</span> et la recherche reproductible</p></li>
+<li><p>Intégrer ensuite des graphiques dans un rapport et y décrire ce que que vous observez</p></li>
+<li><p>Comparer de manière critique un flux de travail “classique” en biologie utilisant Microsoft Excel et Word avec une approche utilisant R et R Markdown ; Prendre conscience de l’énorme potentiel de R</p></li>
+</ul>
+</div>
+<div id="prerequis" class="section level5 unnumbered">
+<h5>Prérequis</h5>
+<p>Si ce n’est déjà fait, vous devez installer et vous familiariser avec la ‘SciViews Box’, RStudio, Markdown. Vous devez aussi maîtriser les bases de Git et de GitHub (avoir un compte GitHub, savoir cloner un dépôt localement, travailler avec GitHub Desktop pour faire ses “commits”, “push” et “pull”). L’ensemble de ces outils a été abordé lors de la création de votre site personnel professionnel du module <a href="intro.html#intro">1</a>.</p>
+<p>Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+
+<div class="bdd">
+<p>Démarrez la SciViews Box et RStudio. Dans la fenêtre <strong>Console</strong> de RStudio, entrez l’instruction suivante suivie de la touche <code>Entrée</code> pour ouvrir le tutoriel concernant les bases de R :</p>
+<pre><code>BioDataScience::run(&quot;02a_base&quot;)</code></pre>
+<p>Ensuite, vous pouvez également parcourir le tutoriel qui vous permettra de découvrir R sur base d’une analyse concrète (cliquez dans la fenêtre <strong>Console</strong> de RStudio et appuyez sur la touche <code>ESC</code> pour reprendre la main dans R à la fin d’un tutoriel) :</p>
+<pre><code>BioDataScience::run(&quot;02b_decouverte&quot;)</code></pre>
+(<a href="https://github.com/BioDataScience-Course/BioDataScience">BioDataScience</a> est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice <a href="#install-tuto"><strong>??</strong></a>).
+</div>
+
+</div>
+<div id="nuage-de-points" class="section level2">
+<h2><span class="header-section-number">4.1</span> Nuage de points</h2>
+<p>Dès que vous vous sentez familiarisé avec les principes de base de R, vous allez pouvoir réaliser assez rapidement des beaux graphiques. Par exemple, si vous souhaitez représenter une variable numérique en fonction d’une autre variable numérique, vous pouvez exprimer cela sous la forme d’une <strong>formule</strong><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p><span class="math display">\[y \sim x\]</span></p>
+<p>que l’on peut lire “y en fonction de x”. Pour les deux variables numériques <em>x</em> et <em>y</em>, la représentation graphique la plus classique est le <strong>nuage de points</strong> (voir Fig. <a href="visu1.html#fig:first-scatterplot">4.1</a> pour un exemple).</p>
+<div class="figure" style="text-align: center"><span id="fig:first-scatterplot"></span>
+<img src="04-nuage-point_files/figure-html/first-scatterplot-1.png" alt="Exemple de graphique en nuage de points. Des éléments essentiels sont ici mis en évidence en couleurs (voir texte). \label{np_intro}" width="672" />
+<p class="caption">
+Figure 4.1: Exemple de graphique en nuage de points. Des éléments essentiels sont ici mis en évidence en couleurs (voir texte). 
+</p>
+</div>
+<p>Les éléments indispensables à la compréhension d’un graphique en nuage de points sont mis en évidence à la Fig. <a href="visu1.html#fig:first-scatterplot">4.1</a> :</p>
+<ul>
+<li>Les axes avec les graduations (en rouge),</li>
+<li>les labels et les unités des axes (en bleu).</li>
+</ul>
+<p>Les instructions dans R pour produire un tel nuage de point sont :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Chargement de SciViews::R</span>
+SciViews<span class="op">::</span>R
+<span class="co"># Importation du jeu de données</span>
+(urchin &lt;-<span class="st"> </span><span class="kw">read</span>(<span class="st">&quot;urchin_bio&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;data.io&quot;</span>, <span class="dt">lang =</span> <span class="st">&quot;fr&quot;</span>))</code></pre></div>
+<pre><code># # A tibble: 421 x 19
+#    origin diameter1 diameter2 height buoyant_weight weight solid_parts
+#    &lt;fct&gt;      &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;
+#  1 Fishe…       9.9      10.2    5               NA  0.522       0.478
+#  2 Fishe…      10.5      10.6    5.7             NA  0.642       0.589
+#  3 Fishe…      10.8      10.8    5.2             NA  0.734       0.677
+#  4 Fishe…       9.6       9.3    4.6             NA  0.370       0.344
+#  5 Fishe…      10.4      10.7    4.8             NA  0.610       0.559
+#  6 Fishe…      10.5      11.1    5               NA  0.610       0.551
+#  7 Fishe…      11        11      5.2             NA  0.672       0.605
+#  8 Fishe…      11.1      11.2    5.7             NA  0.703       0.628
+#  9 Fishe…       9.4       9.2    4.6             NA  0.413       0.375
+# 10 Fishe…      10.1       9.5    4.7             NA  0.449       0.398
+# # ... with 411 more rows, and 12 more variables: integuments &lt;dbl&gt;,
+# #   dry_integuments &lt;dbl&gt;, digestive_tract &lt;dbl&gt;,
+# #   dry_digestive_tract &lt;dbl&gt;, gonads &lt;dbl&gt;, dry_gonads &lt;dbl&gt;,
+# #   skeleton &lt;dbl&gt;, lantern &lt;dbl&gt;, test &lt;dbl&gt;, spines &lt;dbl&gt;,
+# #   maturity &lt;int&gt;, sex &lt;fct&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Réalisation du graphique </span>
+<span class="kw">chart</span>(<span class="dt">data =</span> urchin, height <span class="op">~</span><span class="st"> </span>weight) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="04-nuage-point_files/figure-html/unnamed-chunk-2-1.png" alt="Taille (hauteur du test) d'oursins en fonction de leur masse." width="672" />
+<p class="caption">
+Figure 4.2: Taille (hauteur du test) d’oursins en fonction de leur masse.
+</p>
+</div>
+<p>La fonction <code>chart()</code> n’est pas accessible dans R de base, mais l’extension chargée via l’instruction <code>SciViews::R</code> rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (<code>data = urchin</code>, c’est un objet <code>dataframe</code> ou <code>tibble</code> dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l’axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un “tilde” (<code>~</code>). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter <code>height</code> en fonction de <code>weight</code>, la hauteur en fonction de la masse des oursins. Jusqu’ici, nous avons spécifié <em>ce que</em> nous voulons représenter, mais pas encore <em>comment</em> (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de … points ! Donc, nous devons ajouter la fonction <code>geom_point()</code> pour indiquer cela.</p>
+<div id="le-nuage-de-points-en-video" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Le nuage de points en vidéo</h3>
+<p>Vous trouverez une vidéo ci-dessous vous expliquant la création du nuage de points dans R sur ce jeu de données, en analysant d’autres variables.</p>
+<iframe src="https://www.youtube.com/embed/-QzG3Xr202w" width="770" height="433" frameborder="0" allowfullscreen=""></iframe>
+<p>Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même !</p>
+<div id="a-vous-de-jouer" class="section level5 unnumbered">
+<h5>A vous de jouer</h5>
+
+<div class="bdd">
+<p>Dans la fenêtre <strong>Console</strong> de RStudio, entrez l’instruction suivante suivie de la touche <code>Entrée</code> pour ouvrir le tutoriel concernant le nuage de points :</p>
+<pre><code>BioDataScience::run(&quot;02c_nuage_de_points&quot;)</code></pre>
+N’oubliez pas d’appuyer sur la touche <code>ESC</code> pour reprendre la main dans R à la fin d’un tutoriel)
+</div>
+
+</div>
+</div>
+<div id="echelles-dun-graphiques" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Echelles d’un graphiques</h3>
+<p>Vous devez être vigilant lors de la réalisation d’un nuage de point particulièrement sur l’étendue des valeurs présentées sur vos axes. Vous devez utilisez votre expertise de biologiste pour vous posez les deux questions suivantes :</p>
+<ul>
+<li><p>Est ce que l’axe représente des valeurs plausibles de hauteurs et de masses de ces oursins appartenant à l’espèce <em>Paracentrotus lividus</em> ?</p></li>
+<li><p>Quels est la précision des mesures effectuées ?</p></li>
+</ul>
+<p>Dans certains cas, la forme du nuage de points peut être distendu par la présence de valeurs aberrantes. Ce n’est pas le cas ici, mais nous pouvons le simuler en distendant artificiellement soit l’axe X, soit l’axe Y, soit les deux :</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="04-nuage-point_files/figure-html/unnamed-chunk-5-1.png" alt="Piège du nuage de points. A) graphique initial montrant la variation de la hauteur [mm] en fonction de la masse [g]. B) graphique A avec la modification de l'échelle de l'axe X. C) Graphique A avec une seconde modification de l'axe X. D) Graphique A avec modification simultanée des deux axes." width="672" />
+<p class="caption">
+Figure 4.3: Piège du nuage de points. A) graphique initial montrant la variation de la hauteur [mm] en fonction de la masse [g]. B) graphique A avec la modification de l’échelle de l’axe X. C) Graphique A avec une seconde modification de l’axe X. D) Graphique A avec modification simultanée des deux axes.
+</p>
+</div>
+</div>
+<div id="transformation-des-donnees" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Transformation des données</h3>
+<p>Vous avez la possibilité d’appliquer une transformation de vos données (il est même conseillé de le faire) afin qu’elles soient plus facilement analysables. Par exemple, il est possible d’utiliser des fonctions de puissance, racines, logarithmes, exponentielles<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> pour modifier l’apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d’analyser statistiquement des données qui s’alignent le long d’une droite). Par exemple, sur nos données de hauteurs et masses d’oursins, la transformation double-logarithmique (log(x) <em>et</em> log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Réalisation du graphique de la hauteur en fonction de la masse</span>
+a &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, height <span class="op">~</span><span class="st">  </span>weight) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()
+<span class="co"># Application du logarithme sur les deux variables représentées</span>
+b &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, <span class="kw">log10</span>(height) <span class="op">~</span><span class="st">  </span><span class="kw">log10</span>(weight)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;log(Masse totale [g])&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;log(Hauteur du test [mm])&quot;</span>)
+<span class="co"># Assemblage des graphiques</span>
+<span class="kw">combine_charts</span>(<span class="kw">list</span>(a, b))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="04-nuage-point_files/figure-html/unnamed-chunk-6-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
+<p class="caption">
+Figure 4.4: A) Hauteur [mm] en fonction de la masse [g] d’oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins.
+</p>
+</div>
+<div id="pieges-et-astuces" class="section level5 unnumbered">
+<h5>Pièges et astuces</h5>
+<p>RStudio permet de récupérer rapidement des instructions à partir d’une banque de solutions toutes prêtes. Cela s’appelle des <strong>snippets</strong>. Vous avez une série de snippets disponibles dans la SciViews Box. Celui qui vous permet de réaliser un graphique en nuage de points s’appelle <code>.cbxy</code> (pour <strong>c</strong>hart -&gt; <strong>b</strong>ivariate -&gt; <strong>xy</strong>-plot). Entrez ce code et appuyez ensuite sur la tabulation dans un script R, et vous verrez le code remplacé par ceci dans la fenêtre d’édition :</p>
+<pre><code>chart(data = DF, YNUM ~ XNUM) +
+  geom_point()</code></pre>
+<p>Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver dans l’aide-mémoire consacré à <a href="https://github.com/BioDataScience-Course/cheatsheets/blob/master/keynote/sciviews_cheatsheet.pdf"><strong>SciViews</strong></a>. Vous avez également à votre disposition l’aide-mémoire sur la visualisation des données (<a href="https://www.rstudio.com/resources/cheatsheets/"><strong>Data Visualization Cheat Sheet</strong></a>) qui utilise la fonction <code>ggplot()</code> plutôt que <code>chart()</code> et une interface légèrement différente pour spécifier les variables à utiliser pour réaliser le graphique (<code>aes(x = ..., y = ...)</code>).</p>
+</div>
+<div id="a-vous-de-jouer-1" class="section level5 unnumbered">
+<h5>A vous de jouer</h5>
+<p>Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom <a href="#classroom"><strong>??</strong></a>. Cette tâche est un travail <strong>individuel</strong>. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier <code>projects</code> de votre dossier partagé avec la SciViews Box <code>shared</code>. Vous aurez alors un nouveau projet RStudio <a href="#rs-projet"><strong>??</strong></a></p>
+
+<div class="bdd">
+<p>Les instructions R que vous expérimentez dans un learnR peuvent être employées également dans un script d’analyse. Sur base du jeu de données <code>urchin_bio</code>, explorez différents graphiques en nuages de points. Utilisez l’URL suivante pour accéder à votre tâche :</p>
+<ul>
+<li><a href="https://classroom.github.com/a/eYrXLy_u" class="uri">https://classroom.github.com/a/eYrXLy_u</a></li>
+</ul>
+</div>
+
+<p>Inspirez-vous du script dans le dépôt <code>sdd1_iris</code>. Vous devez commencer par faire un “fork” du dépôt, puis un clone sur votre ordinateur en local pour pouvoir l’utiliser.</p>
+<ul>
+<li><a href="https://github.com/BioDataScience-Course/sdd1_iris" class="uri">https://github.com/BioDataScience-Course/sdd1_iris</a></li>
+</ul>
+<p>Prêtez une attention toute particulière à l’organisation d’un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l’auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l’utilisation des scripts R dans l’annexe <a href="#script"><strong>??</strong></a>.</p>
+</div>
+<div id="pour-en-savoir-plus" class="section level5 unnumbered">
+<h5>Pour en savoir plus</h5>
+<ul>
+<li><p><a href="http://r4ds.had.co.nz/data-visualisation.html">Visualisation des données dans R for Data Science</a>. Chapitre du livre portant sur la visualisation des données, en anglais.</p></li>
+<li><p><a href="http://www.sthda.com/french/wiki/ggplot2-nuage-de-points-guide-de-d-marrage-rapide-logiciel-r-et-visualisation-de-donn-es#nuage-de-points-simples">ggplot2 nuage de point</a>. Tutoriel en français portant sur l’utilisation d’un nuage de points avec le package <code>ggplot2</code> et la fonction <code>geom_point()</code>.</p></li>
+<li><p><a href="http://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a>. Un livre en anglais sur les fondamentaux de la visualisation graphique.</p></li>
+<li><p><a href="https://rpubs.com/escott8908/RGC_Ch5_Scatter_Plots">R Graphics Cookbook - Chapter 5: Scatter Plots</a>. Un chapitre d’un livre en anglais sur l’utilisation du nuage de points.</p></li>
+<li><p><a href="http://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a>. La fiche technique de la fonction (en anglais).</p></li>
+</ul>
+</div>
+<div id="testez-vos-acquis" class="section level5 unnumbered">
+<h5>Testez vos acquis</h5>
+
+<div class="bdd">
+<p>Dans la fenêtre <strong>Console</strong> de RStudio, entrez l’instruction suivante et puis appuyez sur la touche <code>Entrée</code> pour ouvrir le tutoriel de challenge concernant le nuage de points :</p>
+<pre><code>BioDataScience::run(&quot;02d_np_challenge&quot;)</code></pre>
+N’oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d’appuyer sur la touche <code>ESC</code> pour reprendre la main dans R à la fin d’un tutoriel.
+</div>
+
+</div>
+</div>
+</div>
+<div id="graphiques-dans-r-markdown" class="section level2">
+<h2><span class="header-section-number">4.2</span> Graphiques dans R Markdown</h2>
+<p>Un fichier R Markdown est un fichier avec une extension <code>.Rmd</code>. Il permet de combiner le langage Markdown que vous avez déjà abordé au premier module avec du code R, tel que celui utilisé dans la première partie de ce module 2.</p>
+<div class="figure">
+<img src="images/sdd1_02/rmd.gif" />
+
+</div>
+<div id="r-markdown-en-video" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> R Markdown en vidéo</h3>
+<p>La vidéo ci-dessous vous montre ce qu’est R Markdown, un format hybride entre Markdown et R bien pratique pour inclure vos graphiques directement dans un rapport. Elle vous montre aussi comment transformer un script R en document R Markdown (ou R Notebook, qui en est une variante).</p>
+<iframe src="https://www.youtube.com/embed/NDuHBMh690I" width="770" height="433" frameborder="0" allowfullscreen=""></iframe>
+<p>Les balises spéciales R Markdown à retenir sont les suivantes :</p>
+<ul>
+<li>en entrée de chunk R : <code>```{r}</code> seul sur une ligne. Il est aussi possible de rajouter un nom, par exemple, <code>```{r graphique1}</code> et/ou des options, par exemple, <code>```{r, echo=FALSE, results='hide'}</code> pour cacher et le code et le résultat dans le rapport),</li>
+<li>en sortie de chunk R : <code>```</code> seul sur une ligne.</li>
+</ul>
+<p>Vous devez bien entendu avoir autant de balises d’entrée que de balises de sortie. Des explications plus détaillées se trouvent dans l’annexe <a href="#Rmd"><strong>??</strong></a> dédiée au R Markdown. De plus, l’écriture d’un rapport d’analyse scientifique doit respecter certaines conventions. Vous trouverez des explications à ce sujet dans l’annexe <a href="#redaction-scientifique"><strong>??</strong></a>.</p>
+
+<div class="note">
+Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez commencer d’emblée avec un R Markdown/R Notebook et écrire vos instructions R directement dedans. Il vous est toujours possible d’exécuter ces instructions ligne après ligne dans la fenêtre <strong>Console</strong> pour les tester tout comme à partir d’un script R.
+</div>
+
+<div id="pour-en-savoir-plus-1" class="section level5 unnumbered">
+<h5>Pour en savoir plus</h5>
+<ul>
+<li><p><a href="https://rviews.rstudio.com/2018/11/01/r-markdown-a-better-approach/">Communicating results with R Markdown</a> explique la même chose que dans la vidéo, avec plus de détails et des liens vers d’autres documents utiles (en anglais).</p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/lesson-1.html">What is R Markdown?</a>. Vidéo en anglais + site présentant les différentes possibilités, par les concepteurs de R Markdown (RStudio).</p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/articles_intro.html">Introduction to R Markdown</a>. Tutoriel en anglais, par RStudio.</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown : the definitive guide</a> est <strong>le</strong> manuel par excellence pour R Markdown (en anglais uniquement, malheureusement).</p></li>
+<li><p>Aide-mémoire R Markdown: dans les menus de RStudio : <code>Help -&gt; Cheatsheets -&gt; R Markdown Cheat Sheet</code></p></li>
+<li><p>Référence rapide à Markdown : dans les menus RStudio <code>Help -&gt; Markdown Quick Reference</code></p></li>
+<li><p><a href="https://rstudio-pubs-static.s3.amazonaws.com/32239_0956f02cef24443abd9525551368ef12.html#6">Introduction à R Markdown</a>. Présentation en français par Agrocampus Ouest - Rennes.</p></li>
+<li><p><a href="https://www.fun-mooc.fr/c4x/UPSUD/42001S02/asset/RMarkdown.pdf">Le langage R Markdown</a>. Introduction en français concise, mais relativement complète.</p></li>
+<li><p><a href="https://rworkshop.uni.lu/lectures/lecture04_rmarkdown.html#1">Reproducible reports</a> with R Markdown. Une explication en anglais de la raison d’être de R Markdown.</p></li>
+<li><p><a href="https://rviews.rstudio.com/2017/03/15/why-i-love-r-notebooks/">Why I love R Notebooks</a> explique (en anglais) pourquoi le format R Notebook est particulièrement bien adapté à la science des données.</p></li>
+</ul>
+</div>
+<div id="a-vous-de-jouer-2" class="section level5 unnumbered">
+<h5>A vous de jouer</h5>
+<ul>
+<li>Vous allez maintenant manipuler un <strong>R Notebook</strong> pour construire de manière interactive une analyse en même temps que le rapport associé.</li>
+</ul>
+
+<div class="bdd">
+<p>Partez du projet <code>sdd1_urchin_bio</code> que vous avez obtenu via le lien GitHub Classroom dans la première partie de ce module.</p>
+<p>Votre objectif est de comprendre les données proposées, en utilisant des visualisations graphiques appropriées et en documentant le fruit de votre étude dans un rapport R Notebook. Utilisez le graphique en nuage de points que vous venez d’étudier, bien sûr, mais vous êtes aussi encouragés à expérimenter d’autres formes de visualisation graphique.</p>
+</div>
+
+<ul>
+<li>Flux de travail “classique” en biologie (Microsoft Excel et Word) comparé à R et R Markdown.</li>
+</ul>
+<p>Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom <a href="#classroom"><strong>??</strong></a>. Cette tâche est un travail <strong>en équipe</strong>. Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier <code>shared/projects</code>.</p>
+
+<div class="bdd">
+<p>Comparez le workflow classique en biologie via Microsoft Office avec l’utilisation de R - R Markdown en suivant les explications dans le fichier <code>README.md</code>du dépôt accessible depuis :</p>
+<ul>
+<li><a href="https://classroom.github.com/g/2Cii2dws" class="uri">https://classroom.github.com/g/2Cii2dws</a></li>
+</ul>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-base">
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-R-rmarkdown">
+<p>Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, and Winston Chang. 2018. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Reportez-vous à l’Appendice <a href="#learnr"><strong>??</strong></a> pour apprendre à utiliser ces tutoriels.<a href="visu1.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>Dans R, une <strong>formule</strong> permet de spécifier les variables avec lesquelles on souhaite travailler, et leur rôle. Par exemple ici, la variable <em>x</em> sur l’axe des abscisses et la variable <em>y</em> sur l’axe des ordonnées.<a href="visu1.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Pour les proportions (<code>prop</code>) ou les pourcentages (<code>perc</code>) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : <span class="math inline">\(prop′ = \arcsin \sqrt{prop}\)</span> ou <span class="math inline">\(perc′ = \arcsin \sqrt{perc / 100}\)</span>.<a href="visu1.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="technical-details.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/phgrosjean/bookdown-test/edit/master/04-nuage-point.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
