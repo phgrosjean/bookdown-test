@@ -77,8 +77,9 @@ urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 
 
 ```{r,  eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html')}
-DT::datatable(urchin)
+DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'))
 ```
+
 
 ```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
 urchin
