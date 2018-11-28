@@ -77,7 +77,7 @@ urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 
 
 ```{r,  eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html')}
-DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'))
+DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), rownames = FALSE)
 ```
 
 
@@ -241,7 +241,6 @@ knitr::include_graphics("images/sdd1_02/rmd.gif")
 ### R Markdown en vidéo
 
 La vidéo ci-dessous vous montre ce qu'est R Markdown, un format hybride entre Markdown et R bien pratique pour inclure vos graphiques directement dans un rapport. Elle vous montre aussi comment transformer un script R en document R Markdown (ou R Notebook, qui en est une variante).
-
 
 ```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
 cat("Retrouvez une séance d'exercice lié à une vidéo \n disponible via l'url suivant : https://h5p.org/h5p/embed/369438")
