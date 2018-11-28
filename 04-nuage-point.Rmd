@@ -73,14 +73,24 @@ Les instructions dans R pour produire un tel nuage de point sont :
 SciViews::R
 # Importation du jeu de données
 urchin <- read("urchin_bio", package = "data.io", lang = "fr")
+```
+
+
+```{r,  eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html')}
 DT::datatable(urchin)
+```
+
+```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
+urchin
+```
+
+```{r}
 # Réalisation du graphique 
 chart(data = urchin, height ~ weight) +
   geom_point()
 ```
 
 La fonction `chart()` n'est pas accessible dans R de base, mais l'extension chargée via l'instruction `SciViews::R` rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (`data = urchin`, c'est un objet `dataframe` ou `tibble` dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l'axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un "tilde" (`~`). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter `height` en fonction de `weight`, la hauteur en fonction de la masse des oursins. Jusqu'ici, nous avons spécifié _ce que_ nous voulons représenter, mais pas encore _comment_ (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de ... points ! Donc, nous devons ajouter la fonction `geom_point()` pour indiquer cela.
-
 
 ### Le nuage de points en vidéo
 
@@ -90,21 +100,25 @@ Vous trouverez une vidéo ci-dessous vous expliquant la création du nuage de po
 vembedr::embed_youtube("-QzG3Xr202w", width = 770, height = 433)
 ```
 
-Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même ! 
+```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
+cat("Retrouvez la vidéo via le lien suivant : https://www.youtube.com/watch?v=-QzG3Xr202w")
+```
 
+Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même ! 
 
 ##### A vous de jouer {-}
 
-```{block2, type='bdd'}
-Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel concernant le nuage de points :
-
-    BioDataScience::run("02c_nuage_de_points")
-
-N'oubliez pas d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel)
+```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
+cat("Retrouvez une séance d'exercice via une application shiny \n uniquement disponible sur la version en ligne")
 ```
-
 <iframe src="https://phgrosjean.shinyapps.io/learnr/" width="780" height="500" frameborder="0"></iframe>
 
+
+```{block2, type='bdd'}
+Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel concernant le nuage de points :
+    BioDataScience::run("02c_nuage_de_points")
+N'oubliez pas d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel)
+```
 
 ### Echelles d'un graphiques
 
@@ -114,7 +128,16 @@ Vous devez être vigilant lors de la réalisation d'un nuage de point particuli�
 
 - Quels est la précision des mesures effectuées ?
 
-Voici un graphique interactif. Modifiez le nombre de classes de l'histogramme pour voir les effets sur son apparance.
+
+
+```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
+cat("Retrouvez une séance d'exercice via une application shiny \n uniquement disponible sur la version en ligne")
+```
+
+```{r, echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html')}
+cat("Voici un graphique interactif.")
+cat("Modifiez le nombre de classes de l'histogramme pour voir les effets sur son apparance.")
+```
 
 <iframe src="https://phgrosjean.shinyapps.io/histogram/" width="780" height="450" frameborder="0"></iframe>
 
@@ -133,7 +156,6 @@ d <- a + scale_x_continuous(limits = c(-400, 400)) +
 combine_charts(list(a, b, c, d))
 ```
 
-
 ### Transformation des données
 
 Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite). Par exemple, sur nos données de hauteurs et masses d'oursins, la transformation double-logarithmique (log(x) *et* log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :
@@ -150,7 +172,6 @@ b <- chart(urchin, log10(height) ~  log10(weight)) +
 combine_charts(list(a, b))
 ```
 
-
 ##### Pièges et astuces {-}
 
 RStudio permet de récupérer rapidement des instructions à partir d'une banque de solutions toutes prêtes. Cela s'appelle des **snippets**. Vous avez une série de snippets disponibles dans la SciViews Box. Celui qui vous permet de réaliser un graphique en nuage de points s'appelle `.cbxy` (pour **c**hart -> **b**ivariate -> **xy**-plot). Entrez ce code et appuyez ensuite sur la tabulation dans un script R, et vous verrez le code remplacé par ceci dans la fenêtre d'édition :
@@ -162,21 +183,19 @@ chart(data = DF, YNUM ~ XNUM) +
 
 Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver dans l'aide-mémoire consacré à [**SciViews**](https://github.com/BioDataScience-Course/cheatsheets/blob/master/keynote/sciviews_cheatsheet.pdf). Vous avez également à votre disposition l'aide-mémoire sur la visualisation des données ([**Data Visualization Cheat Sheet**](https://www.rstudio.com/resources/cheatsheets/)) qui utilise la fonction `ggplot()` plutôt que `chart()` et une interface légèrement différente pour spécifier les variables à utiliser pour réaliser le graphique (`aes(x = ..., y = ...)`).
 
-
 ##### A vous de jouer {-}
 
 Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **individuel**. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet)
 
 ```{block2, type='bdd'}
 Les instructions R que vous expérimentez dans un learnR peuvent être employées également dans un script d'analyse. Sur base du jeu de données `urchin_bio`, explorez différents graphiques en nuages de points. Utilisez l'URL suivante pour accéder à votre tâche\ :
-
 - <https://classroom.github.com/a/eYrXLy_u>
-
-```
-
-Inspirez-vous du script dans le dépôt `sdd1_iris`. Vous devez commencer par faire un "fork" du dépôt, puis un clone sur votre ordinateur en local pour pouvoir l'utiliser. 
+  
+  Inspirez-vous du script dans le dépôt `sdd1_iris`. Vous devez commencer par faire un "fork" du dépôt, puis un clone sur votre ordinateur en local pour pouvoir l'utiliser. 
 
 - <https://github.com/BioDataScience-Course/sdd1_iris>
+
+```
 
 Prêtez une attention toute particulière à l'organisation d'un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l'auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l'utilisation des scripts R dans l'annexe \@ref(script).
 
@@ -199,11 +218,13 @@ Prêtez une attention toute particulière à l'organisation d'un script R. En pl
 ##### Testez vos acquis {-}
 
 ```{block2, type='bdd'}
+
 Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante et puis appuyez sur la touche `Entrée` pour ouvrir le tutoriel de challenge concernant le nuage de points :
 
     BioDataScience::run("02d_np_challenge")
 
 N'oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel.
+
 ```
 
 
@@ -211,12 +232,19 @@ N'oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d'
 
 Un fichier R Markdown est un fichier avec une extension `.Rmd`. Il permet de combiner le langage Markdown que vous avez déjà abordé au premier module avec du code R, tel que celui utilisé dans la première partie de ce module 2. 
 
-![](images/sdd1_02/rmd.gif)
+```{r, echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html')}
+knitr::include_graphics("images/sdd1_02/rmd.gif")
+```
 
 
 ### R Markdown en vidéo
 
 La vidéo ci-dessous vous montre ce qu'est R Markdown, un format hybride entre Markdown et R bien pratique pour inclure vos graphiques directement dans un rapport. Elle vous montre aussi comment transformer un script R en document R Markdown (ou R Notebook, qui en est une variante).
+
+
+```{r,echo = FALSE,eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'latex')}
+cat("Retrouvez une séance d'exercice lié à une vidéo \n disponible via l'url suivant : https://h5p.org/h5p/embed/369438")
+```
 
 <iframe src="https://h5p.org/h5p/embed/369438" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 
@@ -262,11 +290,8 @@ Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez comme
 - Vous allez maintenant manipuler un **R Notebook** pour construire de manière interactive une analyse en même temps que le rapport associé.
 
 ```{block2, type='bdd'}
-
 Partez du projet `sdd1_urchin_bio` que vous avez obtenu via le lien GitHub Classroom dans la première partie de ce module. 
-
 Votre objectif est de comprendre les données proposées, en utilisant des visualisations graphiques appropriées et en documentant le fruit de votre étude dans un rapport R Notebook. Utilisez le graphique en nuage de points que vous venez d'étudier, bien sûr, mais vous êtes aussi encouragés à expérimenter d'autres formes de visualisation graphique.
-
 ```
 
 - Flux de travail "classique" en biologie (Microsoft Excel et Word) comparé à R et R Markdown.
@@ -274,10 +299,6 @@ Votre objectif est de comprendre les données proposées, en utilisant des visua
 Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **en équipe**. Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`.
 
 ```{block2, type='bdd'}
-
 Comparez le workflow classique en biologie via Microsoft Office avec l'utilisation de R - R Markdown en suivant les explications dans le fichier `README.md`du dépôt accessible depuis\ :
-
 - <https://classroom.github.com/g/2Cii2dws>
-
 ```
-
