@@ -166,3 +166,6 @@ This is a section related to the **SciViews Box**...
 
 
 **TODO:** browse the bookdown book from 2.4 Figures on....
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDAyMzk1NTM1XX0=
+-->
