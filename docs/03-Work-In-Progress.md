@@ -1,3 +1,5 @@
-# Technical Details
+# Détails techniques {#details}
 
-Now I'll teach you some crazy math, but I need to work it out first...
+
+
+Ici une page d'exemple qui donnerait quelques détails techniques...
