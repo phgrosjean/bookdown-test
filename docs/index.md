@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean"
-date: "2019-05-22"
+date: "2019-08-28"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -19,6 +19,7 @@ cover-image: "images/front-cover.png"
 ![](images/front-cover.png)
 
 This is just a sandbox to test various bookdown features. The online version of this book is licensed under the [Creative Commons Public-Domain](http://creativecommons.org/publicdomain/zero/1.0/).
+
 
 
 
