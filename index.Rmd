@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
+    info: yes
     includes:
       after_body: disqus.html
 documentclass: book

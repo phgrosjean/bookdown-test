@@ -1,3 +1,11 @@
+.UMONS {
+  display: none;
+}
+
+.noinstitution {
+  display: block;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
