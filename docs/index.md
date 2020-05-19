@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-05-14"
+date: "2020-05-19"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -50,7 +50,7 @@ sessioninfo::session_info()
 #  collate  en_US.UTF-8                 
 #  ctype    en_US.UTF-8                 
 #  tz       Europe/Brussels             
-#  date     2020-05-14                  
+#  date     2020-05-19                  
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
 #  package     * version    date       lib source                            
