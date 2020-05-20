@@ -7,7 +7,7 @@
 ["shiny-app.html", "1.5 Shiny app", " 1.5 Shiny app A shiny application directly inside the book using an iframe. This application demonstrates how an histogram changes when the number of classes is modified. Cliquez pour lancer ou exécutez BioDataScience::runApp(&quot;url-parameters&quot;) dans la svbox2019. "],
 ["learnr-with-one-exercise-and-one-quizz.html", "1.6 Learnr with one exercise and one quizz", " 1.6 Learnr with one exercise and one quizz A simple learnr document from shinyapps.io : Cliquez pour démarrer le learnr ou exécutez BioDataScience::run(&quot;sdd1-01b&quot;) dans la svbox2019. "],
 ["a-coggle-mind-map.html", "1.7 A Coggle mind map", " 1.7 A Coggle mind map "],
-["h5p-content.html", "1.8 H5P content", " 1.8 H5P content H5P content can be displayed in iframes. Here is an example of a multiple choice widget: Here is a “drag words” widget: Here is a video widget: "],
+["h5p-content.html", "1.8 H5P content", " 1.8 H5P content H5P content can be displayed in iframes. Here is an example of a multiple choice widget: Here is a “drag words” widget: Here is a video widget: Some text… "],
 ["try-to-add-moodle-content.html", "1.9 Try to add Moodle content", " 1.9 Try to add Moodle content "],
 ["add-a-gist.html", "1.10 Add a Gist", " 1.10 Add a Gist and for an R markdown document: "],
 ["embed-a-youtube-video.html", "1.11 Embed a youtube video", " 1.11 Embed a youtube video "],

@@ -139,6 +139,45 @@ A simple learnr document from `shinyapps.io`\ :
 
 H5P content can be displayed in iframes. Here is an example of a multiple choice widget:
 
+<!--
+<script>
+var captureAllH5pContentTypes = '1';
+var debugEnabled = '1';
+var h5pContentTypes = [""];
+var wpAJAXurl = "https://wp.sciviews.org/wp-admin/admin-ajax.php";
+</script>
+
+<script src="https://wp.sciviews.org/wp-content/plugins/h5pxapikatchu/js/h5pxapikatchu-variables.js?ver=0.4.2" charset="UTF-8"></script>
+-->
+
+<script>H5PIntegration = {"baseUrl":"https:\/\/wp.sciviews.org","url":"\/wp-content\/uploads\/h5p","postUserStatistics":false,"ajax":{"setFinished":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?token=e6b10366a6&action=h5p_setFinished","contentUserData":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?token=ea1774d67b&action=h5p_contents_user_data&content_id=:contentId&data_type=:dataType&sub_content_id=:subContentId"},"saveFreq":"30","siteUrl":"https:\/\/wp.sciviews.org","l10n":{"H5P":{"fullscreen":"Fullscreen","disableFullscreen":"Disable fullscreen","download":"Download","copyrights":"Rights of use","embed":"Embed","size":"Size","showAdvanced":"Show advanced","hideAdvanced":"Hide advanced","advancedHelp":"Include this script on your website if you want dynamic sizing of the embedded content:","copyrightInformation":"Rights of use","close":"Close","title":"Title","author":"Author","year":"Year","source":"Source","license":"License","thumbnail":"Thumbnail","noCopyrights":"No copyright information available for this content.","reuse":"Reuse","reuseContent":"Reuse Content","reuseDescription":"Reuse this content.","downloadDescription":"Download this content as a H5P file.","copyrightsDescription":"View copyright information for this content.","embedDescription":"View the embed code for this content.","h5pDescription":"Visit H5P.org to check out more cool content.","contentChanged":"This content has changed since you last used it.","startingOver":"You'll be starting over.","by":"by","showMore":"Show more","showLess":"Show less","subLevel":"Sublevel","confirmDialogHeader":"Confirm action","confirmDialogBody":"Please confirm that you wish to proceed. This action is not reversible.","cancelLabel":"Cancel","confirmLabel":"Confirm","licenseU":"Undisclosed","licenseCCBY":"Attribution","licenseCCBYSA":"Attribution-ShareAlike","licenseCCBYND":"Attribution-NoDerivs","licenseCCBYNC":"Attribution-NonCommercial","licenseCCBYNCSA":"Attribution-NonCommercial-ShareAlike","licenseCCBYNCND":"Attribution-NonCommercial-NoDerivs","licenseCC40":"4.0 International","licenseCC30":"3.0 Unported","licenseCC25":"2.5 Generic","licenseCC20":"2.0 Generic","licenseCC10":"1.0 Generic","licenseGPL":"General Public License","licenseV3":"Version 3","licenseV2":"Version 2","licenseV1":"Version 1","licensePD":"Public Domain","licenseCC010":"CC0 1.0 Universal (CC0 1.0) Public Domain Dedication","licensePDM":"Public Domain Mark","licenseC":"Copyright","contentType":"Content Type","licenseExtras":"License Extras","changes":"Changelog","contentCopied":"Content is copied to the clipboard","connectionLost":"Connection lost. Results will be stored and sent when you regain connection.","connectionReestablished":"Connection reestablished.","resubmitScores":"Attempting to submit stored results.","offlineDialogHeader":"Your connection to the server was lost","offlineDialogBody":"We were unable to send information about your completion of this task. Please check your internet connection.","offlineDialogRetryMessage":"Retrying in :num....","offlineDialogRetryButtonLabel":"Retry now","offlineSuccessfulSubmit":"Successfully submitted results."}},"hubIsEnabled":true,"reportingIsEnabled":true,"libraryConfig":null,"crossorigin":null,"crossoriginCacheBuster":null,"pluginCacheBuster":"?v=1.15.0","libraryUrl":"https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5p\/h5p-php-library\/js","core":{"styles":["\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p.css?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p-confirmation-dialog.css?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p-core-button.css?ver=1.15.0"],"scripts":["\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/jquery.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-event-dispatcher.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-x-api-event.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-x-api.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-content-type.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-confirmation-dialog.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-action-bar.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/request-queue.js?ver=1.15.0"]},"loadedJs":[],"loadedCss":[],"contents":{"cid-7":{"library":"H5P.MultiChoice 1.14","jsonContent":"{\"answers\":[{\"correct\":false,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"\",\"notChosenFeedback\":\"\"},\"text\":\"<div>The header of the document<\\\/div>\\n\"},{\"correct\":true,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"<div>Excellent! A chunk is indeed a special area delimited by \\u0010\\u0010```{R} and ``` tags that contains R code to be evaluated in place when the document is compiled.<\\\/div>\\n\",\"notChosenFeedback\":\"<div>Oww! You should go back to the capsule about R Markdown to learn what a chunk is.<\\\/div>\\n\"},\"text\":\"<div>An area that contains R code<\\\/div>\\n\"},{\"correct\":false,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"\",\"notChosenFeedback\":\"\"},\"text\":\"<div>A area that contains markdown text<\\\/div>\\n\"}],\"overallFeedback\":[{\"from\":0,\"to\":100}],\"UI\":{\"checkAnswerButton\":\"Check\",\"showSolutionButton\":\"Show solution\",\"tryAgainButton\":\"Retry\",\"tipsLabel\":\"Show tip\",\"scoreBarLabel\":\"You got :num out of :total points\",\"tipAvailable\":\"Tip available\",\"feedbackAvailable\":\"Feedback available\",\"readFeedback\":\"Read feedback\",\"wrongAnswer\":\"Wrong answer\",\"correctAnswer\":\"Correct answer\",\"shouldCheck\":\"Should have been checked\",\"shouldNotCheck\":\"Should not have been checked\",\"noInput\":\"Please answer before viewing the solution\"},\"behaviour\":{\"enableRetry\":true,\"enableSolutionsButton\":true,\"enableCheckButton\":true,\"type\":\"auto\",\"singlePoint\":true,\"randomAnswers\":true,\"showSolutionsRequiresInput\":true,\"confirmCheckDialog\":false,\"confirmRetryDialog\":false,\"autoCheck\":false,\"passPercentage\":100,\"showScorePoints\":true},\"confirmCheck\":{\"header\":\"Finish ?\",\"body\":\"Are you sure you wish to finish ?\",\"cancelLabel\":\"Cancel\",\"confirmLabel\":\"Finish\"},\"confirmRetry\":{\"header\":\"Retry ?\",\"body\":\"Are you sure you wish to retry ?\",\"cancelLabel\":\"Cancel\",\"confirmLabel\":\"Confirm\"},\"question\":\"<p>What is a chunk in R Markdown?<\\\/p>\\n\",\"media\":{\"disableImageZooming\":false}}","fullScreen":"0","exportUrl":"\/wp-content\/uploads\/h5p\/exports\/multiple-choice-7.h5p","embedCode":"<iframe src=\"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?action=h5p_embed&id=7\" width=\":w\" height=\":h\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"><\/iframe>","resizeCode":"<script src=\"https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-resizer.js\" charset=\"UTF-8\"><\/script>","url":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?action=h5p_embed&id=7","title":"multiple-choice","displayOptions":{"frame":false,"export":false,"embed":true,"copyright":false,"icon":false,"copy":false},"metadata":{"title":"multiple-choice","license":"U"},"contentUserData":[{"state":"{}"}],"scripts":["\/wp-content\/uploads\/h5p\/cachedassets\/bbb484ab91a596c1d881578ee3d99ab92df05f05.js","https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5pxapikatchu\/js\/h5pxapikatchu-listener.js?ver=0.4.2"],"styles":["\/wp-content\/uploads\/h5p\/cachedassets\/bbb484ab91a596c1d881578ee3d99ab92df05f05.css"]}}};</script><link rel='stylesheet' id='h5p-core-styles-h5p-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p.css?ver=1.15.0' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-confirmation-dialog-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-confirmation-dialog.css?ver=1.15.0' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-core-button-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-core-button.css?ver=1.15.0' media='all' />
+<script src='https://wp.sciviews.org/wp-includes/js/wp-embed.min.js?ver=5.4.1'></script>
+
+<!--
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+-->
+
+<script>
+var wpAJAXurl = "https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php";
+var debugEnabled = "0";
+var captureAllH5pContentTypes = "1";
+var h5pContentTypes = [""];
+</script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5pxapikatchu/js/h5pxapikatchu-variables.js?ver=0.4.2'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/jquery.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-event-dispatcher.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api-event.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-content-type.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-confirmation-dialog.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-action-bar.js?ver=1.15.0'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/request-queue.js?ver=1.15.0'></script>
+
+
 <iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a "drag words" widget:
@@ -148,6 +187,15 @@ Here is a "drag words" widget:
 Here is a video widget:
 
 <iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="780" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+Some text...
+
+<script>
+H5P.externalDispatcher.on('xAPI', function(event) {
+  // Handle the event here, the statement is within event.data.statement
+console.log(event.data.statement);
+});
+</script>
 
 ## Try to add Moodle content
 
