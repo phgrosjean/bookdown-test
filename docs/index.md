@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-05-20"
+date: "2020-05-25"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -23,7 +23,18 @@ cover-image: "images/front-cover.png"
 
 
 
-Contenu de cet ouvrage en bref...
+\BeginKnitrBlock{info}<div class="info">
+::: {#diagnostic}
+
+*Patientez s'il-vous-plait, diagnostic du système en cours...*
+
+<script>diagnoseSystem();</script>
+<noscript><b>Le diagnostic ne peut se terminer car Javascript ne fonctionne pas, or il est indispensable pour ce site ! Tout le contenu interactif et contextuel sera inutilisable. Veuillez activer Javascript, s'il-vous-plait...</b></noscript>
+
+:::
+</div>\EndKnitrBlock{info}
+
+This is just a demo of the various possibilities of our extended bookdown format.
 
 ![](images/front-cover.png)
 
@@ -51,7 +62,7 @@ sessioninfo::session_info()
 #  collate  en_US.UTF-8                 
 #  ctype    en_US.UTF-8                 
 #  tz       Europe/Brussels             
-#  date     2020-05-20                  
+#  date     2020-05-25                  
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
 #  package     * version    date       lib source                            

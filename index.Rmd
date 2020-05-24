@@ -27,7 +27,20 @@ knitr::opts_chunk$set(comment = "#", fig.align = "center")
 knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
 
-Contenu de cet ouvrage en bref...
+```{block2, type='info'}
+
+::: {#diagnostic}
+
+*Patientez s'il-vous-plait, diagnostic du système en cours...*
+
+<script>diagnoseSystem();</script>
+<noscript><b>Le diagnostic ne peut se terminer car Javascript ne fonctionne pas, or il est indispensable pour ce site ! Tout le contenu interactif et contextuel sera inutilisable. Veuillez activer Javascript, s'il-vous-plait...</b></noscript>
+
+:::
+
+```
+
+This is just a demo of the various possibilities of our extended bookdown format.
 
 ![](images/front-cover.png)
 

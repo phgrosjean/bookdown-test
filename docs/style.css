@@ -6,6 +6,14 @@
   display: block;
 }
 
+.sdd1 {
+  display: none;
+}
+
+.nocourse {
+  display: block;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;

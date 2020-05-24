@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-05-20" />
+<meta name="date" content="2020-05-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -57,20 +57,34 @@
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+//  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+//  results = regex.exec(url);
+//  if (!results) {
+    // Try to get the value from local storage
+    if (window.localStorage) {
+      return localStorage.getItem(name);
+    } else {
+      return '';
+    }
+//  }
+//  var value = '';
+//  if (results[2]) {
+//    value = decodeURIComponent(results[2].replace(/\+/g, " "));
+//    if (window.localStorage) {
+//      localStorage.setItem(name, value);
+//    }
+//    return value;
+//  }
 }
 // Collect parameters and store their values (as passed by Moodle)
-//var email       = getParameterByName('email');
-//var id          = getParameterByName('id');
-//var name        = getParameterByName('name');
-//var surname     = getParameterByName('surname');
+var iemail      = getParameterByName('iemail');
+//var iid         = getParameterByName('iid');
+//var ifirstname  = getParameterByName('ifirstname');
+//var ilastname   = getParameterByName('ilastname');
 var institution = getParameterByName('institution');
-//var course      = getParameterByName('course');
-//var ref         = getParameterByName('ref');
+var icourse     = getParameterByName('icourse');
+//var iurl        = getParameterByName('iurl');
+//var iref        = getParameterByName('iref');
 
 function showUMONS() {
   var elems = document.getElementsByClassName('UMONS');
@@ -98,16 +112,181 @@ function hideUMONS() {
   }
 }
 
+function showSdd1() {
+  var elems = document.getElementsByClassName('sdd1');
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = 'block';
+  }
+  var elems = document.getElementsByClassName('nocourse');
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = 'none';
+  }
+}
+
+function hideCourses() {
+  var elems = document.getElementsByClassName('sdd1');
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = 'none';
+  }
+  var elems = document.getElementsByClassName('nocourse');
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = 'block';
+  }
+}
+
 function processParameters() {
+  // Content related to an institution
   if (institution == 'UMONS') {
     showUMONS();
   } else {
     hideUMONS();
   }
+  // Content relative to a course
+  if (icourse == 'S-BIOG-006') {
+    showSdd1();
+  } else {// TODO: also process the other courses
+    hideCourses();
+  }
+
   // Process other parameters too here...
 }
 
 window.onload = processParameters;
+</script>
+
+<!-- System diagnostic -->
+<script>
+function clearStorage() {
+  localStorage.clear();
+  alert("Informations personnelles locales effacees !" +
+    "\nLa page va etre rechargee..." +
+    "\nSi vous avez un compte ouvert sur ce site, vous pouvez aussi effacer l'historique dans le tableau de bord." +
+    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).");
+  window.location.href=window.location.href;
+}
+
+function diagnoseSystem() {
+  var container = document.getElementById('diagnostic');
+  if (container === null) {
+    return;
+  }
+  var content = "";
+
+  if (!window.localStorage) {
+    content = content + "<p>Vous &ecirc;tes&nbsp;:</p>\n<ul>";
+    content = content + "\n<li>Anonyme sur ce site (stockage local indisponible).</li>";
+    content = content + "\n<li>Le contenu <b>n'est pas</b> contextualis&eacute; par rapport &agrave; un cours en particulier.</li>";
+    content = content + "\n<li>Le r&eacute;sultat de certains exercices <b>ne sera pas enregistr&eacute;</b>.</li>";
+    content = content + "\n</ul>";
+    content = content + "\n<p>Si vous n'&ecirc;tes <i>pas</i> un &eacute;tudiant qui suit un cours lié à ce mat&eacute;riel p&eacute;dagogique, c'est normal, vous pouvez continuer votre visite... <b>Bienvenue&nbsp;!</b></p>";
+    content = content + "\n<p>En revanche, si votre cours n&eacute;cessite que vous soyez d&ucirc;ment enregistr&eacute;, alors fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
+
+  } else {
+    // Explore the content of the storage
+    // Students are recognized by iemail (institutional email, or (local) email)
+    // but possibly, their login could be used too
+    var login = '';
+    var email = localStorage.getItem('iemail');
+    if (email === null || email == '') {
+      email = localStorage.getItem('email');
+    }
+    if (email === null || email == '') {
+      email = '';
+      login = localStorage.getItem('login');
+      if (login === null) {
+        login = '';
+      }
+    }
+
+    content = content + "<p><b>Le contenu de ce cours est contextuel.</b> V&eacute;rifiez les informations suivantes, s'il-vous-plait&nbsp;:</p>\n<ul>";
+
+    var registered = false;
+    if (email == '' && login == '') {
+      // Not registered
+      content = content + "\n<li><u>Vous &ecirc;tes anonyme sur ce site.</u> <b>Votre progression dans les exercices ne sera pas enregistr&eacute;e.</b></li>";
+
+    } else {
+      // Registered user
+      registered = true;
+      var msg = '';
+      if (email != '') {
+        msg = "Email&nbsp;: <u>" + email + "</u>";
+      } else {
+        msg = "Login&nbsp;: <u>" + login + "</u>";
+      }      content = content + "\n<li>" + msg + ". <b>Votre progression dans les exercices sera enregistr&eacute;e sous cette r&eacute;f&eacute;rence.</b></li>";
+    }
+
+    // institution and icourse possibly change the content. So, must be checked!
+    var context = false;
+    var institution = localStorage.getItem('institution');
+    if (institution == null || institution == '') {
+      institution = 'ind&eacute;termin&eacute;e';
+    } else {
+      context = true;
+    }
+    var icourse = localStorage.getItem('icourse');
+    if (icourse == null || icourse == '') {
+      icourse = 'ind&eacute;termin&eacute;';
+    } else {
+      context = true;
+    }
+    // Translate a few known courses (TODO: check the Moodle short names!)
+    if (icourse == "S-BIOG-006") {
+      icourse = "Science des donn&eacute;es I : visualisation et inf&eacute;rence (Bab2 Bio)";
+    }
+    if (icourse == "S-BIOG-007") {
+      icourse = "Science des donn&eacute;es II : analyse et mod&eacute;lisation (Bab3 Bio)";
+    }
+    if (icourse == "S-BIOG-008") {
+      icourse = "Science des donn&eacute;es III : exploration et pr&eacute;diction (Ma1 BBMC/BOE)";
+    }
+    if (icourse == "S-BIOG-009") {
+      icourse = "Science des donn&eacute;es IV : pratique (Ma2 BBMC/BOE)";
+    }
+    if (icourse == "S-BIOG-010") {
+      icourse = "Science des donn&eacute;es V : recherche reproductible (Ma2 BBMC/BOE)";
+    }
+    if (icourse == "S-BIOG-926") {
+      icourse = "Bio-informatique et science des donn&eacute;es I (Bab2 Bio Charleroi)";
+    }
+    if (icourse == "S-BIOG-940") {
+      icourse = "Bio-informatique et science des donn&eacute;es II (Bab3 Bio Charleroi)";
+    }
+
+    content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
+    content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
+    content = content + "\n</ul>";
+    if (context) {
+      content = content + "<p><b>Le contenu sera adapt&eacute; en fonction de ce contexte.</b> Vérifiez qu'il est correct, sinon fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
+    } else {// No context
+      content = content + "<p><b>N'&eacute;tant dans aucun contexte de cours particulier, vous n'aurez acc&egrave;s qu'&agrave un contenu g&eacute;n&eacute;raliste.</b> Si c'est ce que vous souhaitez... bienvenue&nbsp;! Sinon, fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
+    }
+
+    // If registered user and/or special context, offer to reset it
+    if (registered || context) {
+      content = content + "\n<p>Pour explorer ces pages de mani&egrave;re anonyme et n'enregistrer aucune activit&eacute;, vous pouvez &eacute;liminez vos informations personnelles en cliquant sur le bouton juste ci-dessous.</p>";
+      content = content + "<button onclick=\"clearStorage()\">Effacer mes donn&eacute;es personnelles</button>";
+    }
+
+    // TODO: message + button to reset infos
+
+    // Those variables are possibly defined, but they are not tested here (yet)
+    //var displayname = localStorage.getItem('displayname');
+    //var firstname = localStorage.getItem('firstname');
+    //var lastname = localStorage.getItem('lastname');
+    //var ifirstname = localStorage.getItem('ifirstname');
+    //var ilastname = localStorage.getItem('ilastname');
+    //var iid = localStorage.getItem('iid');
+    //var iurl = localStorage.getItem('iurl');
+    //var iref = localStorage.getItem('iref');
+  }
+
+  container.innerHTML = content;
+}
 </script>
 
 <!-- Show/hide R output as details -->

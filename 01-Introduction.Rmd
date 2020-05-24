@@ -80,17 +80,33 @@ In this example, two classes, `UMONS` and `noinstitution` allow to define sectio
 
 ----
 
-::: {class="UMONS"}
+::: {.UMONS}
 
 > **This content is _UMONS_-specific.**
 
 :::
 
-::: {class="noinstitution"}
+::: {.noinstitution}
 
 This content is displayed when the document is loaded outside of UMONS Moodle.
 
 It is also the default content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for the others, do that"). Distinction is made via the URL by detecting `?institution=UMONS`.
+
+:::
+
+----
+
+::: {.sdd1}
+
+> **This content is specific for the course S-BIOG-006 (Biological Data Science course I).**
+
+:::
+
+::: {.nocourse}
+
+This content is displayed when the document is loaded outside of a course context.
+
+It is also the default course content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for Charleroi students, do that..."). Distinction is made via the URL by detecting, e.g., `?icourse=S-BIOG-006`.
 
 :::
 
