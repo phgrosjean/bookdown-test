@@ -2,8 +2,14 @@
 
 # Introduction {#intro}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#", fig.align = "center")
+```{r setup, include=FALSE, cache=FALSE}
+knitr::read_chunk('setup.R')
+```
+
+```{r bookdown-setup, include=FALSE}
+```
+
+```{r bookdown-include, echo=FALSE, results='asis'}
 ```
 
 This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
@@ -96,9 +102,21 @@ It is also the default content on the web. So that one can provide viable altern
 
 ----
 
-::: {.sdd1}
+::: {.S-BIOG-006}
 
-> **This content is specific for the course S-BIOG-006 (Biological Data Science course I).**
+> **This content is specific for the course S-BIOG-006 (Biological Data Science course I, first part).**
+
+:::
+
+::: {.S-BIOG-921}
+
+> **This content is specific for the course S-BIOG-921 (Biological Data Science course I at Charleroi).**
+
+:::
+
+::: {.S-BIOG-027}
+
+> **This content is specific for the course S-BIOG-027 (Biological Data Science course I, second part).**
 
 :::
 
@@ -106,7 +124,7 @@ It is also the default content on the web. So that one can provide viable altern
 
 This content is displayed when the document is loaded outside of a course context.
 
-It is also the default course content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for Charleroi students, do that..."). Distinction is made via the URL by detecting, e.g., `?icourse=S-BIOG-006`.
+It is also the default course content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for Charleroi students, do that..."). Distinction is made via the URL by detecting, e.g., `?icourse=S-BIOG-006`. The calss that can be used are\ : `nocourse`, `sdd1m`, `sdd2m`, `sdd3m`, `sdd4m`, `sdd5m`, `sdd1c` or `sdd2c` for our various courses at UMONS.
 
 :::
 
@@ -131,20 +149,24 @@ A shiny application directly inside the book using an iframe. This application d
 
 ```{r include=FALSE}
 # This function is to be placed somewhere in a package
-launch_shiny <- function(name, url, img, width = 780, height = 500) {
-  glue::glue("\n<img onclick=\"launchApp('{name}', '{url}');\" src=\"{img}\" width=\"{width}\" height=\"{height}\" class=\"shiny-img\" id=\"img{name}\"/>
-<iframe width=\"{width}\" height=\"{height}\" frameborder=\"0\" scrolling=\"auto\" style=\"display:none\" class=\"shiny-app\" id=\"{name}\"></iframe>\n")
-}
+##launch_shiny <- function(name, url, img, width = 780, height = 500,
+##alt = "*Click to start the application.*") {
+##  res <- glue::glue("\n<img onclick=\"launchApp('{name}', '{url}');\" src=\"{img}\" width=\"{width}\" height=\"{height}\" class=\"shiny-img\" id=\"img{name}\"/>
+##<iframe width=\"{width}\" height=\"{height}\" frameborder=\"0\" scrolling=\"auto\" style=\"display:none\" class=\"shiny-app\" id=\"{name}\"></iframe>\n")
+##  if (!is.null(alt))
+##    res <- paste0(res, alt, "\n")
+##  res
+##}
 ```
 
-`r launch_shiny("app1", url = "https://phgrosjean.shinyapps.io/url-parameters/", img = "images/sdd1_01/app1.png", height=700)`
+`r launch_shiny("app1", url = "https://phgrosjean.shinyapps.io/url-parameters/", img = "images/sdd1_01/app1.png", height=700, alt = NULL)`
 *Cliquez pour lancer ou exécutez `BioDataScience::runApp("url-parameters")` dans la svbox2019.*
 
 ## Learnr with one exercise and one quizz
 
 A simple learnr document from `shinyapps.io`\ :
 
-`r launch_shiny("app2", url = "https://phgrosjean.shinyapps.io/learnr/", img = "images/sdd1_01/app2.png")`
+`r launch_shiny("app2", url = "https://phgrosjean.shinyapps.io/learnr/", img = "images/sdd1_01/app2.png", alt = NULL)`
 *Cliquez pour démarrer le learnr ou exécutez `BioDataScience::run("sdd1-01b")` dans la svbox2019.*
 
 ## A Coggle mind map
@@ -157,9 +179,9 @@ H5P content can be displayed in iframes. Here is an example of a multiple choice
 
 ```{r include=FALSE}
 # This function is to be placed somewhere in a package
-h5p <- function(id, width = 780, height = 500) {
-  glue::glue("\n<iframe src=\"https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id={id}\" width=\"{width}\" height=\"{height}\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\" class=\"h5p\"></iframe><script src=\"https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js\" charset=\"UTF-8\"></script>\n")
-}
+##h5p <- function(id, width = 780, height = 500) {
+##  glue::glue("\n<iframe ##src=\"https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id={id}\" width=\"{width}\" height=\"{height}\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\" class=\"h5p\"></iframe><script src=\"https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js\" charset=\"UTF-8\"></script>\n")
+##}
 ```
 
 `r h5p(7, height = 270)`

@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-05-25" />
+<meta name="date" content="2020-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,18 +54,19 @@
 <!-- Hide/show certain divs according to URL (UMONS or noinstitution) -->
 <script>
 // Parse the URL parameter
-function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, "\\$&");
+// TODO: allow or disallow update from the URL (through another variable?)
+///function getParameterByName(name, url) {
+///  if (!url) url = window.location.href;
+///  name = name.replace(/[\[\]]/g, "\\$&");
 //  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
 //  results = regex.exec(url);
 //  if (!results) {
     // Try to get the value from local storage
-    if (window.localStorage) {
-      return localStorage.getItem(name);
-    } else {
-      return '';
-    }
+///    if (window.localStorage) {
+///      return localStorage.getItem(name);
+///    } else {
+///      return '';
+///    }
 //  }
 //  var value = '';
 //  if (results[2]) {
@@ -75,100 +76,154 @@ function getParameterByName(name, url) {
 //    }
 //    return value;
 //  }
-}
+///}
 // Collect parameters and store their values (as passed by Moodle)
-var iemail      = getParameterByName('iemail');
+//var login       = getParameterByName('login');
+//var email       = getParameterByName('email');
+//var displayname = getParameterByName('displayname');
+//var firstname   = getParameterByName('firstname');
+//var lastname    = getParameterByName('lastname');
+///var iemail      = getParameterByName('iemail');
 //var iid         = getParameterByName('iid');
 //var ifirstname  = getParameterByName('ifirstname');
 //var ilastname   = getParameterByName('ilastname');
-var institution = getParameterByName('institution');
-var icourse     = getParameterByName('icourse');
+///var institution = getParameterByName('institution');
+///var icourse     = getParameterByName('icourse');
+///var ictitle     = getParameterByName('ictitle');
 //var iurl        = getParameterByName('iurl');
 //var iref        = getParameterByName('iref');
 
-function showUMONS() {
-  var elems = document.getElementsByClassName('UMONS');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-  var elems = document.getElementsByClassName('noinstitution');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-}
+///function toggleDisplay(item, target) {
+///  var style = item == target ? 'block' : 'none';
+///  var elems = document.getElementsByClassName(item);
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = style;
+///  }
+///}
 
-function hideUMONS() {
-  var elems = document.getElementsByClassName('UMONS');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-  var elems = document.getElementsByClassName('noinstitution');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-}
+///function toggleInstitution(name) {
+///  var elems = document.getElementsByClassName('institution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///  var elems = document.getElementsByClassName('noinstitution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///}
 
-function showSdd1() {
-  var elems = document.getElementsByClassName('sdd1');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-  var elems = document.getElementsByClassName('nocourse');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-}
+///function hideInstitution() {
+///  var elems = document.getElementsByClassName('institution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///  var elems = document.getElementsByClassName('noinstitution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///}
 
-function hideCourses() {
-  var elems = document.getElementsByClassName('sdd1');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-  var elems = document.getElementsByClassName('nocourse');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-}
 
-function processParameters() {
+///function toggleCourse(name) {
+  // Disable all courses except that one (and also disable nocourse)
+///  var elems = document.getElementsByClassName('nocourse');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///  changeCourse('sdd1m', name);
+///  changeCourse('sdd2m', name);
+///  changeCourse('sdd3m', name);
+///  changeCourse('sdd4m', name);
+///  changeCourse('sdd5m', name);
+///  changeCourse('sdd1c', name);
+///  changeCourse('sdd2c', name);
+///}
+
+///function hideCourses() {
+///  // Disable all courses and enable nocourse
+///  var elems = document.getElementsByClassName('nocourse');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///  changeCourse('sdd1m', '');
+///  changeCourse('sdd2m', '');
+///  changeCourse('sdd3m', '');
+///  changeCourse('sdd4m', '');
+///  changeCourse('sdd5m', '');
+///  changeCourse('sdd1c', '');
+///  changeCourse('sdd2c', '');
+///}
+
+///function processParameters() {
   // Content related to an institution
-  if (institution == 'UMONS') {
-    showUMONS();
-  } else {
-    hideUMONS();
-  }
+///  if (institution == 'UMONS') {
+///    showInstitution();
+///  } else {
+///    hideInstitution();
+///  }
   // Content relative to a course
-  if (icourse == 'S-BIOG-006') {
-    showSdd1();
-  } else {// TODO: also process the other courses
-    hideCourses();
-  }
+///  if (icourse == 'S-BIOG-006' || icourse == 'S-BIOG-027') {
+///    showCourse('sdd1m');
+///  } else if (icourse == 'S-BIOG-015' || icourse == 'S-BIOG-061') {
+///    showCourse('sdd2m');
+///  } else if (icourse == 'S-BIOG-025') {
+///    showCourse('sdd3m');
+///  } else if (icourse == 'S-BIOG-043') {
+///    showCourse('sdd4m');
+///  } else if (icourse == 'S-BIOG-077') {
+///    showCourse('sdd5m');
+///  } else if (icourse == 'S-BIOG-921') {
+///    showCourse('sdd1c');
+///  } else if (icourse == 'S-BIOG-940') {// TODO: check this!
+///    showCourse('sdd2c');
+///  } else {
+///    hideCourses();
+///  }
 
   // Process other parameters too here...
-}
+  // ...
+///}
 
-window.onload = processParameters;
+///function retargetLinks() {
+  // If displayed in an iframe, open external links into parent
+  // Adapted from Yihui Xie blog
+///  var links = document.getElementsByTagName('a');
+///  for (var i = 0; i < links.length; i++) {
+///    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+///      links[i].target != null) {
+///      links[i].target = '_parent';
+///    }
+///  }
+///};
+
+///window.onload = function() {processParameters(); retargetLinks();};
 </script>
 
 <!-- System diagnostic -->
 <script>
 function clearStorage() {
-  localStorage.clear();
-  alert("Informations personnelles locales effacees !" +
+  if (window.localStorage) {
+    localStorage.clear();
+  }
+  var msg = "Informations personnelles locales effacees !" +
     "\nLa page va etre rechargee..." +
-    "\nSi vous avez un compte ouvert sur ce site, vous pouvez aussi effacer l'historique dans le tableau de bord." +
-    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).");
+    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
+  if (window.self !== window.parent) {
+    parent.alert(msg);
+  } else {
+    window.alert(msg);
+  }
   window.location.href=window.location.href;
 }
 
+// TODO: compare both emails and issue an information message if they differ
 function diagnoseSystem() {
   var container = document.getElementById('diagnostic');
   if (container === null) {
@@ -235,27 +290,26 @@ function diagnoseSystem() {
       context = true;
     }
     // Translate a few known courses (TODO: check the Moodle short names!)
-    if (icourse == "S-BIOG-006") {
+    // TODO: better to get this from Moodle directly?
+    // TODO: these changes do not always work... why?
+    if (icourse == "S-BIOG-006")
       icourse = "Science des donn&eacute;es I : visualisation et inf&eacute;rence (Bab2 Bio)";
-    }
-    if (icourse == "S-BIOG-007") {
-      icourse = "Science des donn&eacute;es II : analyse et mod&eacute;lisation (Bab3 Bio)";
-    }
-    if (icourse == "S-BIOG-008") {
+    if (icourse == "S-BIOG-027")
+      icourse = "Science des donn&eacute;es I : inf&eacute;rence (Bab2 Bio)";
+    if (icourse == "S-BIOG-015")
+      icourse = "Science des donn&eacute;es II : mod&eacute;lisation et analyse (Bab3 Bio)";
+    if (icourse == "S-BIOG-061")
+      icourse = "Science des donn&eacute;es II : analyse (Bab3 Bio)";
+    if (icourse == "S-BIOG-025")
       icourse = "Science des donn&eacute;es III : exploration et pr&eacute;diction (Ma1 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-009") {
+    if (icourse == "S-BIOG-043")
       icourse = "Science des donn&eacute;es IV : pratique (Ma2 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-010") {
+    if (icourse == "S-BIOG-077")
       icourse = "Science des donn&eacute;es V : recherche reproductible (Ma2 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-926") {
+    if (icourse == "S-BIOG-921")
       icourse = "Bio-informatique et science des donn&eacute;es I (Bab2 Bio Charleroi)";
-    }
-    if (icourse == "S-BIOG-940") {
+    if (icourse == "S-BIOG-940") // TODO: to check!!!
       icourse = "Bio-informatique et science des donn&eacute;es II (Bab3 Bio Charleroi)";
-    }
 
     content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
     content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
@@ -311,58 +365,67 @@ function diagnoseSystem() {
 
 <!-- Pass URL arguments to iframe 'app' (embedded shiny app) & 'h5p' -->
 <script>
-var params = window.location.toString().split('?')[1];
-// Detect if we have the Sepia or Night theme
-if (document.getElementsByClassName('color-theme-1')) {
-  if (params === undefined) {
-    params = "theme=Sepia";
-  } else {
-    params = params + '&theme=Sepia';
-  }
-}
-if (document.getElementsByClassName('color-theme-22')) {
-  if (params === undefined) {
-    params = "theme=Night";
-  } else {
-    params = params + '&theme=Night';
-  }
+function encodeQueryParam(name, first = false) {
+  var value = localStorage.getItem(name);
+  if (value === null || value == '') return '';
+  var sep = first ? '' : '&';
+  return sep + encodeURIComponent(name) + '=' + encodeURIComponent(value);
 }
 
-if (params !== undefined) {
+function encodeQueryString() {
+  // We got data from localStorage. So, if no data, no query string!
+  if (!window.localStorage) return('');
+  query = encodeQueryParam('login', true);
+  query += encodeQueryParam('email') + encodeQueryParam('displayname');
+  query += encodeQueryParam('firstname') + encodeQueryParam('lastname');
+  query += encodeQueryParam('iemail') + encodeQueryParam('iid');
+  query += encodeQueryParam('ifirstname') + encodeQueryParam('ilastname');
+  query += encodeQueryParam('institution');
+  query += encodeQueryParam('icourse') + encodeQueryParam('ictitle');
+  query += encodeQueryParam('iurl') + encodeQueryParam('iref');
+  // Detect if we have the Sepia or Night theme
+  // TODO: refine this because it is *always* detected
+  //if (document.getElementsByClassName('color-theme-1')) {
+  //  if (query == '') {
+  //    query = 'theme=Sepia';
+  //  } else {
+  //    query += '&theme=Sepia';
+  //  }
+  //}
+  //if (document.getElementsByClassName('color-theme-22')) {
+  //  if (query == '') {
+  //    query = 'theme=Night';
+  //  } else {
+  //    query += '&theme=Night';
+  //  }
+  //}
+  return query;
+}
+
+//var params = window.location.toString().split('?')[1];
+var params = encodeQueryString();
+
+if (params !== undefined && params != '') {
   var apps = document.getElementsByClassName('app');
   for (i = 0; i < apps.length; i++) {
     var appitem = apps[i];
     appitem.src = appitem.src + '?' + params;
   }
 
-  var h5ps = document.getElementsByClassName('h5p');
-  for (i = 0; i < h5ps.length; i++) {
-    var h5pitem = h5ps[i];
-    h5pitem.src = h5pitem.src + '&' + params;
-  }
+  //var h5ps = document.getElementsByClassName('h5p');
+  //for (i = 0; i < h5ps.length; i++) {
+  //  var h5pitem = h5ps[i];
+  //  h5pitem.src = h5pitem.src + '&' + params;
+  //}
 }
 </script>
 
 <!-- Launch the app on click with URL parameters + theme -->
 <script>
 launchApp = function(id, src) {
-  var params = window.location.toString().split('?')[1];
-  // Detect if we have the Sepia or Night theme
-  if (document.getElementsByClassName('color-theme-1')[0]) {
-    if (params === undefined) {
-      params = "theme=Sepia";
-    } else {
-      params = params + '&theme=Sepia';
-    }
-  }
-  if (document.getElementsByClassName('color-theme-2')[0]) {
-    if (params === undefined) {
-      params = "theme=Night";
-    } else {
-      params = params + '&theme=Night';
-    }
-  }
-  if (params !== undefined) {
+  //var params = window.location.toString().split('?')[1];
+  var params = encodeQueryString();
+  if (params !== undefined && params != '') {
     src = src + '?' + params;
   }
   var img = document.getElementById('img' + id);
@@ -405,9 +468,9 @@ var h5pContentTypes = [""];
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -416,14 +479,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -435,7 +500,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -519,7 +584,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="svbox.html"><a href="svbox.html"><i class="fa fa-check"></i><b>A</b> Installation de la SciViews Box</a></li>
+<li class="chapter" data-level="A" data-path="install-tuto.html"><a href="install-tuto.html"><i class="fa fa-check"></i><b>A</b> Installation de la SciViews Box</a></li>
 <li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="http://biodatascience-course.sciviews.org">Site Web du cours</a></li>
@@ -561,17 +626,17 @@ Figure 4.1: Exemple de graphique en nuage de points. Des éléments essentiels s
 <li>les labels et les unités des axes (en bleu).</li>
 </ul>
 <p>Les instructions dans R pour produire un tel nuage de point sont :</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Chargement de SciViews::R</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">SciViews<span class="op">::</span>R</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># Importation du jeu de données</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">urchin &lt;-<span class="st"> </span><span class="kw">read</span>(<span class="st">&quot;urchin_bio&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;data.io&quot;</span>, <span class="dt">lang =</span> <span class="st">&quot;fr&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># This does not work???</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co">#DT::datatable(urchin , filter = &#39;top&#39;, class = c(&#39;compact&#39;, &#39;cell-border&#39;), </span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#              caption = &quot;Jeu de données sur la biométrie des oursins&quot;)</span></a></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Réalisation du graphique </span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">chart</span>(<span class="dt">data =</span> urchin, height <span class="op">~</span><span class="st"> </span>weight) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="nuage-de-points.html#cb9-1"></a><span class="co"># Chargement de SciViews::R</span></span>
+<span id="cb9-2"><a href="nuage-de-points.html#cb9-2"></a>SciViews<span class="op">::</span>R</span>
+<span id="cb9-3"><a href="nuage-de-points.html#cb9-3"></a><span class="co"># Importation du jeu de données</span></span>
+<span id="cb9-4"><a href="nuage-de-points.html#cb9-4"></a>urchin &lt;-<span class="st"> </span><span class="kw">read</span>(<span class="st">&quot;urchin_bio&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;data.io&quot;</span>, <span class="dt">lang =</span> <span class="st">&quot;fr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="nuage-de-points.html#cb10-1"></a><span class="co"># This does not work???</span></span>
+<span id="cb10-2"><a href="nuage-de-points.html#cb10-2"></a><span class="co">#DT::datatable(urchin , filter = &#39;top&#39;, class = c(&#39;compact&#39;, &#39;cell-border&#39;), </span></span>
+<span id="cb10-3"><a href="nuage-de-points.html#cb10-3"></a><span class="co">#              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),</span></span>
+<span id="cb10-4"><a href="nuage-de-points.html#cb10-4"></a><span class="co">#              caption = &quot;Jeu de données sur la biométrie des oursins&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="nuage-de-points.html#cb11-1"></a><span class="co"># Réalisation du graphique </span></span>
+<span id="cb11-2"><a href="nuage-de-points.html#cb11-2"></a><span class="kw">chart</span>(<span class="dt">data =</span> urchin, height <span class="op">~</span><span class="st"> </span>weight) <span class="op">+</span></span>
+<span id="cb11-3"><a href="nuage-de-points.html#cb11-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="04-nuage-point_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>La fonction <code>chart()</code> n’est pas accessible dans R de base, mais l’extension chargée via l’instruction <code>SciViews::R</code> rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (<code>data = urchin</code>, c’est un objet <code>dataframe</code> ou <code>tibble</code> dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l’axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un “tilde” (<code>~</code>). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter <code>height</code> en fonction de <code>weight</code>, la hauteur en fonction de la masse des oursins. Jusqu’ici, nous avons spécifié <em>ce que</em> nous voulons représenter, mais pas encore <em>comment</em> (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de … points ! Donc, nous devons ajouter la fonction <code>geom_point()</code> pour indiquer cela.</p>
 <div id="le-nuage-de-points-en-vidéo" class="section level3">
@@ -612,15 +677,15 @@ Figure 4.2: Piège du nuage de points. A) graphique initial montrant la variatio
 <div id="transformation-des-données" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Transformation des données</h3>
 <p>Vous avez la possibilité d’appliquer une transformation de vos données (il est même conseillé de le faire) afin qu’elles soient plus facilement analysables. Par exemple, il est possible d’utiliser des fonctions de puissance, racines, logarithmes, exponentielles<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> pour modifier l’apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d’analyser statistiquement des données qui s’alignent le long d’une droite). Par exemple, sur nos données de hauteurs et masses d’oursins, la transformation double-logarithmique (log(x) <em>et</em> log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Réalisation du graphique de la hauteur en fonction de la masse</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">a &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, height <span class="op">~</span><span class="st">  </span>weight) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># Application du logarithme sur les deux variables représentées</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">b &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, <span class="kw">log10</span>(height) <span class="op">~</span><span class="st">  </span><span class="kw">log10</span>(weight)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;log(Masse totale [g])&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;log(Hauteur du test [mm])&quot;</span>)</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co"># Assemblage des graphiques</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="kw">combine_charts</span>(<span class="kw">list</span>(a, b))</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="nuage-de-points.html#cb12-1"></a><span class="co"># Réalisation du graphique de la hauteur en fonction de la masse</span></span>
+<span id="cb12-2"><a href="nuage-de-points.html#cb12-2"></a>a &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, height <span class="op">~</span><span class="st">  </span>weight) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb12-3"><a href="nuage-de-points.html#cb12-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span>
+<span id="cb12-4"><a href="nuage-de-points.html#cb12-4"></a><span class="co"># Application du logarithme sur les deux variables représentées</span></span>
+<span id="cb12-5"><a href="nuage-de-points.html#cb12-5"></a>b &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, <span class="kw">log10</span>(height) <span class="op">~</span><span class="st">  </span><span class="kw">log10</span>(weight)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb12-6"><a href="nuage-de-points.html#cb12-6"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb12-7"><a href="nuage-de-points.html#cb12-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;log(Masse totale [g])&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;log(Hauteur du test [mm])&quot;</span>)</span>
+<span id="cb12-8"><a href="nuage-de-points.html#cb12-8"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb12-9"><a href="nuage-de-points.html#cb12-9"></a><span class="kw">combine_charts</span>(<span class="kw">list</span>(a, b))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
 <img src="04-nuage-point_files/figure-html/unnamed-chunk-10-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
 <p class="caption">
@@ -636,7 +701,7 @@ Figure 4.3: A) Hauteur [mm] en fonction de la masse [g] d’oursins violets. B) 
 </div>
 <div id="a-vous-de-jouer-1" class="section level5 unnumbered">
 <h5>A vous de jouer</h5>
-<p>Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom <a href="#classroom"><strong>??</strong></a>. Cette tâche est un travail <strong>individuel</strong>. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier <code>projects</code> de votre dossier partagé avec la SciViews Box <code>shared</code>. Vous aurez alors un nouveau projet RStudio <a href="#rs-projet"><strong>??</strong></a></p>
+<p>Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom. Cette tâche est un travail <strong>individuel</strong>. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier <code>projects</code> de votre dossier partagé avec la SciViews Box <code>shared</code>. Vous aurez alors un nouveau projet RStudio.</p>
 
 <div class="bdd">
 Les instructions R que vous expérimentez dans un learnR peuvent être employées également dans un script d’analyse. Sur base du jeu de données <code>urchin_bio</code>, explorez différents graphiques en nuages de points. Utilisez l’URL suivante pour accéder à votre tâche :
@@ -651,7 +716,7 @@ Les instructions R que vous expérimentez dans un learnR peuvent être employée
 </ul>
 </div>
 
-<p>Prêtez une attention toute particulière à l’organisation d’un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l’auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l’utilisation des scripts R dans l’annexe <a href="#script"><strong>??</strong></a>.</p>
+<p>Prêtez une attention toute particulière à l’organisation d’un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l’auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l’utilisation des scripts R dans l’annexe.</p>
 </div>
 <div id="pour-en-savoir-plus" class="section level5 unnumbered">
 <h5>Pour en savoir plus</h5>
@@ -678,8 +743,8 @@ Les instructions R que vous expérimentez dans un learnR peuvent être employée
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>Dans R, une <strong>formule</strong> permet de spécifier les variables avec lesquelles on souhaite travailler, et leur rôle. Par exemple ici, la variable <em>x</em> sur l’axe des abscisses et la variable <em>y</em> sur l’axe des ordonnées.<a href="nuage-de-points.html#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>Pour les proportions (<code>prop</code>) ou les pourcentages (<code>perc</code>) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : <span class="math inline">\(prop′ = \arcsin \sqrt{prop}\)</span> ou <span class="math inline">\(perc′ = \arcsin \sqrt{perc / 100}\)</span>.<a href="nuage-de-points.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Dans R, une <strong>formule</strong> permet de spécifier les variables avec lesquelles on souhaite travailler, et leur rôle. Par exemple ici, la variable <em>x</em> sur l’axe des abscisses et la variable <em>y</em> sur l’axe des ordonnées.<a href="nuage-de-points.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Pour les proportions (<code>prop</code>) ou les pourcentages (<code>perc</code>) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : <span class="math inline">\(prop′ = \arcsin \sqrt{prop}\)</span> ou <span class="math inline">\(perc′ = \arcsin \sqrt{perc / 100}\)</span>.<a href="nuage-de-points.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <div id="disqus_thread"></div>

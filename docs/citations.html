@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-05-25" />
+<meta name="date" content="2020-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,18 +54,19 @@
 <!-- Hide/show certain divs according to URL (UMONS or noinstitution) -->
 <script>
 // Parse the URL parameter
-function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, "\\$&");
+// TODO: allow or disallow update from the URL (through another variable?)
+///function getParameterByName(name, url) {
+///  if (!url) url = window.location.href;
+///  name = name.replace(/[\[\]]/g, "\\$&");
 //  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
 //  results = regex.exec(url);
 //  if (!results) {
     // Try to get the value from local storage
-    if (window.localStorage) {
-      return localStorage.getItem(name);
-    } else {
-      return '';
-    }
+///    if (window.localStorage) {
+///      return localStorage.getItem(name);
+///    } else {
+///      return '';
+///    }
 //  }
 //  var value = '';
 //  if (results[2]) {
@@ -75,100 +76,154 @@ function getParameterByName(name, url) {
 //    }
 //    return value;
 //  }
-}
+///}
 // Collect parameters and store their values (as passed by Moodle)
-var iemail      = getParameterByName('iemail');
+//var login       = getParameterByName('login');
+//var email       = getParameterByName('email');
+//var displayname = getParameterByName('displayname');
+//var firstname   = getParameterByName('firstname');
+//var lastname    = getParameterByName('lastname');
+///var iemail      = getParameterByName('iemail');
 //var iid         = getParameterByName('iid');
 //var ifirstname  = getParameterByName('ifirstname');
 //var ilastname   = getParameterByName('ilastname');
-var institution = getParameterByName('institution');
-var icourse     = getParameterByName('icourse');
+///var institution = getParameterByName('institution');
+///var icourse     = getParameterByName('icourse');
+///var ictitle     = getParameterByName('ictitle');
 //var iurl        = getParameterByName('iurl');
 //var iref        = getParameterByName('iref');
 
-function showUMONS() {
-  var elems = document.getElementsByClassName('UMONS');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-  var elems = document.getElementsByClassName('noinstitution');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-}
+///function toggleDisplay(item, target) {
+///  var style = item == target ? 'block' : 'none';
+///  var elems = document.getElementsByClassName(item);
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = style;
+///  }
+///}
 
-function hideUMONS() {
-  var elems = document.getElementsByClassName('UMONS');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-  var elems = document.getElementsByClassName('noinstitution');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-}
+///function toggleInstitution(name) {
+///  var elems = document.getElementsByClassName('institution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///  var elems = document.getElementsByClassName('noinstitution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///}
 
-function showSdd1() {
-  var elems = document.getElementsByClassName('sdd1');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-  var elems = document.getElementsByClassName('nocourse');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-}
+///function hideInstitution() {
+///  var elems = document.getElementsByClassName('institution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///  var elems = document.getElementsByClassName('noinstitution');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///}
 
-function hideCourses() {
-  var elems = document.getElementsByClassName('sdd1');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'none';
-  }
-  var elems = document.getElementsByClassName('nocourse');
-  for (i = 0; i < elems.length; i++) {
-    var elem = elems[i];
-    elem.style.display = 'block';
-  }
-}
 
-function processParameters() {
+///function toggleCourse(name) {
+  // Disable all courses except that one (and also disable nocourse)
+///  var elems = document.getElementsByClassName('nocourse');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'none';
+///  }
+///  changeCourse('sdd1m', name);
+///  changeCourse('sdd2m', name);
+///  changeCourse('sdd3m', name);
+///  changeCourse('sdd4m', name);
+///  changeCourse('sdd5m', name);
+///  changeCourse('sdd1c', name);
+///  changeCourse('sdd2c', name);
+///}
+
+///function hideCourses() {
+///  // Disable all courses and enable nocourse
+///  var elems = document.getElementsByClassName('nocourse');
+///  for (i = 0; i < elems.length; i++) {
+///    var elem = elems[i];
+///    elem.style.display = 'block';
+///  }
+///  changeCourse('sdd1m', '');
+///  changeCourse('sdd2m', '');
+///  changeCourse('sdd3m', '');
+///  changeCourse('sdd4m', '');
+///  changeCourse('sdd5m', '');
+///  changeCourse('sdd1c', '');
+///  changeCourse('sdd2c', '');
+///}
+
+///function processParameters() {
   // Content related to an institution
-  if (institution == 'UMONS') {
-    showUMONS();
-  } else {
-    hideUMONS();
-  }
+///  if (institution == 'UMONS') {
+///    showInstitution();
+///  } else {
+///    hideInstitution();
+///  }
   // Content relative to a course
-  if (icourse == 'S-BIOG-006') {
-    showSdd1();
-  } else {// TODO: also process the other courses
-    hideCourses();
-  }
+///  if (icourse == 'S-BIOG-006' || icourse == 'S-BIOG-027') {
+///    showCourse('sdd1m');
+///  } else if (icourse == 'S-BIOG-015' || icourse == 'S-BIOG-061') {
+///    showCourse('sdd2m');
+///  } else if (icourse == 'S-BIOG-025') {
+///    showCourse('sdd3m');
+///  } else if (icourse == 'S-BIOG-043') {
+///    showCourse('sdd4m');
+///  } else if (icourse == 'S-BIOG-077') {
+///    showCourse('sdd5m');
+///  } else if (icourse == 'S-BIOG-921') {
+///    showCourse('sdd1c');
+///  } else if (icourse == 'S-BIOG-940') {// TODO: check this!
+///    showCourse('sdd2c');
+///  } else {
+///    hideCourses();
+///  }
 
   // Process other parameters too here...
-}
+  // ...
+///}
 
-window.onload = processParameters;
+///function retargetLinks() {
+  // If displayed in an iframe, open external links into parent
+  // Adapted from Yihui Xie blog
+///  var links = document.getElementsByTagName('a');
+///  for (var i = 0; i < links.length; i++) {
+///    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+///      links[i].target != null) {
+///      links[i].target = '_parent';
+///    }
+///  }
+///};
+
+///window.onload = function() {processParameters(); retargetLinks();};
 </script>
 
 <!-- System diagnostic -->
 <script>
 function clearStorage() {
-  localStorage.clear();
-  alert("Informations personnelles locales effacees !" +
+  if (window.localStorage) {
+    localStorage.clear();
+  }
+  var msg = "Informations personnelles locales effacees !" +
     "\nLa page va etre rechargee..." +
-    "\nSi vous avez un compte ouvert sur ce site, vous pouvez aussi effacer l'historique dans le tableau de bord." +
-    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).");
+    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
+  if (window.self !== window.parent) {
+    parent.alert(msg);
+  } else {
+    window.alert(msg);
+  }
   window.location.href=window.location.href;
 }
 
+// TODO: compare both emails and issue an information message if they differ
 function diagnoseSystem() {
   var container = document.getElementById('diagnostic');
   if (container === null) {
@@ -235,27 +290,26 @@ function diagnoseSystem() {
       context = true;
     }
     // Translate a few known courses (TODO: check the Moodle short names!)
-    if (icourse == "S-BIOG-006") {
+    // TODO: better to get this from Moodle directly?
+    // TODO: these changes do not always work... why?
+    if (icourse == "S-BIOG-006")
       icourse = "Science des donn&eacute;es I : visualisation et inf&eacute;rence (Bab2 Bio)";
-    }
-    if (icourse == "S-BIOG-007") {
-      icourse = "Science des donn&eacute;es II : analyse et mod&eacute;lisation (Bab3 Bio)";
-    }
-    if (icourse == "S-BIOG-008") {
+    if (icourse == "S-BIOG-027")
+      icourse = "Science des donn&eacute;es I : inf&eacute;rence (Bab2 Bio)";
+    if (icourse == "S-BIOG-015")
+      icourse = "Science des donn&eacute;es II : mod&eacute;lisation et analyse (Bab3 Bio)";
+    if (icourse == "S-BIOG-061")
+      icourse = "Science des donn&eacute;es II : analyse (Bab3 Bio)";
+    if (icourse == "S-BIOG-025")
       icourse = "Science des donn&eacute;es III : exploration et pr&eacute;diction (Ma1 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-009") {
+    if (icourse == "S-BIOG-043")
       icourse = "Science des donn&eacute;es IV : pratique (Ma2 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-010") {
+    if (icourse == "S-BIOG-077")
       icourse = "Science des donn&eacute;es V : recherche reproductible (Ma2 BBMC/BOE)";
-    }
-    if (icourse == "S-BIOG-926") {
+    if (icourse == "S-BIOG-921")
       icourse = "Bio-informatique et science des donn&eacute;es I (Bab2 Bio Charleroi)";
-    }
-    if (icourse == "S-BIOG-940") {
+    if (icourse == "S-BIOG-940") // TODO: to check!!!
       icourse = "Bio-informatique et science des donn&eacute;es II (Bab3 Bio Charleroi)";
-    }
 
     content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
     content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
@@ -311,58 +365,67 @@ function diagnoseSystem() {
 
 <!-- Pass URL arguments to iframe 'app' (embedded shiny app) & 'h5p' -->
 <script>
-var params = window.location.toString().split('?')[1];
-// Detect if we have the Sepia or Night theme
-if (document.getElementsByClassName('color-theme-1')) {
-  if (params === undefined) {
-    params = "theme=Sepia";
-  } else {
-    params = params + '&theme=Sepia';
-  }
-}
-if (document.getElementsByClassName('color-theme-22')) {
-  if (params === undefined) {
-    params = "theme=Night";
-  } else {
-    params = params + '&theme=Night';
-  }
+function encodeQueryParam(name, first = false) {
+  var value = localStorage.getItem(name);
+  if (value === null || value == '') return '';
+  var sep = first ? '' : '&';
+  return sep + encodeURIComponent(name) + '=' + encodeURIComponent(value);
 }
 
-if (params !== undefined) {
+function encodeQueryString() {
+  // We got data from localStorage. So, if no data, no query string!
+  if (!window.localStorage) return('');
+  query = encodeQueryParam('login', true);
+  query += encodeQueryParam('email') + encodeQueryParam('displayname');
+  query += encodeQueryParam('firstname') + encodeQueryParam('lastname');
+  query += encodeQueryParam('iemail') + encodeQueryParam('iid');
+  query += encodeQueryParam('ifirstname') + encodeQueryParam('ilastname');
+  query += encodeQueryParam('institution');
+  query += encodeQueryParam('icourse') + encodeQueryParam('ictitle');
+  query += encodeQueryParam('iurl') + encodeQueryParam('iref');
+  // Detect if we have the Sepia or Night theme
+  // TODO: refine this because it is *always* detected
+  //if (document.getElementsByClassName('color-theme-1')) {
+  //  if (query == '') {
+  //    query = 'theme=Sepia';
+  //  } else {
+  //    query += '&theme=Sepia';
+  //  }
+  //}
+  //if (document.getElementsByClassName('color-theme-22')) {
+  //  if (query == '') {
+  //    query = 'theme=Night';
+  //  } else {
+  //    query += '&theme=Night';
+  //  }
+  //}
+  return query;
+}
+
+//var params = window.location.toString().split('?')[1];
+var params = encodeQueryString();
+
+if (params !== undefined && params != '') {
   var apps = document.getElementsByClassName('app');
   for (i = 0; i < apps.length; i++) {
     var appitem = apps[i];
     appitem.src = appitem.src + '?' + params;
   }
 
-  var h5ps = document.getElementsByClassName('h5p');
-  for (i = 0; i < h5ps.length; i++) {
-    var h5pitem = h5ps[i];
-    h5pitem.src = h5pitem.src + '&' + params;
-  }
+  //var h5ps = document.getElementsByClassName('h5p');
+  //for (i = 0; i < h5ps.length; i++) {
+  //  var h5pitem = h5ps[i];
+  //  h5pitem.src = h5pitem.src + '&' + params;
+  //}
 }
 </script>
 
 <!-- Launch the app on click with URL parameters + theme -->
 <script>
 launchApp = function(id, src) {
-  var params = window.location.toString().split('?')[1];
-  // Detect if we have the Sepia or Night theme
-  if (document.getElementsByClassName('color-theme-1')[0]) {
-    if (params === undefined) {
-      params = "theme=Sepia";
-    } else {
-      params = params + '&theme=Sepia';
-    }
-  }
-  if (document.getElementsByClassName('color-theme-2')[0]) {
-    if (params === undefined) {
-      params = "theme=Night";
-    } else {
-      params = params + '&theme=Night';
-    }
-  }
-  if (params !== undefined) {
+  //var params = window.location.toString().split('?')[1];
+  var params = encodeQueryString();
+  if (params !== undefined && params != '') {
     src = src + '?' + params;
   }
   var img = document.getElementById('img' + id);
@@ -405,9 +468,9 @@ var h5pContentTypes = [""];
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -416,14 +479,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -435,7 +500,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -519,7 +584,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="svbox.html"><a href="svbox.html"><i class="fa fa-check"></i><b>A</b> Installation de la SciViews Box</a></li>
+<li class="chapter" data-level="A" data-path="install-tuto.html"><a href="install-tuto.html"><i class="fa fa-check"></i><b>A</b> Installation de la SciViews Box</a></li>
 <li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="http://biodatascience-course.sciviews.org">Site Web du cours</a></li>
@@ -546,7 +611,7 @@ code span.wa { color: #bf0303; } /* Warning */
             <section class="normal" id="section-">
 <div id="citations" class="section level2">
 <h2><span class="header-section-number">1.2</span> Citations</h2>
-<p>You can reference citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2020</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+<p>You can reference citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2020</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015" role="doc-biblioref">2015</a>)</span>.</p>
 </div>
 <h3>Références</h3>
 <div id="refs" class="references">

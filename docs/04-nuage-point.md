@@ -3,6 +3,115 @@
 
 
 
+
+<style>
+.UMONS {
+  display: none;
+}
+
+.noinstitution {
+  display: block;
+}
+
+.S-BIOG-006 .S-BIOG-027 .S-BIOG-921 {
+  display: none;
+}
+
+.nocourse {
+  display: block;
+}
+
+summary {
+  background:  #f5f5f5;
+  border: 1px solid #ccc;
+}
+</style>
+
+<script>
+function getParameterByName(name, url) {
+  name = name.replace(/[\[\]]/g,"\\$&");
+  // Try to get the value from local storage
+  if (window.localStorage) {
+    return localStorage.getItem(name);
+  } else {
+    return '';
+  }
+}
+
+// Collect parameters and store their values (as passed by Moodle/Wordpress)
+var login       = getParameterByName('login');
+var email       = getParameterByName('email');
+var displayname = getParameterByName('displayname');
+var firstname   = getParameterByName('firstname');
+var lastname    = getParameterByName('lastname');
+var iemail      = getParameterByName('iemail');
+var iid         = getParameterByName('iid');
+var ifirstname  = getParameterByName('ifirstname');
+var ilastname   = getParameterByName('ilastname');
+var institution = getParameterByName('institution');
+var icourse     = getParameterByName('icourse');
+var ictitle     = getParameterByName('ictitle');
+var iurl        = getParameterByName('iurl');
+var iref        = getParameterByName('iref');
+
+let institutions = ['UMONS', 'noinstitution'];
+let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+
+function toggleDisplay(item, target) {
+  var style = item == target ? 'block' : 'none';
+  var elems = document.getElementsByClassName(item);
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = style;
+  }
+}
+
+function toggleInstitution(name) {
+  // Disable all institutions except that one
+  // Since they are already all hidden, just reenable it and hide noinstitution
+  toggleDisplay('noinstitution', name);
+  toggleDisplay(name, name);
+}
+
+function toggleCourse(name) {
+  // Disable all courses except that one
+  // Since they are already all hidden, just reenable it and hide nocourse
+  toggleDisplay('nocourse', name);
+  toggleDisplay(name, name);
+}
+
+function processParameters() {
+  // Content related to an institution
+  if (institution !== null) {
+    toggleInstitution(institution);
+  }
+  // Content relative to a course
+  if (icourse !== null) {
+    toggleCourse(icourse);
+  }
+  // Process other parameters too here...
+  // ...
+}
+
+
+function retargetLinks() {
+  // If displayed in an iframe, open external links into parent
+  // Adapted from Yihui Xie blog
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+      links[i].target != null) {
+      links[i].target = '_parent';
+    }
+  }
+};
+
+window.onload = function() {processParameters(); retargetLinks();};
+</script>
+
+<noscript>Please enable JavaScript for learndown extra features.</a></noscript>
+
+
 ##### Objectifs {-}
 
 - Découvrir --et vous émerveiller de--  ce que l'on peut faire avec le [logiciel R](http://www.r-project.org) [@R-base]
@@ -21,7 +130,7 @@ Si ce n'est déjà fait, vous devez installer et vous familiariser avec la 'SciV
 
 <iframe src="https://h5p.org/h5p/embed/453026" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
 
-Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels^[Reportez-vous à l'Appendice \@ref(learnr) pour apprendre à utiliser ces tutoriels.].
+Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels^[Reportez-vous à l'Annexe pour apprendre à utiliser ces tutoriels.].
 
 \BeginKnitrBlock{bdd}<div class="bdd">Démarrez la SciViews Box et RStudio. Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel concernant les bases de R :
 
@@ -155,7 +264,7 @@ Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver
 
 ##### A vous de jouer {-}
 
-Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **individuel**. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet)
+Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom. Cette tâche est un travail **individuel**. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio.
 
 \BeginKnitrBlock{bdd}<div class="bdd">Les instructions R que vous expérimentez dans un learnR peuvent être employées également dans un script d'analyse. Sur base du jeu de données `urchin_bio`, explorez différents graphiques en nuages de points. Utilisez l'URL suivante pour accéder à votre tâche\ :
 - <https://classroom.github.com/a/eYrXLy_u></div>\EndKnitrBlock{bdd}
@@ -165,7 +274,7 @@ Inspirez-vous du script dans le dépôt `sdd1_iris`. Vous devez commencer par fa
 
 - <https://github.com/BioDataScience-Course/sdd1_iris>
 </div>\EndKnitrBlock{bdd}
-Prêtez une attention toute particulière à l'organisation d'un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l'auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l'utilisation des scripts R dans l'annexe \@ref(script).
+Prêtez une attention toute particulière à l'organisation d'un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l'auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l'utilisation des scripts R dans l'annexe.
 
 
 ##### Pour en savoir plus {-}
@@ -211,7 +320,7 @@ Les balises spéciales R Markdown à retenir sont les suivantes :
 - en entrée de chunk R : ```` ```{r} ```` seul sur une ligne. Il est aussi possible de rajouter un nom, par exemple, ```` ```{r graphique1} ```` et/ou des options, par exemple, ```` ```{r, echo=FALSE, results='hide'} ```` pour cacher et le code et le résultat dans le rapport),
 - en sortie de chunk R : ```` ``` ```` seul sur une ligne.
 
-Vous devez bien entendu avoir autant de balises d'entrée que de balises de sortie. Des explications plus détaillées se trouvent dans l'annexe \@ref(Rmd) dédiée au R Markdown. De plus, l'écriture d'un rapport d'analyse scientifique doit respecter certaines conventions. Vous trouverez des explications à ce sujet dans l'annexe \@ref(redaction-scientifique).
+Vous devez bien entendu avoir autant de balises d'entrée que de balises de sortie. Des explications plus détaillées se trouvent dans l'annexe dédiée au R Markdown. De plus, l'écriture d'un rapport d'analyse scientifique doit respecter certaines conventions. Vous trouverez des explications à ce sujet dans l'annexe.
 
 \BeginKnitrBlock{note}<div class="note">Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez commencer d'emblée avec un R Markdown/R Notebook et écrire vos instructions R directement dedans. Il vous est toujours possible d'exécuter ces instructions ligne après ligne dans la fenêtre **Console** pour les tester tout comme à partir d'un script R.</div>\EndKnitrBlock{note}
 
@@ -247,7 +356,7 @@ Votre objectif est de comprendre les données proposées, en utilisant des visua
 
 - Flux de travail "classique" en biologie (Microsoft Excel et Word) comparé à R et R Markdown.
 
-Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **en équipe**. Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`.
+Une nouvelle tâche va vous être demandée ci-dessous en utilisant GitHub Classroom. Cette tâche est un travail **en équipe**. Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`.
 
 \BeginKnitrBlock{bdd}<div class="bdd">Comparez le workflow classique en biologie via Microsoft Office avec l'utilisation de R - R Markdown en suivant les explications dans le fichier `README.md`du dépôt accessible depuis\ :
 - <https://classroom.github.com/g/2Cii2dws></div>\EndKnitrBlock{bdd}

@@ -4,6 +4,115 @@
 
 
 
+
+
+<style>
+.UMONS {
+  display: none;
+}
+
+.noinstitution {
+  display: block;
+}
+
+.S-BIOG-006 .S-BIOG-027 .S-BIOG-921 {
+  display: none;
+}
+
+.nocourse {
+  display: block;
+}
+
+summary {
+  background:  #f5f5f5;
+  border: 1px solid #ccc;
+}
+</style>
+
+<script>
+function getParameterByName(name, url) {
+  name = name.replace(/[\[\]]/g,"\\$&");
+  // Try to get the value from local storage
+  if (window.localStorage) {
+    return localStorage.getItem(name);
+  } else {
+    return '';
+  }
+}
+
+// Collect parameters and store their values (as passed by Moodle/Wordpress)
+var login       = getParameterByName('login');
+var email       = getParameterByName('email');
+var displayname = getParameterByName('displayname');
+var firstname   = getParameterByName('firstname');
+var lastname    = getParameterByName('lastname');
+var iemail      = getParameterByName('iemail');
+var iid         = getParameterByName('iid');
+var ifirstname  = getParameterByName('ifirstname');
+var ilastname   = getParameterByName('ilastname');
+var institution = getParameterByName('institution');
+var icourse     = getParameterByName('icourse');
+var ictitle     = getParameterByName('ictitle');
+var iurl        = getParameterByName('iurl');
+var iref        = getParameterByName('iref');
+
+let institutions = ['UMONS', 'noinstitution'];
+let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+
+function toggleDisplay(item, target) {
+  var style = item == target ? 'block' : 'none';
+  var elems = document.getElementsByClassName(item);
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = style;
+  }
+}
+
+function toggleInstitution(name) {
+  // Disable all institutions except that one
+  // Since they are already all hidden, just reenable it and hide noinstitution
+  toggleDisplay('noinstitution', name);
+  toggleDisplay(name, name);
+}
+
+function toggleCourse(name) {
+  // Disable all courses except that one
+  // Since they are already all hidden, just reenable it and hide nocourse
+  toggleDisplay('nocourse', name);
+  toggleDisplay(name, name);
+}
+
+function processParameters() {
+  // Content related to an institution
+  if (institution !== null) {
+    toggleInstitution(institution);
+  }
+  // Content relative to a course
+  if (icourse !== null) {
+    toggleCourse(icourse);
+  }
+  // Process other parameters too here...
+  // ...
+}
+
+
+function retargetLinks() {
+  // If displayed in an iframe, open external links into parent
+  // Adapted from Yihui Xie blog
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+      links[i].target != null) {
+      links[i].target = '_parent';
+    }
+  }
+};
+
+window.onload = function() {processParameters(); retargetLinks();};
+</script>
+
+<noscript>Please enable JavaScript for learndown extra features.</a></noscript>
+
 This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
 [SciViews](http://www.sciviews.org)
@@ -133,9 +242,21 @@ It is also the default content on the web. So that one can provide viable altern
 
 ----
 
-::: {.sdd1}
+::: {.S-BIOG-006}
 
-> **This content is specific for the course S-BIOG-006 (Biological Data Science course I).**
+> **This content is specific for the course S-BIOG-006 (Biological Data Science course I, first part).**
+
+:::
+
+::: {.S-BIOG-921}
+
+> **This content is specific for the course S-BIOG-921 (Biological Data Science course I at Charleroi).**
+
+:::
+
+::: {.S-BIOG-027}
+
+> **This content is specific for the course S-BIOG-027 (Biological Data Science course I, second part).**
 
 :::
 
@@ -143,7 +264,7 @@ It is also the default content on the web. So that one can provide viable altern
 
 This content is displayed when the document is loaded outside of a course context.
 
-It is also the default course content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for Charleroi students, do that..."). Distinction is made via the URL by detecting, e.g., `?icourse=S-BIOG-006`.
+It is also the default course content on the web. So that one can provide viable alternatives to exercices outside of the UMONS context in a transparent way (no need any more to indicate "for UMONS students, do this, for Charleroi students, do that..."). Distinction is made via the URL by detecting, e.g., `?icourse=S-BIOG-006`. The calss that can be used are\ : `nocourse`, `sdd1m`, `sdd2m`, `sdd3m`, `sdd4m`, `sdd5m`, `sdd1c` or `sdd2c` for our various courses at UMONS.
 
 :::
 

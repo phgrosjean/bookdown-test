@@ -1,10 +1,17 @@
 # (APPENDIX) Appendices {-}
 
 
-# Installation de la SciViews Box {#svbox}
+# Installation de la SciViews Box {#install-tuto}
 
-```{r echo=FALSE, out.width="256px", fig.align='right'}
-knitr::include_graphics('images/sdd1_01/svBox-256.png')
+```{r setup, include=FALSE, cache=FALSE}
+knitr::read_chunk('setup.R')
 ```
+
+```{r bookdown-setup, include=FALSE}
+```
+
+```{r bookdown-include, echo=FALSE, results='asis'}
+```
+
 
 ...

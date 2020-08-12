@@ -7,8 +7,8 @@ output:
   bookdown::gitbook:
     info: yes
     includes:
-      in_header: h5p.html
-      after_body: disqus.html
+      in_header: header.html
+      after_body: footer.html
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -21,10 +21,16 @@ cover-image: "images/front-cover.png"
 
 # Préambule {-}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#", fig.align = "center")
+```{r setup, include=FALSE, cache=FALSE}
+knitr::read_chunk('setup.R')
 # Automatically create a bib database for R packages
 knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
+```
+
+```{r bookdown-setup, include=FALSE}
+```
+
+```{r bookdown-include, echo=FALSE, results='asis'}
 ```
 
 ```{block2, type='info'}
