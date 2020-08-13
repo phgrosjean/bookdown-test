@@ -22,16 +22,22 @@ cover-image: "images/front-cover.png"
 # Préambule {-}
 
 ```{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-# Automatically create a bib database for R packages
 knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
 
-```{r bookdown-setup, include=FALSE}
-```
+<!--
+``{r setup, include=FALSE, cache=FALSE}
+knitr::read_chunk('setup.R')
+# Automatically create a bib database for R packages
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
+``
 
-```{r bookdown-include, echo=FALSE, results='asis'}
-```
+``{r bookdown-setup, include=FALSE}
+``
+
+``{r bookdown-include, echo=FALSE, results='asis'}
+``
+-->
 
 ```{block2, type='info'}
 

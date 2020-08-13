@@ -3,15 +3,16 @@
 
 # Installation de la SciViews Box {#install-tuto}
 
-```{r setup, include=FALSE, cache=FALSE}
+<!--
+``{r setup, include=FALSE, cache=FALSE}
 knitr::read_chunk('setup.R')
-```
+``
 
-```{r bookdown-setup, include=FALSE}
-```
+``{r bookdown-setup, include=FALSE}
+``
 
-```{r bookdown-include, echo=FALSE, results='asis'}
-```
-
+``{r bookdown-include, echo=FALSE, results='asis'}
+``
+-->
 
 ...

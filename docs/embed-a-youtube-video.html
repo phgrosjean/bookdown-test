@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.11 Embed a youtube video | A Test Bookdown Book</title>
+  <title>1.10 Embed a youtube video | A Test Bookdown Book</title>
   <meta name="description" content="Tutoriel interactif pour la science des données avec R &amp; SciViews-R." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.11 Embed a youtube video | A Test Bookdown Book" />
+  <meta property="og:title" content="1.10 Embed a youtube video | A Test Bookdown Book" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://phgrosjean.sciviews.org/bookdown-test/" />
   <meta property="og:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="phgrosjean/bookdown-test" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.11 Embed a youtube video | A Test Bookdown Book" />
+  <meta name="twitter:title" content="1.10 Embed a youtube video | A Test Bookdown Book" />
   
   <meta name="twitter:description" content="Tutoriel interactif pour la science des données avec R &amp; SciViews-R." />
   <meta name="twitter:image" content="http://phgrosjean.sciviews.org/bookdown-test/images/front-cover.png" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-08-12" />
+<meta name="date" content="2020-08-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,161 +50,185 @@
 
 
 
-
-<!-- Hide/show certain divs according to URL (UMONS or noinstitution) -->
 <script>
-// Parse the URL parameter
-// TODO: allow or disallow update from the URL (through another variable?)
-///function getParameterByName(name, url) {
-///  if (!url) url = window.location.href;
-///  name = name.replace(/[\[\]]/g, "\\$&");
-//  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-//  results = regex.exec(url);
-//  if (!results) {
-    // Try to get the value from local storage
-///    if (window.localStorage) {
-///      return localStorage.getItem(name);
-///    } else {
-///      return '';
-///    }
-//  }
-//  var value = '';
-//  if (results[2]) {
-//    value = decodeURIComponent(results[2].replace(/\+/g, " "));
-//    if (window.localStorage) {
-//      localStorage.setItem(name, value);
-//    }
-//    return value;
-//  }
-///}
-// Collect parameters and store their values (as passed by Moodle)
-//var login       = getParameterByName('login');
-//var email       = getParameterByName('email');
-//var displayname = getParameterByName('displayname');
-//var firstname   = getParameterByName('firstname');
-//var lastname    = getParameterByName('lastname');
-///var iemail      = getParameterByName('iemail');
-//var iid         = getParameterByName('iid');
-//var ifirstname  = getParameterByName('ifirstname');
-//var ilastname   = getParameterByName('ilastname');
-///var institution = getParameterByName('institution');
-///var icourse     = getParameterByName('icourse');
-///var ictitle     = getParameterByName('ictitle');
-//var iurl        = getParameterByName('iurl');
-//var iref        = getParameterByName('iref');
+function getParameterByName(name, url) {
+  name = name.replace(/[\[\]]/g,"\\$&");
+  // Try to get the value from local storage
+  if (window.localStorage) {
+    return localStorage.getItem(name);
+  } else {
+    return '';
+  }
+}
 
-///function toggleDisplay(item, target) {
-///  var style = item == target ? 'block' : 'none';
-///  var elems = document.getElementsByClassName(item);
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = style;
-///  }
-///}
+// Collect parameters and store their values (as passed by Moodle/Wordpress)
+var login       = getParameterByName('login');
+var email       = getParameterByName('email');
+var displayname = getParameterByName('displayname');
+var firstname   = getParameterByName('firstname');
+var lastname    = getParameterByName('lastname');
+var iemail      = getParameterByName('iemail');
+var iid         = getParameterByName('iid');
+var ifirstname  = getParameterByName('ifirstname');
+var ilastname   = getParameterByName('ilastname');
+var institution = getParameterByName('institution');
+var icourse     = getParameterByName('icourse');
+var ictitle     = getParameterByName('ictitle');
+var iurl        = getParameterByName('iurl');
+var iref        = getParameterByName('iref');
 
-///function toggleInstitution(name) {
-///  var elems = document.getElementsByClassName('institution');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'block';
-///  }
-///  var elems = document.getElementsByClassName('noinstitution');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'none';
-///  }
-///}
+let institutions = ['UMONS', 'noinstitution'];
+let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
 
-///function hideInstitution() {
-///  var elems = document.getElementsByClassName('institution');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'none';
-///  }
-///  var elems = document.getElementsByClassName('noinstitution');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'block';
-///  }
-///}
+function toggleDisplay(item, target) {
+  var style = item == target ? 'block' : 'none';
+  var elems = document.getElementsByClassName(item);
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = style;
+  }
+}
 
+function toggleInstitution(name) {
+  // Disable all institutions except that one
+  // Since they are already all hidden, just reenable it and hide noinstitution
+  toggleDisplay('noinstitution', name);
+  toggleDisplay(name, name);
+}
 
-///function toggleCourse(name) {
-  // Disable all courses except that one (and also disable nocourse)
-///  var elems = document.getElementsByClassName('nocourse');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'none';
-///  }
-///  changeCourse('sdd1m', name);
-///  changeCourse('sdd2m', name);
-///  changeCourse('sdd3m', name);
-///  changeCourse('sdd4m', name);
-///  changeCourse('sdd5m', name);
-///  changeCourse('sdd1c', name);
-///  changeCourse('sdd2c', name);
-///}
+function toggleCourse(name) {
+  // Disable all courses except that one
+  // Since they are already all hidden, just reenable it and hide nocourse
+  toggleDisplay('nocourse', name);
+  toggleDisplay(name, name);
+}
 
-///function hideCourses() {
-///  // Disable all courses and enable nocourse
-///  var elems = document.getElementsByClassName('nocourse');
-///  for (i = 0; i < elems.length; i++) {
-///    var elem = elems[i];
-///    elem.style.display = 'block';
-///  }
-///  changeCourse('sdd1m', '');
-///  changeCourse('sdd2m', '');
-///  changeCourse('sdd3m', '');
-///  changeCourse('sdd4m', '');
-///  changeCourse('sdd5m', '');
-///  changeCourse('sdd1c', '');
-///  changeCourse('sdd2c', '');
-///}
-
-///function processParameters() {
+function processParameters() {
   // Content related to an institution
-///  if (institution == 'UMONS') {
-///    showInstitution();
-///  } else {
-///    hideInstitution();
-///  }
+  if (institution !== null) {
+    toggleInstitution(institution);
+  }
   // Content relative to a course
-///  if (icourse == 'S-BIOG-006' || icourse == 'S-BIOG-027') {
-///    showCourse('sdd1m');
-///  } else if (icourse == 'S-BIOG-015' || icourse == 'S-BIOG-061') {
-///    showCourse('sdd2m');
-///  } else if (icourse == 'S-BIOG-025') {
-///    showCourse('sdd3m');
-///  } else if (icourse == 'S-BIOG-043') {
-///    showCourse('sdd4m');
-///  } else if (icourse == 'S-BIOG-077') {
-///    showCourse('sdd5m');
-///  } else if (icourse == 'S-BIOG-921') {
-///    showCourse('sdd1c');
-///  } else if (icourse == 'S-BIOG-940') {// TODO: check this!
-///    showCourse('sdd2c');
-///  } else {
-///    hideCourses();
-///  }
-
+  if (icourse !== null) {
+    toggleCourse(icourse);
+  }
   // Process other parameters too here...
   // ...
-///}
+}
 
-///function retargetLinks() {
+
+function retargetLinks() {
   // If displayed in an iframe, open external links into parent
   // Adapted from Yihui Xie blog
-///  var links = document.getElementsByTagName('a');
-///  for (var i = 0; i < links.length; i++) {
-///    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
-///      links[i].target != null) {
-///      links[i].target = '_parent';
-///    }
-///  }
-///};
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+      links[i].target != null) {
+      links[i].target = '_parent';
+    }
+  }
+};
 
-///window.onload = function() {processParameters(); retargetLinks();};
+window.onload = function() {processParameters(); retargetLinks();};
+
+function encodeQueryParam(name, first = false) {
+  var value = localStorage.getItem(name);
+  if (value === null || value == '') return '';
+  var sep = first ? '' : '&';
+  return sep + encodeURIComponent(name) + '=' + encodeURIComponent(value);
+}
+
+function encodeQueryString() {
+  // We got data from localStorage. So, if no data, no query string!
+  if (!window.localStorage) return('');
+  query = encodeQueryParam('login', true);
+  query += encodeQueryParam('email') + encodeQueryParam('displayname');
+  query += encodeQueryParam('firstname') + encodeQueryParam('lastname');
+  query += encodeQueryParam('iemail') + encodeQueryParam('iid');
+  query += encodeQueryParam('ifirstname') + encodeQueryParam('ilastname');
+  query += encodeQueryParam('institution');
+  query += encodeQueryParam('icourse') + encodeQueryParam('ictitle');
+  query += encodeQueryParam('iurl') + encodeQueryParam('iref');
+  // Detect if we have the Sepia or Night theme
+  // TODO: refine this because it is *always* detected
+  //if (document.getElementsByClassName('color-theme-1')) {
+  //  if (query == '') {
+  //    query = 'theme=Sepia';
+  //  } else {
+  //    query += '&theme=Sepia';
+  //  }
+  //}
+  //if (document.getElementsByClassName('color-theme-22')) {
+  //  if (query == '') {
+  //    query = 'theme=Night';
+  //  } else {
+  //    query += '&theme=Night';
+  //  }
+  //}
+  return query;
+}
+
+//var params = window.location.toString().split('?')[1];
+var params = encodeQueryString();
+
+if (params !== undefined && params != '') {
+  var apps = document.getElementsByClassName('app');
+  for (i = 0; i < apps.length; i++) {
+    var appitem = apps[i];
+    appitem.src = appitem.src + '?' + params;
+  }
+
+  //var h5ps = document.getElementsByClassName('h5p');
+  //for (i = 0; i < h5ps.length; i++) {
+  //  var h5pitem = h5ps[i];
+  //  h5pitem.src = h5pitem.src + '&' + params;
+  //}
+}
+
+launchApp = function(id, src) {
+  //var params = window.location.toString().split('?')[1];
+  var params = encodeQueryString();
+  if (params !== undefined && params != '') {
+    src = src + '?' + params;
+  }
+  var img = document.getElementById('img' + id);
+  var app = document.getElementById(id);
+  app.src = src;
+  app.style.display='block';
+  img.style.display='none';
+}
+
+  var H5PIntegration = parent.H5PIntegration;
+  var wpAJAXurl = 'https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php';
+  var debugEnabled = '0';
+  var captureAllH5pContentTypes = '1';
+  var h5pContentTypes = [''];
+
 </script>
+
+<link rel='stylesheet' id='h5p-core-styles-h5p-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p.css' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-confirmation-dialog-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-confirmation-dialog.css' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-core-button-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-core-button.css' media='all' />
+
+<script src='https://wp.sciviews.org/wp-includes/js/wp-embed.min.js'></script>
+
+<!--
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+-->
+
+<script src='https://wp.sciviews.org/wp-content/plugins/h5pxapikatchu/js/h5pxapikatchu-variables.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/jquery.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-event-dispatcher.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api-event.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-content-type.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-confirmation-dialog.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-action-bar.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/request-queue.js'></script>
+
+
 
 <!-- System diagnostic -->
 <script>
@@ -363,109 +387,6 @@ function diagnoseSystem() {
 //})();
 </script>
 
-<!-- Pass URL arguments to iframe 'app' (embedded shiny app) & 'h5p' -->
-<script>
-function encodeQueryParam(name, first = false) {
-  var value = localStorage.getItem(name);
-  if (value === null || value == '') return '';
-  var sep = first ? '' : '&';
-  return sep + encodeURIComponent(name) + '=' + encodeURIComponent(value);
-}
-
-function encodeQueryString() {
-  // We got data from localStorage. So, if no data, no query string!
-  if (!window.localStorage) return('');
-  query = encodeQueryParam('login', true);
-  query += encodeQueryParam('email') + encodeQueryParam('displayname');
-  query += encodeQueryParam('firstname') + encodeQueryParam('lastname');
-  query += encodeQueryParam('iemail') + encodeQueryParam('iid');
-  query += encodeQueryParam('ifirstname') + encodeQueryParam('ilastname');
-  query += encodeQueryParam('institution');
-  query += encodeQueryParam('icourse') + encodeQueryParam('ictitle');
-  query += encodeQueryParam('iurl') + encodeQueryParam('iref');
-  // Detect if we have the Sepia or Night theme
-  // TODO: refine this because it is *always* detected
-  //if (document.getElementsByClassName('color-theme-1')) {
-  //  if (query == '') {
-  //    query = 'theme=Sepia';
-  //  } else {
-  //    query += '&theme=Sepia';
-  //  }
-  //}
-  //if (document.getElementsByClassName('color-theme-22')) {
-  //  if (query == '') {
-  //    query = 'theme=Night';
-  //  } else {
-  //    query += '&theme=Night';
-  //  }
-  //}
-  return query;
-}
-
-//var params = window.location.toString().split('?')[1];
-var params = encodeQueryString();
-
-if (params !== undefined && params != '') {
-  var apps = document.getElementsByClassName('app');
-  for (i = 0; i < apps.length; i++) {
-    var appitem = apps[i];
-    appitem.src = appitem.src + '?' + params;
-  }
-
-  //var h5ps = document.getElementsByClassName('h5p');
-  //for (i = 0; i < h5ps.length; i++) {
-  //  var h5pitem = h5ps[i];
-  //  h5pitem.src = h5pitem.src + '&' + params;
-  //}
-}
-</script>
-
-<!-- Launch the app on click with URL parameters + theme -->
-<script>
-launchApp = function(id, src) {
-  //var params = window.location.toString().split('?')[1];
-  var params = encodeQueryString();
-  if (params !== undefined && params != '') {
-    src = src + '?' + params;
-  }
-  var img = document.getElementById('img' + id);
-  var app = document.getElementById(id);
-  app.src = src;
-  app.style.display='block';
-  img.style.display='none';
-}
-</script>
-
-
-<!-- Required for H5P xAPI feedback -->
-
-<script>H5PIntegration = {"baseUrl":"https:\/\/wp.sciviews.org","url":"\/wp-content\/uploads\/h5p","postUserStatistics":false,"ajax":{"setFinished":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?token=e6b10366a6&action=h5p_setFinished","contentUserData":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?token=ea1774d67b&action=h5p_contents_user_data&content_id=:contentId&data_type=:dataType&sub_content_id=:subContentId"},"saveFreq":"30","siteUrl":"https:\/\/wp.sciviews.org","l10n":{"H5P":{"fullscreen":"Fullscreen","disableFullscreen":"Disable fullscreen","download":"Download","copyrights":"Rights of use","embed":"Embed","size":"Size","showAdvanced":"Show advanced","hideAdvanced":"Hide advanced","advancedHelp":"Include this script on your website if you want dynamic sizing of the embedded content:","copyrightInformation":"Rights of use","close":"Close","title":"Title","author":"Author","year":"Year","source":"Source","license":"License","thumbnail":"Thumbnail","noCopyrights":"No copyright information available for this content.","reuse":"Reuse","reuseContent":"Reuse Content","reuseDescription":"Reuse this content.","downloadDescription":"Download this content as a H5P file.","copyrightsDescription":"View copyright information for this content.","embedDescription":"View the embed code for this content.","h5pDescription":"Visit H5P.org to check out more cool content.","contentChanged":"This content has changed since you last used it.","startingOver":"You'll be starting over.","by":"by","showMore":"Show more","showLess":"Show less","subLevel":"Sublevel","confirmDialogHeader":"Confirm action","confirmDialogBody":"Please confirm that you wish to proceed. This action is not reversible.","cancelLabel":"Cancel","confirmLabel":"Confirm","licenseU":"Undisclosed","licenseCCBY":"Attribution","licenseCCBYSA":"Attribution-ShareAlike","licenseCCBYND":"Attribution-NoDerivs","licenseCCBYNC":"Attribution-NonCommercial","licenseCCBYNCSA":"Attribution-NonCommercial-ShareAlike","licenseCCBYNCND":"Attribution-NonCommercial-NoDerivs","licenseCC40":"4.0 International","licenseCC30":"3.0 Unported","licenseCC25":"2.5 Generic","licenseCC20":"2.0 Generic","licenseCC10":"1.0 Generic","licenseGPL":"General Public License","licenseV3":"Version 3","licenseV2":"Version 2","licenseV1":"Version 1","licensePD":"Public Domain","licenseCC010":"CC0 1.0 Universal (CC0 1.0) Public Domain Dedication","licensePDM":"Public Domain Mark","licenseC":"Copyright","contentType":"Content Type","licenseExtras":"License Extras","changes":"Changelog","contentCopied":"Content is copied to the clipboard","connectionLost":"Connection lost. Results will be stored and sent when you regain connection.","connectionReestablished":"Connection reestablished.","resubmitScores":"Attempting to submit stored results.","offlineDialogHeader":"Your connection to the server was lost","offlineDialogBody":"We were unable to send information about your completion of this task. Please check your internet connection.","offlineDialogRetryMessage":"Retrying in :num....","offlineDialogRetryButtonLabel":"Retry now","offlineSuccessfulSubmit":"Successfully submitted results."}},"hubIsEnabled":true,"reportingIsEnabled":true,"libraryConfig":null,"crossorigin":null,"crossoriginCacheBuster":null,"pluginCacheBuster":"?v=1.15.0","libraryUrl":"https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5p\/h5p-php-library\/js","core":{"styles":["\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p.css?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p-confirmation-dialog.css?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/styles\/h5p-core-button.css?ver=1.15.0"],"scripts":["\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/jquery.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-event-dispatcher.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-x-api-event.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-x-api.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-content-type.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-confirmation-dialog.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-action-bar.js?ver=1.15.0","\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/request-queue.js?ver=1.15.0"]},"loadedJs":[],"loadedCss":[],"contents":{"cid-7":{"library":"H5P.MultiChoice 1.14","jsonContent":"{\"answers\":[{\"correct\":false,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"\",\"notChosenFeedback\":\"\"},\"text\":\"<div>The header of the document<\\\/div>\\n\"},{\"correct\":true,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"<div>Excellent! A chunk is indeed a special area delimited by \\u0010\\u0010```{R} and ``` tags that contains R code to be evaluated in place when the document is compiled.<\\\/div>\\n\",\"notChosenFeedback\":\"<div>Oww! You should go back to the capsule about R Markdown to learn what a chunk is.<\\\/div>\\n\"},\"text\":\"<div>An area that contains R code<\\\/div>\\n\"},{\"correct\":false,\"tipsAndFeedback\":{\"tip\":\"\",\"chosenFeedback\":\"\",\"notChosenFeedback\":\"\"},\"text\":\"<div>A area that contains markdown text<\\\/div>\\n\"}],\"overallFeedback\":[{\"from\":0,\"to\":100}],\"UI\":{\"checkAnswerButton\":\"Check\",\"showSolutionButton\":\"Show solution\",\"tryAgainButton\":\"Retry\",\"tipsLabel\":\"Show tip\",\"scoreBarLabel\":\"You got :num out of :total points\",\"tipAvailable\":\"Tip available\",\"feedbackAvailable\":\"Feedback available\",\"readFeedback\":\"Read feedback\",\"wrongAnswer\":\"Wrong answer\",\"correctAnswer\":\"Correct answer\",\"shouldCheck\":\"Should have been checked\",\"shouldNotCheck\":\"Should not have been checked\",\"noInput\":\"Please answer before viewing the solution\"},\"behaviour\":{\"enableRetry\":true,\"enableSolutionsButton\":true,\"enableCheckButton\":true,\"type\":\"auto\",\"singlePoint\":true,\"randomAnswers\":true,\"showSolutionsRequiresInput\":true,\"confirmCheckDialog\":false,\"confirmRetryDialog\":false,\"autoCheck\":false,\"passPercentage\":100,\"showScorePoints\":true},\"confirmCheck\":{\"header\":\"Finish ?\",\"body\":\"Are you sure you wish to finish ?\",\"cancelLabel\":\"Cancel\",\"confirmLabel\":\"Finish\"},\"confirmRetry\":{\"header\":\"Retry ?\",\"body\":\"Are you sure you wish to retry ?\",\"cancelLabel\":\"Cancel\",\"confirmLabel\":\"Confirm\"},\"question\":\"<p>What is a chunk in R Markdown?<\\\/p>\\n\",\"media\":{\"disableImageZooming\":false}}","fullScreen":"0","exportUrl":"\/wp-content\/uploads\/h5p\/exports\/multiple-choice-7.h5p","embedCode":"<iframe src=\"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?action=h5p_embed&id=7\" width=\":w\" height=\":h\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"><\/iframe>","resizeCode":"<script src=\"https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5p\/h5p-php-library\/js\/h5p-resizer.js\" charset=\"UTF-8\"><\/script>","url":"https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php?action=h5p_embed&id=7","title":"multiple-choice","displayOptions":{"frame":false,"export":false,"embed":true,"copyright":false,"icon":false,"copy":false},"metadata":{"title":"multiple-choice","license":"U"},"contentUserData":[{"state":"{}"}],"scripts":["\/wp-content\/uploads\/h5p\/cachedassets\/bbb484ab91a596c1d881578ee3d99ab92df05f05.js","https:\/\/wp.sciviews.org\/wp-content\/plugins\/h5pxapikatchu\/js\/h5pxapikatchu-listener.js?ver=0.4.2"],"styles":["\/wp-content\/uploads\/h5p\/cachedassets\/bbb484ab91a596c1d881578ee3d99ab92df05f05.css"]}}};</script><link rel='stylesheet' id='h5p-core-styles-h5p-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p.css' media='all' />
-<link rel='stylesheet' id='h5p-core-styles-h5p-confirmation-dialog-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-confirmation-dialog.css' media='all' />
-<link rel='stylesheet' id='h5p-core-styles-h5p-core-button-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-core-button.css' media='all' />
-<script src='https://wp.sciviews.org/wp-includes/js/wp-embed.min.js'></script>
-
-<!--
-<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
--->
-
-<script>
-var wpAJAXurl = "https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php";
-var debugEnabled = "0";
-var captureAllH5pContentTypes = "1";
-var h5pContentTypes = [""];
-</script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5pxapikatchu/js/h5pxapikatchu-variables.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/jquery.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-event-dispatcher.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api-event.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-content-type.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-confirmation-dialog.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-action-bar.js'></script>
-<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/request-queue.js'></script>
-
 
 <style type="text/css">
 code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -566,10 +487,9 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="1.6" data-path="learnr-with-one-exercise-and-one-quizz.html"><a href="learnr-with-one-exercise-and-one-quizz.html"><i class="fa fa-check"></i><b>1.6</b> Learnr with one exercise and one quizz</a></li>
 <li class="chapter" data-level="1.7" data-path="a-coggle-mind-map.html"><a href="a-coggle-mind-map.html"><i class="fa fa-check"></i><b>1.7</b> A Coggle mind map</a></li>
 <li class="chapter" data-level="1.8" data-path="h5p-content.html"><a href="h5p-content.html"><i class="fa fa-check"></i><b>1.8</b> H5P content</a></li>
-<li class="chapter" data-level="1.9" data-path="try-to-add-moodle-content.html"><a href="try-to-add-moodle-content.html"><i class="fa fa-check"></i><b>1.9</b> Try to add Moodle content</a></li>
-<li class="chapter" data-level="1.10" data-path="add-a-gist.html"><a href="add-a-gist.html"><i class="fa fa-check"></i><b>1.10</b> Add a Gist</a></li>
-<li class="chapter" data-level="1.11" data-path="embed-a-youtube-video.html"><a href="embed-a-youtube-video.html"><i class="fa fa-check"></i><b>1.11</b> Embed a youtube video</a></li>
-<li class="chapter" data-level="1.12" data-path="special-blocks.html"><a href="special-blocks.html"><i class="fa fa-check"></i><b>1.12</b> Special blocks</a></li>
+<li class="chapter" data-level="1.9" data-path="add-a-gist.html"><a href="add-a-gist.html"><i class="fa fa-check"></i><b>1.9</b> Add a Gist</a></li>
+<li class="chapter" data-level="1.10" data-path="embed-a-youtube-video.html"><a href="embed-a-youtube-video.html"><i class="fa fa-check"></i><b>1.10</b> Embed a youtube video</a></li>
+<li class="chapter" data-level="1.11" data-path="special-blocks.html"><a href="special-blocks.html"><i class="fa fa-check"></i><b>1.11</b> Special blocks</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="divein.html"><a href="divein.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
 <li class="chapter" data-level="3" data-path="details.html"><a href="details.html"><i class="fa fa-check"></i><b>3</b> Détails techniques</a></li>
@@ -610,8 +530,8 @@ code span.wa { color: #bf0303; } /* Warning */
 
             <section class="normal" id="section-">
 <div id="embed-a-youtube-video" class="section level2">
-<h2><span class="header-section-number">1.11</span> Embed a youtube video</h2>
-<iframe width="770" height="433" src="http://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen>
+<h2><span class="header-section-number">1.10</span> Embed a youtube video</h2>
+<iframe width="770" height="433" src="https://www.youtube.com/embed/yIVXjl4SwVo?rel=0" frameborder="0" allowfullscreen>
 </iframe>
 </div>
 <div id="disqus_thread"></div>

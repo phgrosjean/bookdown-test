@@ -1,5 +1,5 @@
-/* Included in leandown
-.institution1, .institution2, .institution3 {
+
+.UMONS {
   display: none;
 }
 
@@ -7,7 +7,7 @@
   display: block;
 }
 
-.course1, .course2, .course3, .course4, .course5, .course6, .course7 {
+.S-BIOG-006, .S-BIOG-027, .S-BIOG-921 {
   display: none;
 }
 
@@ -19,7 +19,7 @@ summary {
   background:  #f5f5f5;
   border: 1px solid #ccc;
 }
-*/
+
 
 /* Bookdown formatting to slightly better match UMONS style */
 .book .book-body .page-wrapper .page-inner section.normal a {
