@@ -2,12 +2,28 @@
 
 <!-- System diagnostic -->
 <script>
-function clearStorage() {
+
+function clearStorageEn() {
   if (window.localStorage) {
     localStorage.clear();
   }
-  var msg = "Informations personnelles locales effacees !" +
-    "\nLa page va etre rechargee..." +
+  var msg = 'Local personal information deleted!' +
+    '\nThe page will be reloaded...' +
+    '\n\n(if this is an error, close the page and relaunch it from within Moodle).';
+  if (window.self !== window.parent) {
+    parent.alert(msg);
+  } else {
+    window.alert(msg);
+  }
+  window.location.href=window.location.href;
+}
+
+function clearStorageFr() {
+  if (window.localStorage) {
+    localStorage.clear();
+  }
+  var msg = 'Informations personnelles locales effacees !' +
+    '\nLa page va etre rechargee...' +
     "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
   if (window.self !== window.parent) {
     parent.alert(msg);
@@ -17,8 +33,7 @@ function clearStorage() {
   window.location.href=window.location.href;
 }
 
-// TODO: compare both emails and issue an information message if they differ
-function diagnoseSystem() {
+function diagnoseSystemFr() {
   var container = document.getElementById('diagnostic');
   if (container === null) {
     return;
@@ -38,19 +53,24 @@ function diagnoseSystem() {
     // Explore the content of the storage
     // Students are recognized by iemail (institutional email, or (local) email)
     // but possibly, their login could be used too
-    var login = '';
-    var email = localStorage.getItem('iemail');
-    if (email === null || email == '') {
-      email = localStorage.getItem('email');
+    var login = localStorage.getItem('login');
+    if (login === null) {
+      login = '';
     }
-    if (email === null || email == '') {
+    var email = localStorage.getItem('email');
+    if (email === null) {
       email = '';
-      login = localStorage.getItem('login');
-      if (login === null) {
-        login = '';
-      }
+    }
+    var iemail = localStorage.getItem('iemail');
+    if (iemail === null) {
+      iemail = '';
+    }
+    // Compare both emails, if they are different, display both of them
+    if (email != iemail && iemail != '') {
+      email = email + '</u> (email institutionnel : <u>' + iemail + ')';
     }
 
+    // Construct an identification string
     content = content + "<p><b>Le contenu de ce cours est contextuel.</b> V&eacute;rifiez les informations suivantes, s'il-vous-plait&nbsp;:</p>\n<ul>";
 
     var registered = false;
@@ -61,12 +81,13 @@ function diagnoseSystem() {
     } else {
       // Registered user
       registered = true;
-      var msg = '';
+      if (login != '') {
+        content = content + "\n<li>Login&nbsp;: <u>" + login + "</u></li>";
+      }
       if (email != '') {
-        msg = "Email&nbsp;: <u>" + email + "</u>";
-      } else {
-        msg = "Login&nbsp;: <u>" + login + "</u>";
-      }      content = content + "\n<li>" + msg + ". <b>Votre progression dans les exercices sera enregistr&eacute;e sous cette r&eacute;f&eacute;rence.</b></li>";
+        content = content + "\n<li>Email&nbsp;: <u>" + email + "</u></li>";
+      }
+      content = content + "\n<b>Votre progression dans les exercices sera enregistr&eacute;e sous cette r&eacute;f&eacute;rence.</b>";
     }
 
     // institution and icourse possibly change the content. So, must be checked!
@@ -82,29 +103,11 @@ function diagnoseSystem() {
       icourse = 'ind&eacute;termin&eacute;';
     } else {
       context = true;
+      var ictitle = localStorage.getItem('ictitle');
+      if (ictitle != null && ictitle != '') {
+        icourse = ictitle + ' (' + icourse + ')';
+      }
     }
-    // Translate a few known courses (TODO: check the Moodle short names!)
-    // TODO: better to get this from Moodle directly?
-    // TODO: these changes do not always work... why?
-    if (icourse == "S-BIOG-006")
-      icourse = "Science des donn&eacute;es I : visualisation et inf&eacute;rence (Bab2 Bio)";
-    if (icourse == "S-BIOG-027")
-      icourse = "Science des donn&eacute;es I : inf&eacute;rence (Bab2 Bio)";
-    if (icourse == "S-BIOG-015")
-      icourse = "Science des donn&eacute;es II : mod&eacute;lisation et analyse (Bab3 Bio)";
-    if (icourse == "S-BIOG-061")
-      icourse = "Science des donn&eacute;es II : analyse (Bab3 Bio)";
-    if (icourse == "S-BIOG-025")
-      icourse = "Science des donn&eacute;es III : exploration et pr&eacute;diction (Ma1 BBMC/BOE)";
-    if (icourse == "S-BIOG-043")
-      icourse = "Science des donn&eacute;es IV : pratique (Ma2 BBMC/BOE)";
-    if (icourse == "S-BIOG-077")
-      icourse = "Science des donn&eacute;es V : recherche reproductible (Ma2 BBMC/BOE)";
-    if (icourse == "S-BIOG-921")
-      icourse = "Bio-informatique et science des donn&eacute;es I (Bab2 Bio Charleroi)";
-    if (icourse == "S-BIOG-940") // TODO: to check!!!
-      icourse = "Bio-informatique et science des donn&eacute;es II (Bab3 Bio Charleroi)";
-
     content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
     content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
     content = content + "\n</ul>";
@@ -117,11 +120,8 @@ function diagnoseSystem() {
     // If registered user and/or special context, offer to reset it
     if (registered || context) {
       content = content + "\n<p>Pour explorer ces pages de mani&egrave;re anonyme et n'enregistrer aucune activit&eacute;, vous pouvez &eacute;liminez vos informations personnelles en cliquant sur le bouton juste ci-dessous.</p>";
-      content = content + "<button onclick=\"clearStorage()\">Effacer mes donn&eacute;es personnelles</button>";
+      content = content + "<button onclick=\"clearStorageFr()\">Effacer mes donn&eacute;es personnelles</button>";
     }
-
-    // TODO: message + button to reset infos
-
     // Those variables are possibly defined, but they are not tested here (yet)
     //var displayname = localStorage.getItem('displayname');
     //var firstname = localStorage.getItem('firstname');
@@ -137,22 +137,3 @@ function diagnoseSystem() {
 }
 </script>
 
-<!-- Show/hide R output as details -->
-<script>
-//(function() {
-//  var codes = document.querySelectorAll('pre:not([class])');
-//  var code, i, d, s, p;
-//  for (i = 0; i < codes.length; i++) {
-//    code = codes[i];
-//    p = code.parentNode;
-//    d = document.createElement('details');
-//    s = document.createElement('summary');
-//    s.innerText = 'Details';
-//    // <details><summary>Details</summary></details>
-//    d.appendChild(s);
-//    // move the code into <details>
-//    p.replaceChild(d, code);
-//    d.appendChild(code);
-//  }
-//})();
-</script>

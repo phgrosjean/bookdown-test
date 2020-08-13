@@ -14,6 +14,7 @@ launch_shiny <- learndown::launch_shiny
 # in style.css and header.html, respectively
 learndown::learndown_init(
   baseurl = baseurl,
+  hide.code.msg = "Voir le code",
   institutions = "UMONS",
   courses      = c(
     "S-BIOG-006", "S-BIOG-027", # SDD1 Q1 & Q2

@@ -89,7 +89,7 @@ urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 ```
 
 
-```{r, eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html'), message=FALSE, warning=FALSE}
+```{r, class.source='hidden-code', eval=(knitr::opts_knit$get('rmarkdown.pandoc.to') == 'html'), message=FALSE, warning=FALSE}
 # This does not work???
 #DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), 
 #              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),

@@ -39,20 +39,12 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib
 ``
 -->
 
-```{block2, type='info'}
-
-::: {#diagnostic}
-
-*Patientez s'il-vous-plait, diagnostic du système en cours...*
-
-<script>diagnoseSystem();</script>
-<noscript><b>Le diagnostic ne peut se terminer car Javascript ne fonctionne pas, or il est indispensable pour ce site ! Tout le contenu interactif et contextuel sera inutilisable. Veuillez activer Javascript, s'il-vous-plait...</b></noscript>
-
-:::
-
-```
+`r learndown::diagnose_login(lang = "fr")`
 
 This is just a demo of the various possibilities of our extended bookdown format.
+
+`r learndown::diagnose_login(lang = "en")`
+
 
 ![](images/front-cover.png)
 
@@ -64,6 +56,6 @@ _Le matériel dans cet ouvrage est distribué sous licence [CC BY-NC-SA 4.0](htt
 
 ##### System information {-}
 
-```{r}
+```{r, class.source='hidden-code'}
 sessioninfo::session_info()
 ```

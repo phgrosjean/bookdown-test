@@ -77,7 +77,7 @@ urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 
 
 
-```r
+```{.r .hidden-code}
 # This does not work???
 #DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), 
 #              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),

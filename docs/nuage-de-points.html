@@ -117,6 +117,25 @@ function processParameters() {
 }
 
 
+function hideCode() {
+  //var codes = document.querySelectorAll('pre:not([class])');
+  var codes = document.getElementsByClassName('hidden-code');
+  var code, i, d, s, p;
+  for (i = 0; i < codes.length; i++) {
+    code = codes[i];
+    p = code.parentNode;
+    d = document.createElement('details');
+    s = document.createElement('summary');
+    s.innerText = 'Voir le code';
+    //<details><summary>hide.code.msg</summary></details>
+    d.appendChild(s);
+    // move the code into <details>
+    p.replaceChild(d, code);
+    d.appendChild(code);
+  }
+}
+
+
 function retargetLinks() {
   // If displayed in an iframe, open external links into parent
   // Adapted from Yihui Xie blog
@@ -129,7 +148,7 @@ function retargetLinks() {
   }
 };
 
-window.onload = function() {processParameters(); retargetLinks();};
+window.onload = function() {processParameters(); hideCode(); retargetLinks();};
 
 function encodeQueryParam(name, first = false) {
   var value = localStorage.getItem(name);
@@ -198,12 +217,11 @@ launchApp = function(id, src) {
   img.style.display='none';
 }
 
-  var H5PIntegration = parent.H5PIntegration;
-  var wpAJAXurl = 'https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php';
-  var debugEnabled = '0';
-  var captureAllH5pContentTypes = '1';
-  var h5pContentTypes = [''];
-
+var H5PIntegration = parent.H5PIntegration;
+var wpAJAXurl = 'https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php';
+var debugEnabled = '0';
+var captureAllH5pContentTypes = '1';
+var h5pContentTypes = [''];
 </script>
 
 <link rel='stylesheet' id='h5p-core-styles-h5p-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p.css' media='all' />
@@ -227,165 +245,6 @@ launchApp = function(id, src) {
 <script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-confirmation-dialog.js'></script>
 <script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-action-bar.js'></script>
 <script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/request-queue.js'></script>
-
-
-
-<!-- System diagnostic -->
-<script>
-function clearStorage() {
-  if (window.localStorage) {
-    localStorage.clear();
-  }
-  var msg = "Informations personnelles locales effacees !" +
-    "\nLa page va etre rechargee..." +
-    "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
-  if (window.self !== window.parent) {
-    parent.alert(msg);
-  } else {
-    window.alert(msg);
-  }
-  window.location.href=window.location.href;
-}
-
-// TODO: compare both emails and issue an information message if they differ
-function diagnoseSystem() {
-  var container = document.getElementById('diagnostic');
-  if (container === null) {
-    return;
-  }
-  var content = "";
-
-  if (!window.localStorage) {
-    content = content + "<p>Vous &ecirc;tes&nbsp;:</p>\n<ul>";
-    content = content + "\n<li>Anonyme sur ce site (stockage local indisponible).</li>";
-    content = content + "\n<li>Le contenu <b>n'est pas</b> contextualis&eacute; par rapport &agrave; un cours en particulier.</li>";
-    content = content + "\n<li>Le r&eacute;sultat de certains exercices <b>ne sera pas enregistr&eacute;</b>.</li>";
-    content = content + "\n</ul>";
-    content = content + "\n<p>Si vous n'&ecirc;tes <i>pas</i> un &eacute;tudiant qui suit un cours lié à ce mat&eacute;riel p&eacute;dagogique, c'est normal, vous pouvez continuer votre visite... <b>Bienvenue&nbsp;!</b></p>";
-    content = content + "\n<p>En revanche, si votre cours n&eacute;cessite que vous soyez d&ucirc;ment enregistr&eacute;, alors fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
-
-  } else {
-    // Explore the content of the storage
-    // Students are recognized by iemail (institutional email, or (local) email)
-    // but possibly, their login could be used too
-    var login = '';
-    var email = localStorage.getItem('iemail');
-    if (email === null || email == '') {
-      email = localStorage.getItem('email');
-    }
-    if (email === null || email == '') {
-      email = '';
-      login = localStorage.getItem('login');
-      if (login === null) {
-        login = '';
-      }
-    }
-
-    content = content + "<p><b>Le contenu de ce cours est contextuel.</b> V&eacute;rifiez les informations suivantes, s'il-vous-plait&nbsp;:</p>\n<ul>";
-
-    var registered = false;
-    if (email == '' && login == '') {
-      // Not registered
-      content = content + "\n<li><u>Vous &ecirc;tes anonyme sur ce site.</u> <b>Votre progression dans les exercices ne sera pas enregistr&eacute;e.</b></li>";
-
-    } else {
-      // Registered user
-      registered = true;
-      var msg = '';
-      if (email != '') {
-        msg = "Email&nbsp;: <u>" + email + "</u>";
-      } else {
-        msg = "Login&nbsp;: <u>" + login + "</u>";
-      }      content = content + "\n<li>" + msg + ". <b>Votre progression dans les exercices sera enregistr&eacute;e sous cette r&eacute;f&eacute;rence.</b></li>";
-    }
-
-    // institution and icourse possibly change the content. So, must be checked!
-    var context = false;
-    var institution = localStorage.getItem('institution');
-    if (institution == null || institution == '') {
-      institution = 'ind&eacute;termin&eacute;e';
-    } else {
-      context = true;
-    }
-    var icourse = localStorage.getItem('icourse');
-    if (icourse == null || icourse == '') {
-      icourse = 'ind&eacute;termin&eacute;';
-    } else {
-      context = true;
-    }
-    // Translate a few known courses (TODO: check the Moodle short names!)
-    // TODO: better to get this from Moodle directly?
-    // TODO: these changes do not always work... why?
-    if (icourse == "S-BIOG-006")
-      icourse = "Science des donn&eacute;es I : visualisation et inf&eacute;rence (Bab2 Bio)";
-    if (icourse == "S-BIOG-027")
-      icourse = "Science des donn&eacute;es I : inf&eacute;rence (Bab2 Bio)";
-    if (icourse == "S-BIOG-015")
-      icourse = "Science des donn&eacute;es II : mod&eacute;lisation et analyse (Bab3 Bio)";
-    if (icourse == "S-BIOG-061")
-      icourse = "Science des donn&eacute;es II : analyse (Bab3 Bio)";
-    if (icourse == "S-BIOG-025")
-      icourse = "Science des donn&eacute;es III : exploration et pr&eacute;diction (Ma1 BBMC/BOE)";
-    if (icourse == "S-BIOG-043")
-      icourse = "Science des donn&eacute;es IV : pratique (Ma2 BBMC/BOE)";
-    if (icourse == "S-BIOG-077")
-      icourse = "Science des donn&eacute;es V : recherche reproductible (Ma2 BBMC/BOE)";
-    if (icourse == "S-BIOG-921")
-      icourse = "Bio-informatique et science des donn&eacute;es I (Bab2 Bio Charleroi)";
-    if (icourse == "S-BIOG-940") // TODO: to check!!!
-      icourse = "Bio-informatique et science des donn&eacute;es II (Bab3 Bio Charleroi)";
-
-    content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
-    content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
-    content = content + "\n</ul>";
-    if (context) {
-      content = content + "<p><b>Le contenu sera adapt&eacute; en fonction de ce contexte.</b> Vérifiez qu'il est correct, sinon fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
-    } else {// No context
-      content = content + "<p><b>N'&eacute;tant dans aucun contexte de cours particulier, vous n'aurez acc&egrave;s qu'&agrave un contenu g&eacute;n&eacute;raliste.</b> Si c'est ce que vous souhaitez... bienvenue&nbsp;! Sinon, fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si ce message se reproduit, contactez vos enseignants.</p>";
-    }
-
-    // If registered user and/or special context, offer to reset it
-    if (registered || context) {
-      content = content + "\n<p>Pour explorer ces pages de mani&egrave;re anonyme et n'enregistrer aucune activit&eacute;, vous pouvez &eacute;liminez vos informations personnelles en cliquant sur le bouton juste ci-dessous.</p>";
-      content = content + "<button onclick=\"clearStorage()\">Effacer mes donn&eacute;es personnelles</button>";
-    }
-
-    // TODO: message + button to reset infos
-
-    // Those variables are possibly defined, but they are not tested here (yet)
-    //var displayname = localStorage.getItem('displayname');
-    //var firstname = localStorage.getItem('firstname');
-    //var lastname = localStorage.getItem('lastname');
-    //var ifirstname = localStorage.getItem('ifirstname');
-    //var ilastname = localStorage.getItem('ilastname');
-    //var iid = localStorage.getItem('iid');
-    //var iurl = localStorage.getItem('iurl');
-    //var iref = localStorage.getItem('iref');
-  }
-
-  container.innerHTML = content;
-}
-</script>
-
-<!-- Show/hide R output as details -->
-<script>
-//(function() {
-//  var codes = document.querySelectorAll('pre:not([class])');
-//  var code, i, d, s, p;
-//  for (i = 0; i < codes.length; i++) {
-//    code = codes[i];
-//    p = code.parentNode;
-//    d = document.createElement('details');
-//    s = document.createElement('summary');
-//    s.innerText = 'Details';
-//    // <details><summary>Details</summary></details>
-//    d.appendChild(s);
-//    // move the code into <details>
-//    p.replaceChild(d, code);
-//    d.appendChild(code);
-//  }
-//})();
-</script>
 
 
 <style type="text/css">
@@ -550,7 +409,7 @@ Figure 4.1: Exemple de graphique en nuage de points. Des éléments essentiels s
 <span id="cb9-2"><a href="nuage-de-points.html#cb9-2"></a>SciViews<span class="op">::</span>R</span>
 <span id="cb9-3"><a href="nuage-de-points.html#cb9-3"></a><span class="co"># Importation du jeu de données</span></span>
 <span id="cb9-4"><a href="nuage-de-points.html#cb9-4"></a>urchin &lt;-<span class="st"> </span><span class="kw">read</span>(<span class="st">&quot;urchin_bio&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;data.io&quot;</span>, <span class="dt">lang =</span> <span class="st">&quot;fr&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="nuage-de-points.html#cb10-1"></a><span class="co"># This does not work???</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r hidden-code"><code class="sourceCode r"><span id="cb10-1"><a href="nuage-de-points.html#cb10-1"></a><span class="co"># This does not work???</span></span>
 <span id="cb10-2"><a href="nuage-de-points.html#cb10-2"></a><span class="co">#DT::datatable(urchin , filter = &#39;top&#39;, class = c(&#39;compact&#39;, &#39;cell-border&#39;), </span></span>
 <span id="cb10-3"><a href="nuage-de-points.html#cb10-3"></a><span class="co">#              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),</span></span>
 <span id="cb10-4"><a href="nuage-de-points.html#cb10-4"></a><span class="co">#              caption = &quot;Jeu de données sur la biométrie des oursins&quot;)</span></span></code></pre></div>
