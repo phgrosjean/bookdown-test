@@ -155,9 +155,9 @@ It is also the default content on the web. So that one can provide viable altern
 
 :::
 
-::: {.S-BIOG-027}
+::: {.S-BIOG-006 .S-BIOG-027}
 
-> **This content is specific for the course S-BIOG-027 (Biological Data Science course I, second part).**
+> **This content is specific for the whole course Biological Data Science course I, first & second part, that is, S-BIOG-006 & S-BIOG-027).**
 
 :::
 
