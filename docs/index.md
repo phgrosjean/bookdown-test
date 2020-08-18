@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-08-13"
+date: "2020-08-18"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -330,7 +330,7 @@ sessioninfo::session_info()
 #  collate  en_US.UTF-8                 
 #  ctype    en_US.UTF-8                 
 #  tz       Europe/Brussels             
-#  date     2020-08-13                  
+#  date     2020-08-18                  
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
 #  package     * version    date       lib source                            
@@ -344,13 +344,16 @@ sessioninfo::session_info()
 #  glue          1.4.0      2020-04-03 [1] CRAN (R 3.6.2)                    
 #  htmltools     0.4.0.9003 2020-04-29 [1] Github (rstudio/htmltools@984b39c)
 #  knitr         1.28       2020-02-06 [1] CRAN (R 3.6.0)                    
-#  learndown     0.0.9000   2020-08-13 [1] local                             
+#  learndown     0.0.9000   2020-08-18 [1] local                             
+#  magick        2.4.0      2020-06-23 [1] CRAN (R 3.6.2)                    
 #  magrittr      1.5        2014-11-22 [1] CRAN (R 3.6.0)                    
+#  Rcpp          1.0.4.6    2020-04-09 [1] CRAN (R 3.6.2)                    
 #  rlang         0.4.5      2020-03-01 [1] CRAN (R 3.6.0)                    
 #  rmarkdown     2.1        2020-01-20 [1] CRAN (R 3.6.0)                    
 #  sessioninfo   1.1.1      2018-11-05 [1] CRAN (R 3.6.0)                    
 #  stringi       1.4.6      2020-02-17 [1] CRAN (R 3.6.0)                    
 #  stringr       1.4.0      2019-02-10 [1] CRAN (R 3.6.0)                    
+#  webshot       0.5.2      2019-11-22 [1] CRAN (R 3.6.0)                    
 #  withr         2.2.0      2020-04-20 [1] CRAN (R 3.6.2)                    
 #  xfun          0.13       2020-04-13 [1] CRAN (R 3.6.2)                    
 #  yaml          2.2.1      2020-02-01 [1] CRAN (R 3.6.0)                    

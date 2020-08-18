@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-08-13" />
+<meta name="date" content="2020-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -452,21 +452,25 @@ Figure 4.2: Piège du nuage de points. A) graphique initial montrant la variatio
 </div>
 <iframe src="https://guyliannengels.shinyapps.io/scatterplot/" width="780" height="450" frameborder="0">
 </iframe>
+<p>(la même application shiny, mais via <code>knitr::include_app()</code>)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="nuage-de-points.html#cb12-1"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://guyliannengels.shinyapps.io/scatterplot/&quot;</span>, <span class="dt">height =</span> <span class="st">&quot;450px&quot;</span>)</span></code></pre></div>
+<iframe src="https://guyliannengels.shinyapps.io/scatterplot/?showcase=0" width="672" height="450px">
+</iframe>
 </div>
 <div id="transformation-des-données" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Transformation des données</h3>
 <p>Vous avez la possibilité d’appliquer une transformation de vos données (il est même conseillé de le faire) afin qu’elles soient plus facilement analysables. Par exemple, il est possible d’utiliser des fonctions de puissance, racines, logarithmes, exponentielles<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> pour modifier l’apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d’analyser statistiquement des données qui s’alignent le long d’une droite). Par exemple, sur nos données de hauteurs et masses d’oursins, la transformation double-logarithmique (log(x) <em>et</em> log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="nuage-de-points.html#cb12-1"></a><span class="co"># Réalisation du graphique de la hauteur en fonction de la masse</span></span>
-<span id="cb12-2"><a href="nuage-de-points.html#cb12-2"></a>a &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, height <span class="op">~</span><span class="st">  </span>weight) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="nuage-de-points.html#cb12-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span>
-<span id="cb12-4"><a href="nuage-de-points.html#cb12-4"></a><span class="co"># Application du logarithme sur les deux variables représentées</span></span>
-<span id="cb12-5"><a href="nuage-de-points.html#cb12-5"></a>b &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, <span class="kw">log10</span>(height) <span class="op">~</span><span class="st">  </span><span class="kw">log10</span>(weight)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb12-6"><a href="nuage-de-points.html#cb12-6"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb12-7"><a href="nuage-de-points.html#cb12-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;log(Masse totale [g])&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;log(Hauteur du test [mm])&quot;</span>)</span>
-<span id="cb12-8"><a href="nuage-de-points.html#cb12-8"></a><span class="co"># Assemblage des graphiques</span></span>
-<span id="cb12-9"><a href="nuage-de-points.html#cb12-9"></a><span class="kw">combine_charts</span>(<span class="kw">list</span>(a, b))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
-<img src="04-nuage-point_files/figure-html/unnamed-chunk-10-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="nuage-de-points.html#cb13-1"></a><span class="co"># Réalisation du graphique de la hauteur en fonction de la masse</span></span>
+<span id="cb13-2"><a href="nuage-de-points.html#cb13-2"></a>a &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, height <span class="op">~</span><span class="st">  </span>weight) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-3"><a href="nuage-de-points.html#cb13-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span>
+<span id="cb13-4"><a href="nuage-de-points.html#cb13-4"></a><span class="co"># Application du logarithme sur les deux variables représentées</span></span>
+<span id="cb13-5"><a href="nuage-de-points.html#cb13-5"></a>b &lt;-<span class="st"> </span><span class="kw">chart</span>(urchin, <span class="kw">log10</span>(height) <span class="op">~</span><span class="st">  </span><span class="kw">log10</span>(weight)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-6"><a href="nuage-de-points.html#cb13-6"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb13-7"><a href="nuage-de-points.html#cb13-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;log(Masse totale [g])&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;log(Hauteur du test [mm])&quot;</span>)</span>
+<span id="cb13-8"><a href="nuage-de-points.html#cb13-8"></a><span class="co"># Assemblage des graphiques</span></span>
+<span id="cb13-9"><a href="nuage-de-points.html#cb13-9"></a><span class="kw">combine_charts</span>(<span class="kw">list</span>(a, b))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="04-nuage-point_files/figure-html/unnamed-chunk-11-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
 <p class="caption">
 Figure 4.3: A) Hauteur [mm] en fonction de la masse [g] d’oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins.
 </p>

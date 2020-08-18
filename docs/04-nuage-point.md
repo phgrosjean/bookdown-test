@@ -133,6 +133,16 @@ Dans certains cas, la forme du nuage de points peut être distendu par la prése
 
 <iframe src="https://guyliannengels.shinyapps.io/scatterplot/" width="780" height="450" frameborder="0"></iframe>
 
+(la même application shiny, mais via `knitr::include_app()`)
+
+
+```r
+knitr::include_app("https://guyliannengels.shinyapps.io/scatterplot/", height = "450px")
+```
+
+<iframe src="https://guyliannengels.shinyapps.io/scatterplot/?showcase=0" width="672" height="450px"></iframe>
+
+
 ### Transformation des données
 
 Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite). Par exemple, sur nos données de hauteurs et masses d'oursins, la transformation double-logarithmique (log(x) *et* log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :
@@ -151,8 +161,8 @@ combine_charts(list(a, b))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-nuage-point_files/figure-html/unnamed-chunk-10-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-10)A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins.</p>
+<img src="04-nuage-point_files/figure-html/unnamed-chunk-11-1.png" alt="A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-11)A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins.</p>
 </div>
 
 ##### Pièges et astuces {-}

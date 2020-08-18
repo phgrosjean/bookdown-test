@@ -20,6 +20,10 @@ summary {
   border: 1px solid #ccc;
 }
 
+.shiny-img {
+  filter: brightness(80%);
+}
+
 
 /* Bookdown formatting to slightly better match UMONS style */
 .book .book-body .page-wrapper .page-inner section.normal a {

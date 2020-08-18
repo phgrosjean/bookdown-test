@@ -186,21 +186,32 @@ And this is again normal text...
 
 ## Shiny app
 
-A shiny application directly inside the book using an iframe. This application demonstrates how an histogram changes when the number of classes is modified.
+A shiny application directly inside the book using an iframe. The application is **not** started when the page is loaded, but the user has to click on an image which is a screenshot of the application.
+
+<!-- example with default name... but not very explicit => redefine URL in RSConnect -->
+
+<img onclick="launchApp('11', 'https://sdd.umons.ac.be/content/11/');" src="images/shinyapps/11.png" width="780" height="761" class="shiny-img" id="img11"/>
+<iframe width="780" height="761" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="11"></iframe>
+*Cliquez pour lancer ou exécutez `BioDataScience::runApp("11")` dans la svbox2020.*
 
 
+Another one from a different server\ :
 
-<img onclick="launchApp('app1', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/sdd1_01/app1.png" width="780" height="700" class="shiny-img" id="imgapp1"/>
-<iframe width="780" height="700" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="app1"></iframe>
-*Cliquez pour lancer ou exécutez `BioDataScience::runApp("url-parameters")` dans la svbox2019.*
+<img onclick="launchApp('url-parameters', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parameters"/>
+<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parameters"></iframe>
+*Cliquez pour lancer ou exécutez `BioDataScience::runApp("url-parameters")` dans la svbox2020.*
+
+
 
 ## Learnr with one exercise and one quizz
 
-A simple learnr document from `shinyapps.io`\ :
+A simple learnr document\ :
 
-<img onclick="launchApp('app2', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/sdd1_01/app2.png" width="780" height="500" class="shiny-img" id="imgapp2"/>
-<iframe width="780" height="500" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="app2"></iframe>
-*Cliquez pour démarrer le learnr ou exécutez `BioDataScience::run("sdd1-01b")` dans la svbox2019.*
+<img onclick="launchApp('learnr', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnr"/>
+<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnr"></iframe>
+*Cliquez pour lancer ou exécutez `BioDataScience::run("learnr")` dans la svbox2020.*
+
+
 
 ## A Coggle mind map
 
@@ -284,5 +295,3 @@ and for an R markdown document:
 <p>This is a section related to the <strong>SciViews Box</strong>…</p>
 </div>
 
-
-**TODO:** browse the bookdown book from 2.4 Figures on....
