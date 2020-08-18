@@ -1,5 +1,4 @@
 book_filename: "bookdown-test"
-#chapter_name: "Module "
 repo: https://github.com/phgrosjean/bookdown-test
 output_dir: docs
 clean: [packages.bib, bookdown.bbl]

@@ -14,6 +14,7 @@ bookdown::gitbook:
         <br/>
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
     edit: https://github.com/phgrosjean/bookdown-test/edit/master/%s
+    view: https://github.com/phgrosjean/bookdown-test/blob/master/%s
     #download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
@@ -22,4 +23,3 @@ bookdown::pdf_book:
   citation_package: natbib
 bookdown::epub_book:
   stylesheet: style.css
-

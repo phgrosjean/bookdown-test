@@ -41,7 +41,7 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib
 
 `r learndown::diagnose_login(lang = "fr")`
 
-This is just a demo of the various possibilities of our extended bookdown format.
+This is just a demo of the various possibilities of our extended bookdown format. It is intended to be used with the SciViews Box `r learndown$svbox`.
 
 `r learndown::diagnose_login(lang = "en")`
 

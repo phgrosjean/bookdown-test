@@ -16,11 +16,11 @@ knitr::read_chunk('setup.R')
 
 This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
-[SciViews](http://www.sciviews.org)
+[SciViews](http://www.sciviews.org) (you are supposed to use the SciViews Box 2020 in parallel to this book for your practical exercises).
 
 ~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
-*Now, let's look at special formattings provided by bookdown.*
+*Now, let's look at special formattings provided by {bookdown}, and by the {learndown} additions.*
 
 
 ## Book-wide references

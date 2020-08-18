@@ -169,7 +169,7 @@ diagnoseSystemFr();
 
 
 
-This is just a demo of the various possibilities of our extended bookdown format.
+This is just a demo of the various possibilities of our extended bookdown format. It is intended to be used with the SciViews Box 2020.
 
 
 ::: {.info}

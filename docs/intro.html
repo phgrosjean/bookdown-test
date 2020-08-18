@@ -122,7 +122,8 @@ function hideCode() {
   var codes = document.getElementsByClassName('hidden-code');
   var code, i, d, s, p;
   for (i = 0; i < codes.length; i++) {
-    code = codes[i];
+    // We want to place the parent div into details instead
+    code = codes[i].parentNode;
     p = code.parentNode;
     d = document.createElement('details');
     s = document.createElement('summary');
@@ -402,9 +403,9 @@ knitr::read_chunk('setup.R')
 ``
 -->
 <p>This is a bookdown chapter mostly for demonstration and testing … I started from <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">here</a>, then got some pieces from <a href="https://github.com/rstudio/bookdown-demo">here</a>, and finally skimmed the <a href="https://bookdown.org/yihui/bookdown/">bookdown book</a> and took some notes hereunder. I had also a look at this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog</a>.</p>
-<p><a href="http://www.sciviews.org">SciViews</a></p>
+<p><a href="http://www.sciviews.org">SciViews</a> (you are supposed to use the SciViews Box 2020 in parallel to this book for your practical exercises).</p>
 <p><del>To convince <em>someone</em> to switch to Markdown, show him <a href="http://nerdplusart.com/markdown-is-the-future/">this</a>. A short discussion of html/active documents <em>versus</em> pdf/static printable pages should be nice here.</del></p>
-<p><em>Now, let’s look at special formattings provided by bookdown.</em></p>
+<p><em>Now, let’s look at special formattings provided by {bookdown}, and by the {learndown} additions.</em></p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -471,7 +472,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/phgrosjean/bookdown-test/blob/master/01-Introduction.Rmd",
 "text": null
 },
 "download": null,
