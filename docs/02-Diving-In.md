@@ -2,18 +2,4 @@
 
 
 
-<!--
-``{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-
-SciViews::R
-``
-
-``{r bookdown-setup, include=FALSE}
-``
-
-``{r bookdown-include, echo=FALSE, results='asis'}
-``
--->
-
-Now let's talk details.
+Now let's talk details (just to give an example of a second module).

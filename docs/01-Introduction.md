@@ -2,21 +2,11 @@
 
 # Introduction {#intro}
 
-<!--
-``{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-``
-
-``{r bookdown-setup, include=FALSE}
-``
-
-``{r bookdown-include, echo=FALSE, results='asis'}
-``
--->
-
 This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
-[SciViews](http://www.sciviews.org) (you are supposed to use the SciViews Box 2020 in parallel to this book for your practical exercises).
+[SciViews](http://www.sciviews.org) (you are supposed to use the [SciViews Box 2020](https://www.sciviews.org/software/svbox/) in parallel to this book for your practical exercises).
+
+![The logo of the SciViews Box](images/intro/svBox-256.png)
 
 ~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
@@ -25,7 +15,7 @@ This is a bookdown chapter mostly for demonstration and testing ... I started fr
 
 ## Book-wide references
 
-With R Markdown, it is only possible to reference items inside the same document, and there is no numbered figures, tables or equations (at least if LaTeX code is not used, but then, you can olny generate a PDF). Bookdown fills the gap with new formatting instructions that work across all documents of the book. It also provides updated versions of R MArkdown output formats that support numbered figures, tables and equations, e.g., `html_document2` to replace `html_document`, for instance.
+With R Markdown, it is only possible to reference items inside the same document, and there is no numbered figures, tables or equations (at least if LaTeX code is not used, but then, you can only generate a PDF). Bookdown fills the gap with new formatting instructions that work across all documents of the book. It also provides updated versions of R MArkdown output formats that support numbered figures, tables and equations, e.g., `html_document2` to replace `html_document`, for instance.
 
 
 ### Reference to chapter and titles
@@ -192,14 +182,14 @@ A shiny application directly inside the book using an iframe. The application is
 
 <img onclick="launchApp('11', 'https://sdd.umons.ac.be/content/11/');" src="images/shinyapps/11.png" width="780" height="761" class="shiny-img" id="img11"/>
 <iframe width="780" height="761" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="11"></iframe>
-*Cliquez pour lancer ou exécutez `BioDataScience::runApp("11")` dans la svbox2020.*
+*Click to start or run `BioDataScience::runApp("11")` in the svbox2020.*
 
 
 Another one from a different server\ :
 
 <img onclick="launchApp('url-parameters', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parameters"/>
 <iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parameters"></iframe>
-*Cliquez pour lancer ou exécutez `BioDataScience::runApp("url-parameters")` dans la svbox2020.*
+*Click to start or run `BioDataScience::runApp("url-parameters")` in the svbox2020.*
 
 
 
@@ -209,7 +199,7 @@ A simple learnr document\ :
 
 <img onclick="launchApp('learnr', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnr"/>
 <iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnr"></iframe>
-*Cliquez pour lancer ou exécutez `BioDataScience::run("learnr")` dans la svbox2020.*
+*Click to start or run `BioDataScience::run("learnr")` in the svbox2020.*
 
 
 

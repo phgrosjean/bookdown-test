@@ -7,19 +7,21 @@ new_session: yes
 language:
   label:
     fig: 'Figure '
-    tab: 'Tableau '
+    tab: 'Table '
     eq: 'Equation '
-    thm: 'Théorème '
-    lem: 'Lemme '
-    def: 'Définition '
-    cor: 'Corollaire '
+    thm: 'Theorem '
+    lem: 'Lemma '
+    cor: 'Corollary '
     prp: 'Proposition '
-    exm: 'Exemple '
-    exr: 'Exercice '
-    proof: 'Preuve. '
-    remark: 'Remarque. '
+    cnj: 'Conjecture '
+    def: 'Definition '
+    exm: 'Example '
+    exr: 'Exercise '
+    proof: 'Proof. '
+    remark: 'Remark. '
     solution: 'Solution. '
   ui:
-    edit: Editer
+    edit: Edit
     chapter_name: 'Module '
+    appendix_name: 'Appendix '
 before_chapter_script: 'setup.R'

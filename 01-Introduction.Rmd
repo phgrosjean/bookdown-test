@@ -2,21 +2,11 @@
 
 # Introduction {#intro}
 
-<!--
-``{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-``
-
-``{r bookdown-setup, include=FALSE}
-``
-
-``{r bookdown-include, echo=FALSE, results='asis'}
-``
--->
-
 This is a bookdown chapter mostly for demonstration and testing ... I started from [here](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html), then got some pieces from [here](https://github.com/rstudio/bookdown-demo), and finally skimmed the [bookdown book](https://bookdown.org/yihui/bookdown/) and took some notes hereunder. I had also a look at this [blog](http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html).
 
-[SciViews](http://www.sciviews.org) (you are supposed to use the SciViews Box `r learndown$svbox` in parallel to this book for your practical exercises).
+[SciViews](http://www.sciviews.org) (you are supposed to use the [SciViews Box `r learndown$svbox`](https://www.sciviews.org/software/svbox/) in parallel to this book for your practical exercises).
+
+![The logo of the SciViews Box](images/intro/svBox-256.png)
 
 ~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
@@ -25,7 +15,7 @@ This is a bookdown chapter mostly for demonstration and testing ... I started fr
 
 ## Book-wide references
 
-With R Markdown, it is only possible to reference items inside the same document, and there is no numbered figures, tables or equations (at least if LaTeX code is not used, but then, you can olny generate a PDF). Bookdown fills the gap with new formatting instructions that work across all documents of the book. It also provides updated versions of R MArkdown output formats that support numbered figures, tables and equations, e.g., `html_document2` to replace `html_document`, for instance.
+With R Markdown, it is only possible to reference items inside the same document, and there is no numbered figures, tables or equations (at least if LaTeX code is not used, but then, you can only generate a PDF). Bookdown fills the gap with new formatting instructions that work across all documents of the book. It also provides updated versions of R MArkdown output formats that support numbered figures, tables and equations, e.g., `html_document2` to replace `html_document`, for instance.
 
 
 ### Reference to chapter and titles

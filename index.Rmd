@@ -15,42 +15,35 @@ biblio-style: apalike
 link-citations: yes
 github-repo: phgrosjean/bookdown-test
 url: 'http\://phgrosjean.sciviews.org/bookdown-test/'
-description: "Tutoriel interactif pour la science des données avec R & SciViews-R."
+description: "Template for a learndown-enhanced bookdown document."
 cover-image: "images/front-cover.png"
 ---
 
-# Préambule {-}
+# Preamble {-}
+
+<!-- Compile the bibliography from different sources -->
 
 ```{r setup, include=FALSE, cache=FALSE}
 knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
 
-<!--
-``{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-# Automatically create a bib database for R packages
-knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
-``
+<!-- Diagnose the user login status, example in English and in French -->
 
-``{r bookdown-setup, include=FALSE}
-``
-
-``{r bookdown-include, echo=FALSE, results='asis'}
-``
--->
-
-`r learndown::diagnose_login(lang = "fr")`
-
-This is just a demo of the various possibilities of our extended bookdown format. It is intended to be used with the SciViews Box `r learndown$svbox`.
+Information about connected user build be {learndown} automatically:
 
 `r learndown::diagnose_login(lang = "en")`
 
+The same one in French\ :
+
+`r learndown::diagnose_login(lang = "fr")`
+
+This is just a demo of the various possibilities of our {learndown}-extended bookdown format. It is intended to be used with the SciViews Box `r learndown$svbox`.
 
 ![](images/front-cover.png)
 
 ----
 
-_Le matériel dans cet ouvrage est distribué sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr)._
+_The content of this book is distributed under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr) license._
 
 ----
 

@@ -9,10 +9,10 @@ bookdown::gitbook:
       before: |
         <li><a href="./">A Test Bookdown Book</a></li>
       after: |
-        <li><a href="http://biodatascience-course.sciviews.org">Site Web du cours</a></li>
-        <li><a href="https://github.com/BioDataScience-Course">Site Github du cours</a></li>
+        <li><a href="http://example1.org">Example link 1</a></li>
+        <li><a href="https://example2.org">Example link 2</a></li>
         <br/>
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published bookdown</a></li>
     edit: https://github.com/phgrosjean/bookdown-test/edit/master/%s
     view: https://github.com/phgrosjean/bookdown-test/blob/master/%s
     #download: ["pdf", "epub"]

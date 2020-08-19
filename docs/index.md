@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-08-18"
+date: "2020-08-19"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -15,161 +15,19 @@ biblio-style: apalike
 link-citations: yes
 github-repo: phgrosjean/bookdown-test
 url: 'http\://phgrosjean.sciviews.org/bookdown-test/'
-description: "Tutoriel interactif pour la science des données avec R & SciViews-R."
+description: "Template for a learndown-enhanced bookdown document."
 cover-image: "images/front-cover.png"
 ---
 
-# Préambule {-}
+# Preamble {-}
+
+<!-- Compile the bibliography from different sources -->
 
 
 
-<!--
-``{r setup, include=FALSE, cache=FALSE}
-knitr::read_chunk('setup.R')
-# Automatically create a bib database for R packages
-knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
-``
+<!-- Diagnose the user login status, example in English and in French -->
 
-``{r bookdown-setup, include=FALSE}
-``
-
-``{r bookdown-include, echo=FALSE, results='asis'}
-``
--->
-
-
-::: {.info}
-
-::: {#diagnostic-fr}
-
-*Patientez s'il-vous-plait, diagnostic en cours...*
-
-<script>
-function clearStorageFr() {
-  if (window.localStorage) {
-    localStorage.clear();
-  }
-  var msg = 'Informations personnelles locales effacees !' + '\nLa page va etre rechargee...' + "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
-  if (window.self !== window.parent) {
-    parent.alert(msg);
-  } else {
-    window.alert(msg);
-  }
-  window.location.href=window.location.href;
-}
-
-function diagnoseSystemFr() {
-  var container = document.getElementById('diagnostic-fr');
-  if (container === null) {
-    return;
-  }
-  var content = '';
-
-  if (!window.localStorage) {
-    content = content + "<p>Vous &ecirc;tes&nbsp;:</p>\n<ul>";
-    content = content + "\n<li>Anonyme sur ce site (stockage local indisponible).</li>";
-    content = content + "\n<li>Le contenu <b>n'est pas</b> contextualis&eacute; par rapport &agrave; un cours en particulier.</li>";
-    content = content + "\n<li>Le r&eacute;sultat de certains exercices <b>ne sera pas enregistr&eacute;</b>.</li>";
-    content = content + "\n</ul>";
-    content = content + "\n<p>Si vous n'&ecirc;tes <i>pas</i> un &eacute;tudiant qui suit un cours li&eacute; &agrave; ce mat&eacute;riel p&eacute;dagogique, c'est normal, vous pouvez continuer votre visite... <b>Bienvenue&nbsp;!</b></p>";
-    content = content + "\n<p>En revanche, si votre cours n&eacute;cessite que vous soyez d&ucirc;ment enregistr&eacute;, alors fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
-
-  } else {
-    // Explore the content of the storage
-    // Students are recognized by iemail (institutional email, or Wordpress email)
-    // but possibly, their login could be used too
-    var login = localStorage.getItem('login');
-    if (login === null) {
-      login = '';
-    }
-    var email = localStorage.getItem('email');
-    if (email === null) {
-      email = '';
-    }
-    var iemail = localStorage.getItem('iemail');
-    if (iemail === null) {
-      iemail = '';
-    }
-    // Compare both emails, if they are different, display both of them
-    if (email != iemail && iemail != '') {
-      email = email + '</u> (email institutionnel : <u>' + iemail + ')';
-    }
-
-    // Construct an identification string
-    content = content + "<p><b>Le contenu de ce cours est contextuel.</b> V&eacute;rifiez les informations suivantes, s'il-vous-plait&nbsp;:</p>\n<ul>";
-
-    var registered = false;
-    if (email == '' && login == '') {
-      // Not registered
-      content = content + "\n<li><u>Vous &ecirc;tes anonyme sur ce site.</u> <b>Votre progression dans les exercices ne sera pas enregistr&eacute;e.</b></li>";
-
-    } else {
-      // Registered user
-      registered = true;
-      if (login != '') {
-        content = content + "\n<li>Login&nbsp;: <u>" + login + "</u></li>";
-      }
-      if (email != '') {
-        content = content + "\n<li>Email&nbsp;: <u>" + email + "</u></li>";
-      }
-      content = content + "\n<b>Votre progression dans les exercices sera enregistr&eacute;e sous cette identit&eacute;.</b>";
-    }
-
-    // institution and icourse possibly change the content. So, must be checked!
-    var context = false;
-    var institution = localStorage.getItem('institution');
-    if (institution == null || institution == '') {
-      institution = 'ind&eacute;termin&eacute;e';
-    } else {
-      context = true;
-    }
-    var icourse = localStorage.getItem('icourse');
-    if (icourse == null || icourse == '') {
-      icourse = 'ind&eacute;termin&eacute;';
-    } else {
-      context = true;
-      var ictitle = localStorage.getItem('ictitle');
-      if (ictitle != null && ictitle != '') {
-        icourse = ictitle + ' (' + icourse + ')';
-      }
-    }
-    content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
-    content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
-    content = content + "\n</ul>";
-    if (context) {
-      content = content + "<p><b>Le contenu sera adapt&eacute; en fonction de ce contexte.</b> V&eacute;rifiez qu'il est correct, sinon fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
-    } else {// No context
-      content = content + "<p><b>N'&eacute;tant dans aucun contexte de cours particulier, vous n'aurez acc&egrave;s qu'&agrave un contenu g&eacute;n&eacute;raliste.</b> Si c'est ce que vous souhaitez... Bienvenue&nbsp;! Sinon, fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
-    }
-
-    // If registered user and/or special context, offer to reset it
-    if (registered || context) {
-      content = content + "\n<p>Pour explorer ces pages de mani&egrave;re anonyme et n'enregistrer aucune activit&eacute;, vous pouvez &eacute;liminez vos informations personnelles en cliquant sur le bouton juste ci-dessous.</p>";
-      content = content + '<button onclick="clearStorageFr()">Effacer mes donn&eacute;es personnelles</button>';
-    }
-    // Those variables are possibly defined, but they are not tested here (yet)
-    //var displayname = localStorage.getItem('displayname');
-    //var firstname = localStorage.getItem('firstname');
-    //var lastname = localStorage.getItem('lastname');
-    //var ifirstname = localStorage.getItem('ifirstname');
-    //var ilastname = localStorage.getItem('ilastname');
-    //var iid = localStorage.getItem('iid');
-    //var iurl = localStorage.getItem('iurl');
-    //var iref = localStorage.getItem('iref');
-  }
-
-  container.innerHTML = content;
-}
-diagnoseSystemFr();
-</script>
-<noscript><b>Le diagnostic ne peut se terminer car Javascript ne fonctionne pas, or il est indispensable pour ce site ! Tout le contenu interactif et contextuel sera inutilisable. Veuillez activer Javascript, s'il-vous-plait...</b></noscript>
-
-:::
-:::
-
-
-
-This is just a demo of the various possibilities of our extended bookdown format. It is intended to be used with the SciViews Box 2020.
+Information about connected user build be {learndown} automatically:
 
 
 ::: {.info}
@@ -303,12 +161,147 @@ diagnoseSystemEn();
 
 
 
+The same one in French\ :
+
+
+::: {.info}
+
+::: {#diagnostic-fr}
+
+*Patientez s'il-vous-plait, diagnostic en cours...*
+
+<script>
+function clearStorageFr() {
+  if (window.localStorage) {
+    localStorage.clear();
+  }
+  var msg = 'Informations personnelles locales effacees !' + '\nLa page va etre rechargee...' + "\n\n(s'il s'agit d'une fausse manoeuvre, fermer la page et relancez-la depuis Moodle).";
+  if (window.self !== window.parent) {
+    parent.alert(msg);
+  } else {
+    window.alert(msg);
+  }
+  window.location.href=window.location.href;
+}
+
+function diagnoseSystemFr() {
+  var container = document.getElementById('diagnostic-fr');
+  if (container === null) {
+    return;
+  }
+  var content = '';
+
+  if (!window.localStorage) {
+    content = content + "<p>Vous &ecirc;tes&nbsp;:</p>\n<ul>";
+    content = content + "\n<li>Anonyme sur ce site (stockage local indisponible).</li>";
+    content = content + "\n<li>Le contenu <b>n'est pas</b> contextualis&eacute; par rapport &agrave; un cours en particulier.</li>";
+    content = content + "\n<li>Le r&eacute;sultat de certains exercices <b>ne sera pas enregistr&eacute;</b>.</li>";
+    content = content + "\n</ul>";
+    content = content + "\n<p>Si vous n'&ecirc;tes <i>pas</i> un &eacute;tudiant qui suit un cours li&eacute; &agrave; ce mat&eacute;riel p&eacute;dagogique, c'est normal, vous pouvez continuer votre visite... <b>Bienvenue&nbsp;!</b></p>";
+    content = content + "\n<p>En revanche, si votre cours n&eacute;cessite que vous soyez d&ucirc;ment enregistr&eacute;, alors fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
+
+  } else {
+    // Explore the content of the storage
+    // Students are recognized by iemail (institutional email, or Wordpress email)
+    // but possibly, their login could be used too
+    var login = localStorage.getItem('login');
+    if (login === null) {
+      login = '';
+    }
+    var email = localStorage.getItem('email');
+    if (email === null) {
+      email = '';
+    }
+    var iemail = localStorage.getItem('iemail');
+    if (iemail === null) {
+      iemail = '';
+    }
+    // Compare both emails, if they are different, display both of them
+    if (email != iemail && iemail != '') {
+      email = email + '</u> (email institutionnel : <u>' + iemail + ')';
+    }
+
+    // Construct an identification string
+    content = content + "<p><b>Le contenu de ce cours est contextuel.</b> V&eacute;rifiez les informations suivantes, s'il-vous-plait&nbsp;:</p>\n<ul>";
+
+    var registered = false;
+    if (email == '' && login == '') {
+      // Not registered
+      content = content + "\n<li><u>Vous &ecirc;tes anonyme sur ce site.</u> <b>Votre progression dans les exercices ne sera pas enregistr&eacute;e.</b></li>";
+
+    } else {
+      // Registered user
+      registered = true;
+      if (login != '') {
+        content = content + "\n<li>Login&nbsp;: <u>" + login + "</u></li>";
+      }
+      if (email != '') {
+        content = content + "\n<li>Email&nbsp;: <u>" + email + "</u></li>";
+      }
+      content = content + "\n<b>Votre progression dans les exercices sera enregistr&eacute;e sous cette identit&eacute;.</b>";
+    }
+
+    // institution and icourse possibly change the content. So, must be checked!
+    var context = false;
+    var institution = localStorage.getItem('institution');
+    if (institution == null || institution == '') {
+      institution = 'ind&eacute;termin&eacute;e';
+    } else {
+      context = true;
+    }
+    var icourse = localStorage.getItem('icourse');
+    if (icourse == null || icourse == '') {
+      icourse = 'ind&eacute;termin&eacute;';
+    } else {
+      context = true;
+      var ictitle = localStorage.getItem('ictitle');
+      if (ictitle != null && ictitle != '') {
+        icourse = ictitle + ' (' + icourse + ')';
+      }
+    }
+    content = content + "\n<li>Cours&nbsp;: <u>" + icourse + "</u></li>";
+    content = content + "\n<li>Institution&nbsp;: <u>" + institution + "</u></li>";
+    content = content + "\n</ul>";
+    if (context) {
+      content = content + "<p><b>Le contenu sera adapt&eacute; en fonction de ce contexte.</b> V&eacute;rifiez qu'il est correct, sinon fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
+    } else {// No context
+      content = content + "<p><b>N'&eacute;tant dans aucun contexte de cours particulier, vous n'aurez acc&egrave;s qu'&agrave un contenu g&eacute;n&eacute;raliste.</b> Si c'est ce que vous souhaitez... Bienvenue&nbsp;! Sinon, fermez cette page et relancer-l&agrave; depuis le syst&egrave;me d'apprentissage en ligne de votre Universit&eacute; (Moodle, ...). Si les donn&eacute;es sont toujours incorrectes, contactez vos enseignants.</p>";
+    }
+
+    // If registered user and/or special context, offer to reset it
+    if (registered || context) {
+      content = content + "\n<p>Pour explorer ces pages de mani&egrave;re anonyme et n'enregistrer aucune activit&eacute;, vous pouvez &eacute;liminez vos informations personnelles en cliquant sur le bouton juste ci-dessous.</p>";
+      content = content + '<button onclick="clearStorageFr()">Effacer mes donn&eacute;es personnelles</button>';
+    }
+    // Those variables are possibly defined, but they are not tested here (yet)
+    //var displayname = localStorage.getItem('displayname');
+    //var firstname = localStorage.getItem('firstname');
+    //var lastname = localStorage.getItem('lastname');
+    //var ifirstname = localStorage.getItem('ifirstname');
+    //var ilastname = localStorage.getItem('ilastname');
+    //var iid = localStorage.getItem('iid');
+    //var iurl = localStorage.getItem('iurl');
+    //var iref = localStorage.getItem('iref');
+  }
+
+  container.innerHTML = content;
+}
+diagnoseSystemFr();
+</script>
+<noscript><b>Le diagnostic ne peut se terminer car Javascript ne fonctionne pas, or il est indispensable pour ce site ! Tout le contenu interactif et contextuel sera inutilisable. Veuillez activer Javascript, s'il-vous-plait...</b></noscript>
+
+:::
+:::
+
+
+
+This is just a demo of the various possibilities of our {learndown}-extended bookdown format. It is intended to be used with the SciViews Box 2020.
 
 ![](images/front-cover.png)
 
 ----
 
-_Le matériel dans cet ouvrage est distribué sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr)._
+_The content of this book is distributed under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr) license._
 
 ----
 
@@ -330,7 +323,7 @@ sessioninfo::session_info()
 #  collate  en_US.UTF-8                 
 #  ctype    en_US.UTF-8                 
 #  tz       Europe/Brussels             
-#  date     2020-08-18                  
+#  date     2020-08-19                  
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
 #  package     * version    date       lib source                            
@@ -344,7 +337,7 @@ sessioninfo::session_info()
 #  glue          1.4.0      2020-04-03 [1] CRAN (R 3.6.2)                    
 #  htmltools     0.4.0.9003 2020-04-29 [1] Github (rstudio/htmltools@984b39c)
 #  knitr         1.28       2020-02-06 [1] CRAN (R 3.6.0)                    
-#  learndown     0.0.9000   2020-08-18 [1] local                             
+#  learndown     1.0.0      2020-08-18 [1] local                             
 #  magick        2.4.0      2020-06-23 [1] CRAN (R 3.6.2)                    
 #  magrittr      1.5        2014-11-22 [1] CRAN (R 3.6.0)                    
 #  Rcpp          1.0.4.6    2020-04-09 [1] CRAN (R 3.6.2)                    
