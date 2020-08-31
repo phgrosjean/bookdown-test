@@ -180,9 +180,9 @@ A shiny application directly inside the book using an iframe. The application is
 
 <!-- example with default name... but not very explicit => redefine URL in RSConnect -->
 
-<img onclick="launchApp('11', 'https://sdd.umons.ac.be/content/11/');" src="images/shinyapps/11.png" width="780" height="761" class="shiny-img" id="img11"/>
-<iframe width="780" height="761" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="11"></iframe>
-*Click to start or run `BioDataScience::runApp("11")` in the svbox2020.*
+<img onclick="launchApp('B04_exponent', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponent"/>
+<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponent"></iframe>
+*Click to start or run `BioDataScience::runApp("B04_exponent")` in the svbox2020.*
 
 
 Another one from a different server\ :

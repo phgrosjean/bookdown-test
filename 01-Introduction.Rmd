@@ -141,7 +141,7 @@ A shiny application directly inside the book using an iframe. The application is
 
 <!-- example with default name... but not very explicit => redefine URL in RSConnect -->
 
-`r launch_shiny("https://sdd.umons.ac.be/content/11/", offsetx = 350)`
+`r launch_shiny("https://sdd.umons.ac.be/B04_exponent/", offsetx = 30)`
 
 Another one from a different server\ :
 
