@@ -1,5 +1,5 @@
-book_filename: "bookdown-test"
-repo: https://github.com/phgrosjean/bookdown-test
+book_filename: 'bookdown-test'
+repo: 'https://github.com/phgrosjean/bookdown-test'
 output_dir: docs
 clean: [packages.bib, bookdown.bbl]
 delete_merged_file: yes

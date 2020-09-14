@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,7 +78,7 @@ var iurl        = getParameterByName('iurl');
 var iref        = getParameterByName('iref');
 
 let institutions = ['UMONS', 'noinstitution'];
-let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+let courses = ['S-BIOG-006', 'S-BIOG-921', 'nocourse'];
 
 function toggleDisplay(item, target) {
   var style = item == target ? 'block' : 'none';
@@ -381,16 +381,16 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="h5p-content" class="section level2">
 <h2><span class="header-section-number">1.8</span> H5P content</h2>
 <p>H5P content can be displayed in iframes. Here is an example of a multiple choice widget:</p>
-<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=7" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p">
-</iframe>
+<span id="h5p_7"></span><a href="https://wp.sciviews.org/h5p"><img src="images/list-h5p.png" alt="h5p" /></a>
+<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe>
 <script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>Here is a “drag words” widget:</p>
-<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=6" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p">
-</iframe>
+<span id="h5p_6"></span><a href="https://wp.sciviews.org/h5p"><img src="images/list-h5p.png" alt="h5p" /></a>
+<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=6" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe>
 <script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>Here is a video widget:</p>
-<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=8" width="780" height="500" frameborder="0" allowfullscreen="allowfullscreen" class="h5p">
-</iframe>
+<span id="h5p_8"></span><a href="https://wp.sciviews.org/h5p"><img src="images/list-h5p.png" alt="h5p" /></a>
+<iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="780" height="500" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe>
 <script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>Some text…</p>
 </div>

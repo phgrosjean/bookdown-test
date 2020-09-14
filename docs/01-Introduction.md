@@ -180,16 +180,16 @@ A shiny application directly inside the book using an iframe. The application is
 
 <!-- example with default name... but not very explicit => redefine URL in RSConnect -->
 
-<img onclick="launchApp('B04_exponent', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponent"/>
-<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponent"></iframe>
-*Click to start or run `BioDataScience::runApp("B04_exponent")` in the svbox2020.*
+[]{#B04_exponent }<img onclick="launchApp('B04_exponentshiny', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponentshiny"/>
+<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponentshiny"></iframe>
+*Click to start or [run `BioDataScience1::runApp("B04_exponent")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22B04_exponent%22%29) in RStudio.*
 
 
 Another one from a different server\ :
 
-<img onclick="launchApp('url-parameters', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parameters"/>
-<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parameters"></iframe>
-*Click to start or run `BioDataScience::runApp("url-parameters")` in the svbox2020.*
+[]{#url-parameters }<img onclick="launchApp('url-parametersshiny', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parametersshiny"/>
+<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parametersshiny"></iframe>
+*Click to start or [run `BioDataScience1::runApp("url-parameters")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22url-parameters%22%29) in RStudio.*
 
 
 
@@ -197,9 +197,9 @@ Another one from a different server\ :
 
 A simple learnr document\ :
 
-<img onclick="launchApp('learnr', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnr"/>
-<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnr"></iframe>
-*Click to start or run `BioDataScience::run("learnr")` in the svbox2020.*
+[]{#learnr }<img onclick="launchApp('learnrshiny', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnrshiny"/>
+<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnrshiny"></iframe>
+*Click to start or [run `BioDataScience1::run("learnr")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3Arun%28%22learnr%22%29) in RStudio.*
 
 
 
@@ -213,14 +213,17 @@ H5P content can be displayed in iframes. Here is an example of a multiple choice
 
 
 
+[]{#h5p_7}[![h5p](images/list-h5p.png)](https://wp.sciviews.org/h5p)
 <iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe><script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a "drag words" widget:
 
+[]{#h5p_6}[![h5p](images/list-h5p.png)](https://wp.sciviews.org/h5p)
 <iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=6" width="780" height="270" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe><script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Here is a video widget:
 
+[]{#h5p_8}[![h5p](images/list-h5p.png)](https://wp.sciviews.org/h5p)
 <iframe src="https://wp.sciviews.org/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="780" height="500" frameborder="0" allowfullscreen="allowfullscreen" class="h5p"></iframe><script src="https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 Some text...

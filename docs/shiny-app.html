@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,7 +78,7 @@ var iurl        = getParameterByName('iurl');
 var iref        = getParameterByName('iref');
 
 let institutions = ['UMONS', 'noinstitution'];
-let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+let courses = ['S-BIOG-006', 'S-BIOG-921', 'nocourse'];
 
 function toggleDisplay(item, target) {
   var style = item == target ? 'block' : 'none';
@@ -382,13 +382,13 @@ code span.wa { color: #bf0303; } /* Warning */
 <h2><span class="header-section-number">1.5</span> Shiny app</h2>
 <p>A shiny application directly inside the book using an iframe. The application is <strong>not</strong> started when the page is loaded, but the user has to click on an image which is a screenshot of the application.</p>
 <!-- example with default name... but not very explicit => redefine URL in RSConnect -->
-<p><img onclick="launchApp('B04_exponent', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponent"/>
-<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponent"></iframe>
-<em>Click to start or run <code>BioDataScience::runApp("B04_exponent")</code> in the svbox2020.</em></p>
+<p><span id="B04_exponent"></span><img onclick="launchApp('B04_exponentshiny', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponentshiny"/>
+<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponentshiny"></iframe>
+<em>Click to start or <a href="https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22B04_exponent%22%29">run <code>BioDataScience1::runApp("B04_exponent")</code></a> in RStudio.</em></p>
 <p>Another one from a different server :</p>
-<p><img onclick="launchApp('url-parameters', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parameters"/>
-<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parameters"></iframe>
-<em>Click to start or run <code>BioDataScience::runApp("url-parameters")</code> in the svbox2020.</em></p>
+<p><span id="url-parameters"></span><img onclick="launchApp('url-parametersshiny', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parametersshiny"/>
+<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parametersshiny"></iframe>
+<em>Click to start or <a href="https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22url-parameters%22%29">run <code>BioDataScience1::runApp("url-parameters")</code></a> in RStudio.</em></p>
 </div>
 <div id="disqus_thread"></div>
 <script>

@@ -47,8 +47,10 @@ _The content of this book is distributed under a [CC BY-NC-SA 4.0](https://creat
 
 ----
 
-##### System information {-}
+<details><summary>System information</summary>
 
 ```{r, class.source='hidden-code'}
 sessioninfo::session_info()
 ```
+
+</details>

@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-08-31"
+date: "2020-09-14"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -305,7 +305,7 @@ _The content of this book is distributed under a [CC BY-NC-SA 4.0](https://creat
 
 ----
 
-##### System information {-}
+<details><summary>System information</summary>
 
 
 ```{.r .hidden-code}
@@ -323,57 +323,70 @@ sessioninfo::session_info()
 #  collate  en_US.UTF-8                 
 #  ctype    en_US.UTF-8                 
 #  tz       Europe/Brussels             
-#  date     2020-08-31                  
+#  date     2020-09-14                  
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
-#  package     * version    date       lib source                             
-#  anytime       0.3.7      2020-01-20 [1] CRAN (R 3.6.0)                     
-#  assertthat    0.2.1      2019-03-21 [1] CRAN (R 3.6.0)                     
-#  bit           1.1-15.2   2020-02-10 [1] CRAN (R 3.6.0)                     
-#  bit64         0.9-7      2017-05-08 [1] CRAN (R 3.6.0)                     
-#  blob          1.2.1      2020-01-20 [1] CRAN (R 3.6.0)                     
-#  bookdown      0.18       2020-03-05 [1] CRAN (R 3.6.0)                     
-#  cli           2.0.2      2020-02-28 [1] CRAN (R 3.6.0)                     
-#  crayon        1.3.4.9000 2020-08-27 [1] Github (r-lib/crayon@6b3f0c6)      
-#  data.table    1.12.8     2019-12-09 [1] CRAN (R 3.6.0)                     
-#  DBI           1.1.0      2019-12-15 [1] CRAN (R 3.6.0)                     
-#  digest        0.6.25     2020-02-23 [1] CRAN (R 3.6.0)                     
-#  evaluate      0.14       2019-05-28 [1] CRAN (R 3.6.0)                     
-#  fansi         0.4.1      2020-01-08 [1] CRAN (R 3.6.0)                     
-#  fastmap       1.0.1      2019-10-08 [1] CRAN (R 3.6.0)                     
-#  glue          1.4.0      2020-04-03 [1] CRAN (R 3.6.2)                     
-#  htmltools     0.5.0.9000 2020-08-27 [1] Github (rstudio/htmltools@e35c3fa) 
-#  httpuv        1.5.2      2019-09-11 [1] CRAN (R 3.6.0)                     
-#  jsonlite      1.6.1      2020-02-02 [1] CRAN (R 3.6.0)                     
-#  knitr         1.28       2020-02-06 [1] CRAN (R 3.6.0)                     
-#  later         1.0.0      2019-10-04 [1] CRAN (R 3.6.0)                     
-#  lattice       0.20-38    2018-11-04 [1] CRAN (R 3.6.3)                     
-#  learndown     1.0.0      2020-08-31 [1] Github (SciViews/learndown@333b661)
-#  magick        2.3        2020-01-24 [1] CRAN (R 3.6.0)                     
-#  magrittr      1.5        2014-11-22 [1] CRAN (R 3.6.0)                     
-#  memoise       1.1.0      2017-04-21 [1] CRAN (R 3.6.0)                     
-#  mime          0.9        2020-02-04 [1] CRAN (R 3.6.0)                     
-#  nanotime      0.2.4      2019-05-25 [1] CRAN (R 3.6.0)                     
-#  promises      1.1.0      2019-10-04 [1] CRAN (R 3.6.0)                     
-#  R6            2.4.1      2019-11-12 [1] CRAN (R 3.6.0)                     
-#  Rcpp          1.0.4.6    2020-04-09 [1] CRAN (R 3.6.3)                     
-#  RcppCCTZ      0.2.7      2020-03-18 [1] CRAN (R 3.6.0)                     
-#  rlang         0.4.5      2020-03-01 [1] CRAN (R 3.6.0)                     
-#  rmarkdown     2.1        2020-01-20 [1] CRAN (R 3.6.0)                     
-#  RSQLite       2.2.0      2020-01-07 [1] CRAN (R 3.6.0)                     
-#  sessioninfo   1.1.1      2018-11-05 [1] CRAN (R 3.6.0)                     
-#  shiny         1.4.0.2    2020-03-13 [1] CRAN (R 3.6.0)                     
-#  shinylogs     0.1.7.9000 2020-08-31 [1] Github (SciViews/shinylogs@ad60351)
-#  shinytoastr   2.1.1      2016-06-06 [1] CRAN (R 3.6.0)                     
-#  stringi       1.4.6      2020-02-17 [1] CRAN (R 3.6.0)                     
-#  stringr       1.4.0      2019-02-10 [1] CRAN (R 3.6.0)                     
-#  vctrs         0.2.4      2020-03-10 [1] CRAN (R 3.6.0)                     
-#  webshot       0.5.2      2019-11-22 [1] CRAN (R 3.6.0)                     
-#  withr         2.2.0      2020-04-20 [1] CRAN (R 3.6.2)                     
-#  xfun          0.13       2020-04-13 [1] CRAN (R 3.6.2)                     
-#  xtable        1.8-4      2019-04-21 [1] CRAN (R 3.6.0)                     
-#  yaml          2.2.1      2020-02-01 [1] CRAN (R 3.6.0)                     
-#  zoo           1.8-7      2020-01-10 [1] CRAN (R 3.6.0)                     
+#  package     * version     date       lib source                             
+#  anytime       0.3.7       2020-01-20 [1] CRAN (R 3.6.0)                     
+#  assertthat    0.2.1       2019-03-21 [1] CRAN (R 3.6.0)                     
+#  backports     1.1.6       2020-04-05 [1] CRAN (R 3.6.2)                     
+#  base64enc     0.1-3       2015-07-28 [1] CRAN (R 3.6.0)                     
+#  bit           1.1-15.2    2020-02-10 [1] CRAN (R 3.6.0)                     
+#  bit64         0.9-7       2017-05-08 [1] CRAN (R 3.6.0)                     
+#  blob          1.2.1       2020-01-20 [1] CRAN (R 3.6.0)                     
+#  bookdown      0.18        2020-03-05 [1] CRAN (R 3.6.0)                     
+#  cli           2.0.2       2020-02-28 [1] CRAN (R 3.6.0)                     
+#  crayon        1.3.4.9000  2020-08-27 [1] Github (r-lib/crayon@6b3f0c6)      
+#  curl          4.3         2019-12-02 [1] CRAN (R 3.6.0)                     
+#  data.table    1.12.8      2019-12-09 [1] CRAN (R 3.6.0)                     
+#  DBI           1.1.0       2019-12-15 [1] CRAN (R 3.6.0)                     
+#  digest        0.6.25      2020-02-23 [1] CRAN (R 3.6.0)                     
+#  evaluate      0.14        2019-05-28 [1] CRAN (R 3.6.0)                     
+#  fansi         0.4.1       2020-01-08 [1] CRAN (R 3.6.0)                     
+#  fastmap       1.0.1       2019-10-08 [1] CRAN (R 3.6.0)                     
+#  glue          1.4.0       2020-04-03 [1] CRAN (R 3.6.2)                     
+#  htmltools     0.5.0.9000  2020-08-27 [1] Github (rstudio/htmltools@e35c3fa) 
+#  htmlwidgets   1.5.1       2019-10-08 [1] CRAN (R 3.6.0)                     
+#  httpuv        1.5.2       2019-09-11 [1] CRAN (R 3.6.0)                     
+#  httr          1.4.1       2019-08-05 [1] CRAN (R 3.6.0)                     
+#  jsonlite      1.6.1       2020-02-02 [1] CRAN (R 3.6.0)                     
+#  knitr         1.28        2020-02-06 [1] CRAN (R 3.6.0)                     
+#  later         1.0.0       2019-10-04 [1] CRAN (R 3.6.0)                     
+#  lattice       0.20-38     2018-11-04 [1] CRAN (R 3.6.3)                     
+#  learndown     1.1.0       2020-09-13 [1] Github (SciViews/learndown@853ade6)
+#  learnr        0.10.1.9006 2020-09-06 [1] Github (rstudio/learnr@1f34b45)    
+#  magick        2.3         2020-01-24 [1] CRAN (R 3.6.0)                     
+#  magrittr      1.5         2014-11-22 [1] CRAN (R 3.6.0)                     
+#  markdown      1.1         2019-08-07 [1] CRAN (R 3.6.0)                     
+#  memoise       1.1.0       2017-04-21 [1] CRAN (R 3.6.0)                     
+#  mime          0.9         2020-02-04 [1] CRAN (R 3.6.0)                     
+#  mongolite     2.2.0       2020-03-17 [1] CRAN (R 3.6.0)                     
+#  nanotime      0.2.4       2019-05-25 [1] CRAN (R 3.6.0)                     
+#  PKI           0.1-7       2020-04-14 [1] CRAN (R 3.6.2)                     
+#  promises      1.1.0       2019-10-04 [1] CRAN (R 3.6.0)                     
+#  R6            2.4.1       2019-11-12 [1] CRAN (R 3.6.0)                     
+#  Rcpp          1.0.4.6     2020-04-09 [1] CRAN (R 3.6.3)                     
+#  RcppCCTZ      0.2.7       2020-03-18 [1] CRAN (R 3.6.0)                     
+#  remotes       2.1.1       2020-02-15 [1] CRAN (R 3.6.0)                     
+#  rlang         0.4.5       2020-03-01 [1] CRAN (R 3.6.0)                     
+#  rmarkdown     2.1         2020-01-20 [1] CRAN (R 3.6.0)                     
+#  rprojroot     1.3-2       2018-01-03 [1] CRAN (R 3.6.0)                     
+#  RSQLite       2.2.0       2020-01-07 [1] CRAN (R 3.6.0)                     
+#  sessioninfo   1.1.1       2018-11-05 [1] CRAN (R 3.6.0)                     
+#  shiny         1.4.0.2     2020-03-13 [1] CRAN (R 3.6.0)                     
+#  shinylogs     0.1.7.9000  2020-09-01 [1] Github (SciViews/shinylogs@ad60351)
+#  shinytoastr   2.1.1       2016-06-06 [1] CRAN (R 3.6.0)                     
+#  stringi       1.4.6       2020-02-17 [1] CRAN (R 3.6.0)                     
+#  stringr       1.4.0       2019-02-10 [1] CRAN (R 3.6.0)                     
+#  vctrs         0.2.4       2020-03-10 [1] CRAN (R 3.6.0)                     
+#  webshot       0.5.2       2019-11-22 [1] CRAN (R 3.6.0)                     
+#  withr         2.2.0       2020-04-20 [1] CRAN (R 3.6.2)                     
+#  xfun          0.13        2020-04-13 [1] CRAN (R 3.6.2)                     
+#  xtable        1.8-4       2019-04-21 [1] CRAN (R 3.6.0)                     
+#  yaml          2.2.1       2020-02-01 [1] CRAN (R 3.6.0)                     
+#  zoo           1.8-7       2020-01-10 [1] CRAN (R 3.6.0)                     
 # 
 # [1] /Library/Frameworks/R.framework/Versions/3.6/Resources/library
 ```
+
+</details>

@@ -24,7 +24,7 @@
 <meta name="author" content="Philippe Grosjean &amp; Guyliann Engels" />
 
 
-<meta name="date" content="2020-08-31" />
+<meta name="date" content="2020-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,7 +78,7 @@ var iurl        = getParameterByName('iurl');
 var iref        = getParameterByName('iref');
 
 let institutions = ['UMONS', 'noinstitution'];
-let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+let courses = ['S-BIOG-006', 'S-BIOG-921', 'nocourse'];
 
 function toggleDisplay(item, target) {
   var style = item == target ? 'block' : 'none';
@@ -381,9 +381,9 @@ code span.wa { color: #bf0303; } /* Warning */
 <div id="learnr-with-one-exercise-and-one-quizz" class="section level2">
 <h2><span class="header-section-number">1.6</span> Learnr with one exercise and one quizz</h2>
 <p>A simple learnr document :</p>
-<p><img onclick="launchApp('learnr', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnr"/>
-<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnr"></iframe>
-<em>Click to start or run <code>BioDataScience::run("learnr")</code> in the svbox2020.</em></p>
+<p><span id="learnr"></span><img onclick="launchApp('learnrshiny', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnrshiny"/>
+<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnrshiny"></iframe>
+<em>Click to start or <a href="https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3Arun%28%22learnr%22%29">run <code>BioDataScience1::run("learnr")</code></a> in RStudio.</em></p>
 </div>
 <div id="disqus_thread"></div>
 <script>
