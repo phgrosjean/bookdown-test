@@ -10,7 +10,7 @@ This is a bookdown chapter mostly for demonstration and testing ... I started fr
 
 ~~To convince *someone* to switch to Markdown, show him [this](http://nerdplusart.com/markdown-is-the-future/). A short discussion of html/active documents _versus_ pdf/static printable pages should be nice here.~~
 
-*Now, let's look at special formattings provided by {bookdown}, and by the {learndown} additions.*
+*Now, let's look at special formattings provided by {bookdown}, and by the {learnitdown} additions.*
 
 
 ## Book-wide references
@@ -56,28 +56,28 @@ knitr::kable(
 
 Table: (\#tab:nice-tab)Here is a nice table!
 
- Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species 
--------------  ------------  -------------  ------------  --------
-          5.1           3.5            1.4           0.2  setosa  
-          4.9           3.0            1.4           0.2  setosa  
-          4.7           3.2            1.3           0.2  setosa  
-          4.6           3.1            1.5           0.2  setosa  
-          5.0           3.6            1.4           0.2  setosa  
-          5.4           3.9            1.7           0.4  setosa  
-          4.6           3.4            1.4           0.3  setosa  
-          5.0           3.4            1.5           0.2  setosa  
-          4.4           2.9            1.4           0.2  setosa  
-          4.9           3.1            1.5           0.1  setosa  
-          5.4           3.7            1.5           0.2  setosa  
-          4.8           3.4            1.6           0.2  setosa  
-          4.8           3.0            1.4           0.1  setosa  
-          4.3           3.0            1.1           0.1  setosa  
-          5.8           4.0            1.2           0.2  setosa  
-          5.7           4.4            1.5           0.4  setosa  
-          5.4           3.9            1.3           0.4  setosa  
-          5.1           3.5            1.4           0.3  setosa  
-          5.7           3.8            1.7           0.3  setosa  
-          5.1           3.8            1.5           0.3  setosa  
+| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
+|------------:|-----------:|------------:|-----------:|:-------|
+|          5.1|         3.5|          1.4|         0.2|setosa  |
+|          4.9|         3.0|          1.4|         0.2|setosa  |
+|          4.7|         3.2|          1.3|         0.2|setosa  |
+|          4.6|         3.1|          1.5|         0.2|setosa  |
+|          5.0|         3.6|          1.4|         0.2|setosa  |
+|          5.4|         3.9|          1.7|         0.4|setosa  |
+|          4.6|         3.4|          1.4|         0.3|setosa  |
+|          5.0|         3.4|          1.5|         0.2|setosa  |
+|          4.4|         2.9|          1.4|         0.2|setosa  |
+|          4.9|         3.1|          1.5|         0.1|setosa  |
+|          5.4|         3.7|          1.5|         0.2|setosa  |
+|          4.8|         3.4|          1.6|         0.2|setosa  |
+|          4.8|         3.0|          1.4|         0.1|setosa  |
+|          4.3|         3.0|          1.1|         0.1|setosa  |
+|          5.8|         4.0|          1.2|         0.2|setosa  |
+|          5.7|         4.4|          1.5|         0.4|setosa  |
+|          5.4|         3.9|          1.3|         0.4|setosa  |
+|          5.1|         3.5|          1.4|         0.3|setosa  |
+|          5.7|         3.8|          1.7|         0.3|setosa  |
+|          5.1|         3.8|          1.5|         0.3|setosa  |
 
 
 ### Numbered equations
@@ -180,15 +180,15 @@ A shiny application directly inside the book using an iframe. The application is
 
 <!-- example with default name... but not very explicit => redefine URL in RSConnect -->
 
-[]{#B04_exponent }<img onclick="launchApp('B04_exponentshiny', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponentshiny"/>
-<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponentshiny"></iframe>
+[<img onclick="launchApp('B04_exponentshiny', 'https://sdd.umons.ac.be/B04_exponent/');" src="images/shinyapps/B04_exponent.png" width="780" height="568" class="shiny-img" id="imgB04_exponentshiny"/>
+<iframe width="780" height="568" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="B04_exponentshiny"></iframe>]{#B04_exponent }
 *Click to start or [run `BioDataScience1::runApp("B04_exponent")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22B04_exponent%22%29) in RStudio.*
 
 
 Another one from a different server\ :
 
-[]{#url-parameters }<img onclick="launchApp('url-parametersshiny', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parametersshiny"/>
-<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parametersshiny"></iframe>
+[<img onclick="launchApp('url-parametersshiny', 'https://phgrosjean.shinyapps.io/url-parameters/');" src="images/shinyapps/url-parameters.png" width="780" height="686" class="shiny-img" id="imgurl-parametersshiny"/>
+<iframe width="780" height="686" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="url-parametersshiny"></iframe>]{#url-parameters }
 *Click to start or [run `BioDataScience1::runApp("url-parameters")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3ArunApp%28%22url-parameters%22%29) in RStudio.*
 
 
@@ -197,8 +197,8 @@ Another one from a different server\ :
 
 A simple learnr document\ :
 
-[]{#learnr }<img onclick="launchApp('learnrshiny', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnrshiny"/>
-<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnrshiny"></iframe>
+[<img onclick="launchApp('learnrshiny', 'https://phgrosjean.shinyapps.io/learnr/');" src="images/shinyapps/learnr.png" width="780" height="600" class="shiny-img" id="imglearnrshiny"/>
+<iframe width="780" height="600" frameborder="0" scrolling="auto" style="display:none" class="shiny-app" id="learnrshiny"></iframe>]{#learnr }
 *Click to start or [run `BioDataScience1::run("learnr")`](https://wp.sciviews.org/start_rstudio2020.html?runrcode=BioDataScience1%3A%3Arun%28%22learnr%22%29) in RStudio.*
 
 

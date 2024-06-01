@@ -1,7 +1,7 @@
 --- 
 title: "A Test Bookdown Book"
 author: "Philippe Grosjean & Guyliann Engels"
-date: "2020-09-14"
+date: "2024-06-01"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
@@ -15,7 +15,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: phgrosjean/bookdown-test
 url: 'http\://phgrosjean.sciviews.org/bookdown-test/'
-description: "Template for a learndown-enhanced bookdown document."
+description: "Template for a learnitdown-enhanced bookdown document."
 cover-image: "images/front-cover.png"
 ---
 
@@ -27,7 +27,7 @@ cover-image: "images/front-cover.png"
 
 <!-- Diagnose the user login status, example in English and in French -->
 
-Information about connected user build be {learndown} automatically:
+Information about connected user build be {learnitdown} automatically:
 
 
 ::: {.info}
@@ -295,7 +295,7 @@ diagnoseSystemFr();
 
 
 
-This is just a demo of the various possibilities of our {learndown}-extended bookdown format. It is intended to be used with the SciViews Box 2020.
+This is just a demo of the various possibilities of our {learnitdown}-extended bookdown format. It is intended to be used with the SciViews Box 2020.
 
 ![](images/front-cover.png)
 
@@ -314,79 +314,81 @@ sessioninfo::session_info()
 
 ```
 # ─ Session info ───────────────────────────────────────────────────────────────
-#  setting  value                       
-#  version  R version 3.6.3 (2020-02-29)
-#  os       macOS Catalina 10.15.6      
-#  system   x86_64, darwin15.6.0        
-#  ui       X11                         
-#  language (EN)                        
-#  collate  en_US.UTF-8                 
-#  ctype    en_US.UTF-8                 
-#  tz       Europe/Brussels             
-#  date     2020-09-14                  
+#  setting  value
+#  version  R version 4.2.3 (2023-03-15)
+#  os       macOS 14.4.1
+#  system   aarch64, darwin20
+#  ui       X11
+#  language (EN)
+#  collate  en_US.UTF-8
+#  ctype    en_US.UTF-8
+#  tz       Europe/Brussels
+#  date     2024-06-01
+#  pandoc   3.1.11 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 # 
 # ─ Packages ───────────────────────────────────────────────────────────────────
-#  package     * version     date       lib source                             
-#  anytime       0.3.7       2020-01-20 [1] CRAN (R 3.6.0)                     
-#  assertthat    0.2.1       2019-03-21 [1] CRAN (R 3.6.0)                     
-#  backports     1.1.6       2020-04-05 [1] CRAN (R 3.6.2)                     
-#  base64enc     0.1-3       2015-07-28 [1] CRAN (R 3.6.0)                     
-#  bit           1.1-15.2    2020-02-10 [1] CRAN (R 3.6.0)                     
-#  bit64         0.9-7       2017-05-08 [1] CRAN (R 3.6.0)                     
-#  blob          1.2.1       2020-01-20 [1] CRAN (R 3.6.0)                     
-#  bookdown      0.18        2020-03-05 [1] CRAN (R 3.6.0)                     
-#  cli           2.0.2       2020-02-28 [1] CRAN (R 3.6.0)                     
-#  crayon        1.3.4.9000  2020-08-27 [1] Github (r-lib/crayon@6b3f0c6)      
-#  curl          4.3         2019-12-02 [1] CRAN (R 3.6.0)                     
-#  data.table    1.12.8      2019-12-09 [1] CRAN (R 3.6.0)                     
-#  DBI           1.1.0       2019-12-15 [1] CRAN (R 3.6.0)                     
-#  digest        0.6.25      2020-02-23 [1] CRAN (R 3.6.0)                     
-#  evaluate      0.14        2019-05-28 [1] CRAN (R 3.6.0)                     
-#  fansi         0.4.1       2020-01-08 [1] CRAN (R 3.6.0)                     
-#  fastmap       1.0.1       2019-10-08 [1] CRAN (R 3.6.0)                     
-#  glue          1.4.0       2020-04-03 [1] CRAN (R 3.6.2)                     
-#  htmltools     0.5.0.9000  2020-08-27 [1] Github (rstudio/htmltools@e35c3fa) 
-#  htmlwidgets   1.5.1       2019-10-08 [1] CRAN (R 3.6.0)                     
-#  httpuv        1.5.2       2019-09-11 [1] CRAN (R 3.6.0)                     
-#  httr          1.4.1       2019-08-05 [1] CRAN (R 3.6.0)                     
-#  jsonlite      1.6.1       2020-02-02 [1] CRAN (R 3.6.0)                     
-#  knitr         1.28        2020-02-06 [1] CRAN (R 3.6.0)                     
-#  later         1.0.0       2019-10-04 [1] CRAN (R 3.6.0)                     
-#  lattice       0.20-38     2018-11-04 [1] CRAN (R 3.6.3)                     
-#  learndown     1.1.0       2020-09-13 [1] Github (SciViews/learndown@853ade6)
-#  learnr        0.10.1.9006 2020-09-06 [1] Github (rstudio/learnr@1f34b45)    
-#  magick        2.3         2020-01-24 [1] CRAN (R 3.6.0)                     
-#  magrittr      1.5         2014-11-22 [1] CRAN (R 3.6.0)                     
-#  markdown      1.1         2019-08-07 [1] CRAN (R 3.6.0)                     
-#  memoise       1.1.0       2017-04-21 [1] CRAN (R 3.6.0)                     
-#  mime          0.9         2020-02-04 [1] CRAN (R 3.6.0)                     
-#  mongolite     2.2.0       2020-03-17 [1] CRAN (R 3.6.0)                     
-#  nanotime      0.2.4       2019-05-25 [1] CRAN (R 3.6.0)                     
-#  PKI           0.1-7       2020-04-14 [1] CRAN (R 3.6.2)                     
-#  promises      1.1.0       2019-10-04 [1] CRAN (R 3.6.0)                     
-#  R6            2.4.1       2019-11-12 [1] CRAN (R 3.6.0)                     
-#  Rcpp          1.0.4.6     2020-04-09 [1] CRAN (R 3.6.3)                     
-#  RcppCCTZ      0.2.7       2020-03-18 [1] CRAN (R 3.6.0)                     
-#  remotes       2.1.1       2020-02-15 [1] CRAN (R 3.6.0)                     
-#  rlang         0.4.5       2020-03-01 [1] CRAN (R 3.6.0)                     
-#  rmarkdown     2.1         2020-01-20 [1] CRAN (R 3.6.0)                     
-#  rprojroot     1.3-2       2018-01-03 [1] CRAN (R 3.6.0)                     
-#  RSQLite       2.2.0       2020-01-07 [1] CRAN (R 3.6.0)                     
-#  sessioninfo   1.1.1       2018-11-05 [1] CRAN (R 3.6.0)                     
-#  shiny         1.4.0.2     2020-03-13 [1] CRAN (R 3.6.0)                     
-#  shinylogs     0.1.7.9000  2020-09-01 [1] Github (SciViews/shinylogs@ad60351)
-#  shinytoastr   2.1.1       2016-06-06 [1] CRAN (R 3.6.0)                     
-#  stringi       1.4.6       2020-02-17 [1] CRAN (R 3.6.0)                     
-#  stringr       1.4.0       2019-02-10 [1] CRAN (R 3.6.0)                     
-#  vctrs         0.2.4       2020-03-10 [1] CRAN (R 3.6.0)                     
-#  webshot       0.5.2       2019-11-22 [1] CRAN (R 3.6.0)                     
-#  withr         2.2.0       2020-04-20 [1] CRAN (R 3.6.2)                     
-#  xfun          0.13        2020-04-13 [1] CRAN (R 3.6.2)                     
-#  xtable        1.8-4       2019-04-21 [1] CRAN (R 3.6.0)                     
-#  yaml          2.2.1       2020-02-01 [1] CRAN (R 3.6.0)                     
-#  zoo           1.8-7       2020-01-10 [1] CRAN (R 3.6.0)                     
+#  package     * version date (UTC) lib source
+#  anytime       0.3.9   2020-08-27 [2] RSPM (R 4.2.3)
+#  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.2.0)
+#  base64enc     0.1-3   2015-07-28 [2] RSPM (R 4.2.0)
+#  bit           4.0.5   2022-11-15 [2] RSPM (R 4.2.0)
+#  bit64         4.0.5   2020-08-30 [2] RSPM (R 4.2.0)
+#  bookdown      0.33    2023-03-06 [2] RSPM (R 4.2.3)
+#  bslib         0.4.2   2022-12-16 [2] RSPM (R 4.2.0)
+#  cachem        1.0.7   2023-02-24 [2] RSPM (R 4.2.3)
+#  cli           3.6.1   2023-03-23 [2] RSPM (R 4.2.0)
+#  curl          5.0.0   2023-01-12 [2] RSPM (R 4.2.3)
+#  data.table    1.15.4  2024-05-23 [1] Github (Rdatatable/data.table@aa75d79)
+#  digest        0.6.31  2022-12-11 [2] RSPM (R 4.2.0)
+#  ellipsis      0.3.2   2021-04-29 [2] RSPM (R 4.2.0)
+#  evaluate      0.20    2023-01-17 [2] RSPM (R 4.2.3)
+#  fastmap       1.1.1   2023-02-24 [2] RSPM (R 4.2.0)
+#  getPass       0.2-2   2017-07-21 [2] RSPM (R 4.2.0)
+#  glue          1.6.2   2022-02-24 [2] RSPM (R 4.2.0)
+#  htmltools     0.5.5   2023-03-23 [2] RSPM (R 4.2.3)
+#  htmlwidgets   1.6.2   2023-03-17 [2] RSPM (R 4.2.0)
+#  httpuv        1.6.9   2023-02-14 [2] RSPM (R 4.2.3)
+#  httr          1.4.5   2023-02-24 [2] RSPM (R 4.2.3)
+#  jquerylib     0.1.4   2021-04-26 [2] RSPM (R 4.2.0)
+#  jsonlite      1.8.4   2022-12-06 [2] RSPM (R 4.2.0)
+#  keyring       1.3.1   2022-10-27 [2] RSPM (R 4.2.0)
+#  knitr         1.42    2023-01-25 [2] RSPM (R 4.2.3)
+#  later         1.3.0   2021-08-18 [2] RSPM (R 4.2.3)
+#  lattice       0.21-8  2023-04-05 [2] RSPM (R 4.2.0)
+#  learnitdown   1.5.6   2024-05-27 [1] local
+#  learnr        0.11.3  2023-03-16 [2] RSPM (R 4.2.3)
+#  lifecycle     1.0.3   2022-10-07 [2] RSPM (R 4.2.0)
+#  magick        2.7.4   2023-03-09 [2] RSPM (R 4.2.3)
+#  magrittr      2.0.3   2022-03-30 [2] RSPM (R 4.2.0)
+#  mime          0.12    2021-09-28 [2] RSPM (R 4.2.0)
+#  mongolite     2.7.2   2023-03-31 [2] RSPM (R 4.2.0)
+#  nanotime      0.3.7   2022-10-24 [2] RSPM (R 4.2.3)
+#  PKI           0.1-12  2022-11-28 [2] RSPM (R 4.2.0)
+#  promises      1.2.0.1 2021-02-11 [2] RSPM (R 4.2.3)
+#  R6            2.5.1   2021-08-19 [2] RSPM (R 4.2.0)
+#  Rcpp          1.0.10  2023-01-22 [2] RSPM (R 4.2.3)
+#  RcppCCTZ      0.2.12  2022-11-06 [2] RSPM (R 4.2.3)
+#  remotes       2.4.2   2021-11-30 [1] RSPM (R 4.2.3)
+#  rlang         1.1.1   2024-01-06 [2] Github (r-lib/rlang@564f176)
+#  rmarkdown     2.21    2023-03-26 [2] RSPM (R 4.2.3)
+#  rprojroot     2.0.3   2022-04-02 [2] RSPM (R 4.2.0)
+#  rstudioapi    0.14    2022-08-22 [2] RSPM (R 4.2.0)
+#  sass          0.4.5   2023-01-24 [2] RSPM (R 4.2.3)
+#  sessioninfo   1.2.2   2021-12-06 [2] RSPM (R 4.2.0)
+#  shiny         1.7.4   2022-12-15 [2] RSPM (R 4.2.0)
+#  shinylogs     0.2.1   2022-04-18 [2] RSPM (R 4.2.0)
+#  shinytoastr   2.1.1   2016-06-06 [2] RSPM (R 4.2.0)
+#  webshot       0.5.4   2022-09-26 [2] RSPM (R 4.2.3)
+#  withr         2.5.0   2022-03-03 [2] RSPM (R 4.2.0)
+#  xfun          0.38    2023-03-24 [2] RSPM (R 4.2.3)
+#  xtable        1.8-4   2019-04-21 [2] RSPM (R 4.2.0)
+#  yaml          2.3.7   2023-01-23 [2] RSPM (R 4.2.0)
+#  zoo           1.8-12  2023-04-13 [2] RSPM (R 4.2.0)
 # 
-# [1] /Library/Frameworks/R.framework/Versions/3.6/Resources/library
+#  [1] /Users/phgrosjean/Library/R/arm64/4.2/library
+#  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
+# 
+# ──────────────────────────────────────────────────────────────────────────────
 ```
 
 </details>

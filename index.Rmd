@@ -15,7 +15,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: phgrosjean/bookdown-test
 url: 'http\://phgrosjean.sciviews.org/bookdown-test/'
-description: "Template for a learndown-enhanced bookdown document."
+description: "Template for a learnitdown-enhanced bookdown document."
 cover-image: "images/front-cover.png"
 ---
 
@@ -29,15 +29,15 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib
 
 <!-- Diagnose the user login status, example in English and in French -->
 
-Information about connected user build be {learndown} automatically:
+Information about connected user build be {learnitdown} automatically:
 
-`r learndown::diagnose_login(lang = "en")`
+`r learnitdown::diagnose_login(lang = "en")`
 
 The same one in French\ :
 
-`r learndown::diagnose_login(lang = "fr")`
+`r learnitdown::diagnose_login(lang = "fr")`
 
-This is just a demo of the various possibilities of our {learndown}-extended bookdown format. It is intended to be used with the SciViews Box `r learndown$svbox`.
+This is just a demo of the various possibilities of our {learnitdown}-extended bookdown format. It is intended to be used with the SciViews Box `r learnitdown$svbox`.
 
 ![](images/front-cover.png)
 

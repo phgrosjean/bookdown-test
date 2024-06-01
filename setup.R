@@ -1,5 +1,5 @@
-# Learndown configuration and functions
-learndown <- list(
+# Learnitdown configuration and functions
+learnitdown <- list(
   baseurl = "https://wp.sciviews.org", # The base URL for the site
   shiny_imgdir = "images/shinyapps",   # The Shiny image directory (screenshots)
   svbox = 2020,                        # The SciViews Box version used
@@ -38,54 +38,54 @@ learndown <- list(
 # `r show_ex_toc()`
 
 h5p <- function(id, toc = "", ...)
-  learndown::h5p(id, toc = toc, baseurl = learndown$baseurl,
+  learnitdown::h5p(id, toc = toc, baseurl = learnitdown$baseurl,
     toc.def = "H5P exercise {id}",
     h5p.img = "images/list-h5p.png",
-    h5p.link = paste(learndown$baseurl, "h5p", sep = "/"), ...)
+    h5p.link = paste(learnitdown$baseurl, "h5p", sep = "/"), ...)
 
-launch_shiny <- function(url, toc = "", fun = paste(learndown$package, "runApp", sep = "::"),
+launch_shiny <- function(url, toc = "", fun = paste(learnitdown$package, "runApp", sep = "::"),
   alt1 = "*Click to start the Shiny application*",
   #FRalt1 = "*Cliquez pour lancer l'application Shiny.*",
   alt2 = "*Click to start or [run `{run.cmd}`]({run.url}{run.arg}) in RStudio.*", ...)
   #FRalt2 = "*Cliquez pour lancer ou [exécutez dans RStudio]({run.url}{run.arg}) `{run.cmd}`.*", ...)
-  learndown::launch_shiny(url = url, toc = toc, imgdir = learndown$shiny_imgdir,
+  learnitdown::launch_shiny(url = url, toc = toc, imgdir = learnitdown$shiny_imgdir,
     fun = fun, alt1 = alt1, alt2 = alt2, toc.def = "Application Shiny {app}",
-    run.url = paste(learndown$baseurl, "/", learndown$rstudio,  "?runrcode=", sep = ""),
+    run.url = paste(learnitdown$baseurl, "/", learnitdown$rstudio,  "?runrcode=", sep = ""),
     app.img = "images/list-app.png",
-    app.link = paste(learndown$baseurl, "shiny_app", sep = "/"), ...)
+    app.link = paste(learnitdown$baseurl, "shiny_app", sep = "/"), ...)
 
   # Note: not used yet!
-  launch_learnr <- function(url, toc = "", fun = paste(learndown$package, "run", sep = "::"), ...)
+  launch_learnr <- function(url, toc = "", fun = paste(learnitdown$package, "run", sep = "::"), ...)
     launch_shiny(url = url, toc = toc, fun = fun, ...)
 
-  learnr <- function(id, title = NULL, toc = "", package = learndown$package,
+  learnr <- function(id, title = NULL, toc = "", package = learnitdown$package,
     text = "Now make the exercises in the tutorial")
-    learndown::learnr(id = id, title = title, package = package, toc = toc,
+    learnitdown::learnr(id = id, title = title, package = package, toc = toc,
       text = text, toc.def = "Tutoriel {id}",
-      rstudio.url = paste(learndown$baseurl, learndown$rstudio, sep = "/"),
+      rstudio.url = paste(learnitdown$baseurl, learnitdown$rstudio, sep = "/"),
       tuto.img = "images/list-tuto.png",
-      tuto.link = paste(learndown$baseurl, "tutorial", sep = "/"))
+      tuto.link = paste(learnitdown$baseurl, "tutorial", sep = "/"))
 
   # Note: use course.urls = c(`S-BIOG-006` = "classroom url1", `S-BIOG-921` = "classroom url2"), and url = link to Github template repository for the assignation
   assignation <- function(name, url, course.urls = NULL, part = NULL, toc = "",
-    texts = learndown::assignation_fr(course = "GitHub Classroom assignation for the students enrolled in the course"))
-    learndown::assignation(name = name, url = url, course.urls = course.urls,
-      part = part, course.names = stats::setNames(learndown$courses_names,
-        learndown$courses),
+    texts = learnitdown::assignation_fr(course = "GitHub Classroom assignation for the students enrolled in the course"))
+    learnitdown::assignation(name = name, url = url, course.urls = course.urls,
+      part = part, course.names = stats::setNames(learnitdown$courses_names,
+        learnitdown$courses),
       toc = toc, texts = texts, assign.img = "images/list-assign.png",
-      assign.link = paste(learndown$baseurl, "github_assignation", sep = "/"))
+      assign.link = paste(learnitdown$baseurl, "github_assignation", sep = "/"))
 
   show_ex_toc <- function(header = "", clear.it = TRUE)
-    learndown::show_ex_toc(header = header, clear.it = clear.it)
+    learnitdown::show_ex_toc(header = header, clear.it = clear.it)
 
-  # Include javascript and css code for {learndown} additional features
+  # Include javascript and css code for {learnitdown} additional features
   # in style.css and header.html, respectively
-  learndown::learndown_init(
-    baseurl = learndown$baseurl,
+  learnitdown::learnitdown_init(
+    baseurl = learnitdown$baseurl,
     hide.code.msg = "See the code",
     #FR hide.code.msg = "Voir le code",
-    institutions = learndown$institutions,
-    courses = learndown$courses)
+    institutions = learnitdown$institutions,
+    courses = learnitdown$courses)
 
 
   # Knitr default options

@@ -3,5 +3,5 @@ Type: Book
 Title: Bookdown test
 Version: 2.0.0
 Imports: bookdown
-Depends: learndown
+Depends: learnitdown
 Remotes: rstudio/bookdown
